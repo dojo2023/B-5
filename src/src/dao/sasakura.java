@@ -1,6 +1,6 @@
 package dao;
 
-add
+addngo
 
 public class sasakura {
 
