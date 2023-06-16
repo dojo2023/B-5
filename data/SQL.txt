@@ -1,0 +1,128 @@
+【ドライバ】
+org.h2.Driver
+
+【JDBC URL】
+jdbc:h2:file:C:/dojo6/data/B5
+
+※データベース作成のエラーが表示された場合は、
+https://sukkiri.jp/technologies/ides/eclipse/h2-createdb.html
+を参照してください。
+
+※H2 Consoleは、Webブラウザを閉じても終了しないので、Windowsの
+タスクバーの右側にある「＾」をクリックして、表示されたアイコン
+から黄色いドラム缶のアイコンの「H2 Database Engine」を右クリッ
+クし、表示されたメニューから「Exit」を選択してください。
+
+【ユーザー名】	【パスワード】
+yasuo		 yasuo
+
+【usersテーブルを作成するSQL文】
+CREATE TABLE users (
+  users_id INT(3) PRIMARY KEY AUTO_INCREMENT,					/* ユーザーID */
+  users_name VARCHAR(20) NOT NULL,						/* ニックネーム */
+  users_password VARCHAR(100) NOT NULL,						/* パスワード */
+  users_birthday char(8) NOT NULL,						/* 生年月日 */
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,　				/* 制作日時 */
+　updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP　　/* 更新日時 */
+);
+
+【usersテーブルにサンプルデータを登録するSQL文】
+INSERT INTO users (users_name,users_password,users_birthday) VALUES ('yasuo', 'yasuo','19971108');
+INSERT INTO users (users_name,users_password,users_birthday) VALUES ('nohope', 'nohope','19951108');
+INSERT INTO users (users_name,users_password,users_birthday) VALUES ('impossible', 'impossible','19931108');
+
+SELECT * FROM users
+------------------------------------------------------------------------------------------------------------------------------------------
+
+【schedulesテーブルを作成するSQL文】
+CREATE TABLE schedules (
+    schedules_id INT PRIMARY KEY AUTO_INCREMENT,				/*スケジュールID*/
+    schedules_name VARCHAR(20) NOT NULL,							/*予定名*/
+    schedules_dt TIMESTAMP NOT NULL,							/*予定日時*/
+    users_id INT NOT NULL,								/*ユーザーID*/	
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,				/*制作日時*/
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,	/*更新日時*/
+    FOREIGN KEY (users_id) REFERENCES users(users_id)				/*外部キー*/
+);
+
+【schedulesテーブルにサンプルデータを登録するSQL文】
+INSERT INTO schedules (schedules_name,schedules_dt,users_id) VALUES ('yasuo', '2023-06-17 10:53:25.442666', '1')
+
+SELECT * FROM schedules
+-------------------------------------------------------------------------------------------------------------------------------------------
+
+【librariesテーブルを作成するSQL文】
+CREATE TABLE libraries (
+    libraries_id INT PRIMARY KEY AUTO_INCREMENT,				/*お酒ID*/				
+    libraries_name VARCHAR(30) NOT NULL,							/*銘柄*/
+    libraries_kind VARCHAR(30) NOT NULL,							/*種類*/
+    libraries_alcon DOUBLE,							/*度数*/
+    libraries_from VARCHAR(20),							/*産地*/
+    libraries_remarks VARCHAR(50),						/*産地*/
+    libraries_public BOOLEAN DEFAULT FALSE,					/*備考*/
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,				/*制作日時*/
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP	/*更新日時*/
+);
+
+【librariesテーブルにサンプルデータを登録するSQL文】
+INSERT INTO libraries (libraries_name,libraries_kind,libraries_alcon,libraries_from)
+                VALUES(   '春鹿'     ,   '日本酒'   ,   '12'        ,     '奈良県' )
+
+SELECT * FROM libraries 
+--------------------------------------------------------------------------------------------------------------------------------------------
+
+【bookmarksテーブルを作成するSQL文】
+CREATE TABLE bookmarks (
+    bookmarks_id INT PRIMARY KEY AUTO_INCREMENT,				/*お気に入りID*/
+    libraries_id INT NOT NULL,								/*お酒ID*/
+    users_id INT NOT NULL,								/*ユーザーID*/
+    bookmarks_remarks VARCHAR(50),						/*備考*/
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,				/*制作日時*/
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,	/*更新日時*/
+    FOREIGN KEY (libraries_id) REFERENCES libraries(libraries_id),		/*外部キー*/
+    FOREIGN KEY (users_id) REFERENCES users(users_id)				/*外部キー*/
+);
+
+【bookmarksテーブルにサンプルデータを登録するSQL文】
+INSERT INTO bookmarks (libraries_id, users_id, bookmarks_remarks)
+		VALUES(  '1'	   ,    '1'  ,'飲みやすくておいしい')
+
+SELECT * FROM bookmarks
+-------------------------------------------------------------------------------------------------------------------------------------------
+ 
+【physicalsテーブルを作成するSQL文】
+CREATE TABLE physicals (
+    physicals_id INT PRIMARY KEY AUTO_INCREMENT,                        				/* フィジカルID */
+    users_id INT NOT NULL,                                            					/* ユーザーID */
+    physicals_resistance INT NOT NULL CHECK (physicals_resistance >= 1 AND physicals_resistance <= 5),  /* アルコール耐性 */
+    physicals_condition INT NOT NULL CHECK (physicals_condition >= 1 AND physicals_condition <= 10),    /* コンディション */
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,                     				/* 制作日時 */
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,    			/* 更新日時 */
+    FOREIGN KEY (users_id) REFERENCES users(users_id)                    				/* 外部キー */
+);
+
+
+【physicalsテーブルにサンプルデータを登録するSQL文】
+INSERT INTO physicals (users_id, physicals_resistance, physicals_condition)
+		VALUES( '1'    ,     '3'             ,     '8'            )
+
+SELECT * FROM physicals
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+【countsテーブルを作成するSQL文】
+CREATE TABLE counts (
+    counts_id INT PRIMARY KEY AUTO_INCREMENT,					/*集計ID*/
+    users_id INT NOT NULL,							/*ユーザーID*/
+    counts_alcohol INT NOT NULL,						/*飲酒量*/
+    counts_date DATE NOT NULL,							/*日付*/
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,				/*制作日時*/
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,	/*更新日時*/
+    FOREIGN KEY (users_id) REFERENCES users(users_id)				/*外部キー*/
+);
+
+【countsテーブルにサンプルデータを登録するSQL文】
+INSERT INTO counts(users_id,counts_alcohol,counts_date)
+	    VALUES(  '3'   ,  '5'         ,'2023-06-16')
+
+SELECT * FROM counts
+--------------------------------------------------------------------------------------------------------------------------------------------------
