@@ -36,7 +36,7 @@
             <!-- ダミーデータ入れてます。*変更したら削除 -->
             <form method="POST" autocomplete="off" action="/santé/NarrowLibrariesServlet.java">
                 <div class="description">
-                    <label>銘柄:</label>
+                    <label>酒類:</label>
                     <select name="description" id="description">
                         <option>-選択-</option>
                     </select>
