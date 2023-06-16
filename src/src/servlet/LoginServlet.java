@@ -8,6 +8,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import dao.UsersDAO;
+import model.Users;
 
 /**
  * Servlet implementation class LoginServlet
@@ -28,30 +32,30 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-//	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//		// リクエストパラメータを取得する
-//		request.setCharacterEncoding("UTF-8");
-//		String users_name = request.getParameter("users_name");
-//		String users_password = request.getParameter("users_password");
-//
-//		// ログイン処理を行う
-//		UsersDAO iDao = new UsersDAO();
-//		if (iDao.isLoginOK(new Users(users_name, users_password))) {	// ログイン成功
-//			// セッションスコープにusers_nameを格納する
-//			HttpSession session = request.getSession();
-//			session.setAttribute("users_name", new LoginUser(users_name));
-//
-//			// メニューサーブレットにリダイレクトする
-//			response.sendRedirect("/sante/CalendarServlet");
-//		}
-//		else {									// ログイン失敗
-//			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-//			request.setAttribute("result",
-//			new Result("ログイン失敗！", "名刺ニックネームまたはパスワードに間違いがあります。", "/sante/LoginServlet"));
-//
-//			// 結果ページにフォワードする
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp");
-//			dispatcher.forward(request, response);
-//		}
-//	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// リクエストパラメータを取得する
+		request.setCharacterEncoding("UTF-8");
+		String users_name = request.getParameter("users_name");
+		String users_password = request.getParameter("users_password");
+
+		// ログイン処理を行う
+		UsersDAO iDao = new UsersDAO();
+		if (iDao.isLoginOK(new Users(users_name, users_password))) {	// ログイン成功
+			// セッションスコープにusers_nameを格納する
+			HttpSession session = request.getSession();
+			session.setAttribute("users_name", new LoginUser(users_name));
+
+			// メニューサーブレットにリダイレクトする
+			response.sendRedirect("/sante/CalendarServlet");
+		}
+		else {									// ログイン失敗
+			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+			request.setAttribute("result",
+			new Result("ログイン失敗！", "名刺ニックネームまたはパスワードに間違いがあります。", "/sante/LoginServlet"));
+
+			// 結果ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp");
+			dispatcher.forward(request, response);
+		}
+	}
 }
