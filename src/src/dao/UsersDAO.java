@@ -24,8 +24,8 @@ public class UsersDAO {
 			// SELECT文を準備する
 			String sql = "select count(*) from users where users_name = ? and users_password = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(2,users.getUsers_name());
-			pStmt.setString(3,users.getUsers_password());
+			pStmt.setString(1,users.getUsers_name());
+			pStmt.setString(2,users.getUsers_password());
 
 			// SELECT文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -72,10 +72,11 @@ public class UsersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
 			// Prepare the SQL statement
-	        String sql = "INSERT INTO users (users_name, users_password) VALUES (?, ?)";
+	        String sql = "INSERT INTO users (users_name, users_password, users_birthday) VALUES (?, ?, ?)";
 	        PreparedStatement pstmt = conn.prepareStatement(sql);
+	        pstmt.setString(1, users.getUsers_name());
 	        pstmt.setString(2, users.getUsers_password());
-	        pstmt.setString(3, users.getUsers_name());
+	        pstmt.setString(3, users.getUsers_birthday());
 
 	        // Execute the update statement
 	        pstmt.executeUpdate();
