@@ -27,8 +27,8 @@ public class CountsMaxConfirmServlet extends HttpServlet {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-		// 上限確認画面にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsmaxconfirm.jsp");
+		// 杯数選択画面にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
 		dispatcher.forward(request, response);
 	}
 

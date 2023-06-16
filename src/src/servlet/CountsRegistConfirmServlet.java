@@ -27,8 +27,8 @@ public class CountsRegistConfirmServlet extends HttpServlet {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-		// 集計登録確認画面にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsregistconfirm.jsp");
+		// 杯数選択画面にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -43,7 +43,7 @@ public class CountsRegistConfirmServlet extends HttpServlet {
 			return;
 		}
 */
-		// 杯数選択画面にフォワードする
+		// カレンダー画面にフォワードする
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 					dispatcher.forward(request, response);
 	}

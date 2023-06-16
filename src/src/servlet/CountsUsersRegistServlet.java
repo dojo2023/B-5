@@ -27,6 +27,10 @@ public class CountsUsersRegistServlet extends HttpServlet {
 					response.sendRedirect("/sante/LoginServlet");
 					return;
 				}
+				
+				// アプリ利用者数選別画面にフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+				dispatcher.forward(request, response);
 	}
 
 	/**
