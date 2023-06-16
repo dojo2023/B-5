@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class CountsServlet
+ * Servlet implementation class CountsMaxConfirmServlet
  */
-@WebServlet("/CountsServlet")
-public class CountsServlet extends HttpServlet {
+@WebServlet("/CountsMaxConfirmServlet")
+public class CountsMaxConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -24,8 +24,7 @@ public class CountsServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/sante/LoginServlet");
-			
+			response.sendRedirect("/santé/LoginServlet");
 			return;
 		}
 	}
@@ -35,27 +34,14 @@ public class CountsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-				HttpSession session = request.getSession();
-				if (session.getAttribute("id") == null) {
-					response.sendRedirect("/sante/LoginServlet");
-					return;
-				}
-				
-				// リクエストパラメータを取得する
-				request.setCharacterEncoding("UTF-8");
-				String counts = request.getParameter("COUNTS");
-				
-				// 検索処理を行う
-/*			CountsDAO cDao = new CountsDAO();
-				List<Counts> cardList = cDao.select(new Counts(counts));
-
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("cardList", cardList);
-*/				
-				
-				// アプリ利用者選別画面にフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
-				dispatcher.forward(request, response);
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/santé/LoginServlet");
+			return;
+		}
+		// 上限確認画面にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsmaxconfirm.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }

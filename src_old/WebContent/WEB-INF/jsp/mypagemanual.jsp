@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- 機能名|santé ! -->
-    <title>集計|santé !</title>
+    <title>使い方|santé ! </title>
     <!-- hrefの後ろにcssのリンクを書く -->
     <link rel="stylesheet" href=>
 </head>
@@ -18,6 +18,9 @@
     <div class="header">
         <header>
             <!-- 各ページへのリンク -->
+            <h1>
+                <a href=""><img src="" alt="画像"></a>
+            </h1>
             <nav>
                 <ul>
                     <li><a href="/santé/CalendarServlet">カレンダー</a></li>
@@ -32,28 +35,11 @@
     <!-- body -->
     <div class="body">
         <body>
-            <form method="POST" action="/santé !/CountsCupsServlet">
-                <p>杯数を選択してください</p>
-            
-                <div class="">
-                    <div>
-                        名前 <!--入力した各ユーザー名を表示する-->
-                    </div><br>
-                    <div>
-                        <input type="submit" name="cupscountsbutton" value="杯数カウントボタン"> <!--ボタンをお酒のイラストに変更-->
-                    </div><br>
-                    <div>
-                        <input type="text" name="cupscounts"> <!--杯数カウントボタンの値を出力する-->
-                    </div><br>
-                </div>
+            <img src = "">
+            <input type = "button" value = "戻る" a href = "/santé/MypageServlet">
 
-                <div class="">
-                    <input type="submit" name="regist" value="登録">
-                    <input type="submit" name="rate" value="割合表示">
-                </div>
-
-            </form>
-            <script src="CountsCups.js"></script>
+            <script>
+            </script>
         </body>
     </div>
     <!-- footer -->

@@ -32,28 +32,15 @@
     <!-- body -->
     <div class="body">
         <body>
-            <form method="POST" action="/santé !/CountsCupsServlet">
-                <p>杯数を選択してください</p>
-            
+            <form method="POST" action="/santé !/CountsSortingServlet">
+                <p>アプリ利用者の人数を入力してください</p>
+                <p><input type="text" name="counts"></p>
                 <div class="">
-                    <div>
-                        名前 <!--入力した各ユーザー名を表示する-->
-                    </div><br>
-                    <div>
-                        <input type="submit" name="cupscountsbutton" value="杯数カウントボタン"> <!--ボタンをお酒のイラストに変更-->
-                    </div><br>
-                    <div>
-                        <input type="text" name="cupscounts"> <!--杯数カウントボタンの値を出力する-->
-                    </div><br>
+                    <input type="submit" name="next" value="次へ">
+                    <input type="submit" name="camcel" value="キャンセル">
                 </div>
-
-                <div class="">
-                    <input type="submit" name="regist" value="登録">
-                    <input type="submit" name="rate" value="割合表示">
-                </div>
-
             </form>
-            <script src="CountsCups.js"></script>
+            <script src="CountsSorting.js"></script>
         </body>
     </div>
     <!-- footer -->

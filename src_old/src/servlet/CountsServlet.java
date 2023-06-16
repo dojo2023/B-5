@@ -24,7 +24,7 @@ public class CountsServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/sante/LoginServlet");
+			response.sendRedirect("/santé/LoginServlet");
 			
 			return;
 		}
@@ -37,7 +37,7 @@ public class CountsServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 				HttpSession session = request.getSession();
 				if (session.getAttribute("id") == null) {
-					response.sendRedirect("/sante/LoginServlet");
+					response.sendRedirect("/santé/LoginServlet");
 					return;
 				}
 				
