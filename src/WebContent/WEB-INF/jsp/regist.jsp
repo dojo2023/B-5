@@ -90,7 +90,7 @@
 
             </h1>
             <h2>新規登録</h2>
-            <form method="POST" action="/simpleBC/RegistServlet">
+            <form method="POST" action="/sante/RegistServlet">
                 <table>
                     <tr>
                         <td>
@@ -139,7 +139,7 @@
                     <tr>
                         <td>
                             <label>
-                                <a href="/simpleBC/LoginServlet">ログインはこちら</a>
+                                <a href="/sante/LoginServlet">ログインはこちら</a>
                             </label>
                         </td>
                     </tr>
