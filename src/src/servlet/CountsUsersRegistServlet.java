@@ -40,6 +40,42 @@ public class CountsUsersRegistServlet extends HttpServlet {
 				return;
 				}
 */
+		
+		// リクエストパラメータを取得する
+/*				request.setCharacterEncoding("UTF-8");
+		String counts = request.getParameter("COUNTS");
+		
+		// 検索処理を行う
+	    CountsDAO cDao = new CountsDAO();
+		List<Counts> cardList = cDao.select(new Counts(counts));
+
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("cardList", cardList);
+*/
+		
+		// 更新または削除を行う
+/*				CountsDAO cDao = new CountsDAO();
+				if (request.getParameter("next").equals("次へ")) {
+					if (cDao.update(new Counts(counts))) {	// 更新成功
+						request.setAttribute("result",
+						new Result("更新成功！", "レコードを更新しました。", "/sante/Servlet"));
+					}
+					else {												// 更新失敗
+						request.setAttribute("result",
+						new Result("更新失敗！", "レコードを更新できませんでした。", "/sante/Servlet"));
+					}
+				}
+				else {
+					if (cDao.delete(number)) {	// 削除成功
+						request.setAttribute("result",
+						new Result("削除成功！", "レコードを削除しました。", "/sante/Servlet"));
+					}
+					else {						// 削除失敗
+						request.setAttribute("result",
+						new Result("削除失敗！", "レコードを削除できませんでした。", "/sante/Servlet"));
+					}
+				}
+*/		
 		// 杯数選択画面にフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
 			dispatcher.forward(request, response);

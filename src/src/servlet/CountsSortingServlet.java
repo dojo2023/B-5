@@ -44,6 +44,24 @@ public class CountsSortingServlet extends HttpServlet {
 			return;
 		}
 */		
+		// リクエストパラメータを取得する
+/*		～途中です～
+ 		request.setCharacterEncoding("UTF-8");
+		String counts = request.getParameter("COUNTS");
+		
+		// 検索処理を行う
+	    CountsDAO cDao = new CountsDAO();
+		List<Counts> cardList = cDao.select(new Counts(counts));
+		
+		// 検索結果をリクエストスコープに格納する
+		request.setAttribute("cardList", cardList);
+*/
+		if (request.getParameter("SUBMIT").equals("次へ")) {
+			//次のサーブレットにリダイレクト
+			
+		}else {
+			//キャンセル元のページにもどる。
+		}
 		// アプリ利用者登録画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsusersregist.jsp");
 		dispatcher.forward(request, response);
