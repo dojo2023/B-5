@@ -20,11 +20,11 @@
             <!-- 各ページへのリンク -->
             <nav>
                 <ul>
-                    <li><a href="/santé/CalendarServlet">カレンダー</a></li>
-                    <li><a href="/santé/LibrariesServlet">図鑑</a></li>
-                    <li><a href="/santé/CountsServlet">集計</a></li>
-                    <li><a href="/santé/MypageServlet">マイページ</a></li>
-                    <li><a href="/santé/UsersResultServlet">ログアウト</a></li>
+                    <li><a href="/sante/CalendarServlet">カレンダー</a></li>
+                    <li><a href="/sante/LibrariesServlet">図鑑</a></li>
+                    <li><a href="/sante/CountsServlet">集計</a></li>
+                    <li><a href="/sante/MypageServlet">マイページ</a></li>
+                    <li><a href="/sante/UsersResultServlet">ログアウト</a></li>
                 </ul>
             </nav>
         </header>
@@ -37,7 +37,7 @@
             <!-- 値の不足等でページを遷移させない時にエラーの内容を表示させる。 -->
             <label id="postlibraries_error"></label>
             <!-- 下記formのtextboxの内容をsubmitでservletに送る。 -->
-            <form method="POST" autocomplete="off" action="/santé/PostLibrariesServlet.java">
+            <form method="POST" autocomplete="off" action="/sante/PostLibrariesServlet.java">
                 <div class="postlibraries_textbox">
                     銘柄:<input type="text" id="description" placeholder="春鹿"><br>
                     酒類:<input type="text" id="genre" placeholder="日本酒"><br>
