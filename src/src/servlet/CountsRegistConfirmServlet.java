@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class CountsCupsServlet
+ * Servlet implementation class CountsRegistConfirmServlet
  */
-@WebServlet("/CountsCupsServlet")
-public class CountsCupsServlet extends HttpServlet {
+@WebServlet("/CountsRegistConfirmServlet")
+public class CountsRegistConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -27,8 +27,8 @@ public class CountsCupsServlet extends HttpServlet {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-		// 杯数選択画面にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
+		// 集計登録確認画面にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsregistconfirm.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -42,10 +42,10 @@ public class CountsCupsServlet extends HttpServlet {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-*/		
-		// 割合表示画面にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsregistconfirm.jsp");
-		dispatcher.forward(request, response);
+*/
+		// 杯数選択画面にフォワードする
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+					dispatcher.forward(request, response);
 	}
 
 }
