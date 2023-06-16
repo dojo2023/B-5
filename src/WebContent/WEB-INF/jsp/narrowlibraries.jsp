@@ -35,9 +35,9 @@
         <body>
             <!-- ダミーデータ入れてます。*変更したら削除 -->
             <form method="POST" autocomplete="off" action="/santé/NarrowLibrariesServlet.java">
-                <div class="description">
+                <div class="genre">
                     <label>酒類:</label>
-                    <select name="description" id="description">
+                    <select name="genre" id="genre">
                         <option>-選択-</option>
                     </select>
                 </div>
@@ -104,11 +104,10 @@
                     { first_category: 'ワイン', name: 'フランス' },
                 ]
 
-                const first_categories_select = document.getElementById('description');
+                const first_categories_select = document.getElementById('genre');
                 const second_categories_select = document.getElementById('kind');
                 const forth_categories_select = document.getElementById('from');
             </script>
-            <!-- 仮のjsリンクです。要修正 -->
 
             <script src="/js/libraries/NarrowLibraries.js"></script>
         </body>
