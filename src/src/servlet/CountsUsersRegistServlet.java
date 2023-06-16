@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class CountsServlet
+ * Servlet implementation class CountsUsersRegistServlet
  */
-@WebServlet("/CountsServlet")
-public class CountsServlet extends HttpServlet {
+@WebServlet("/CountsUsersRegistServlet")
+public class CountsUsersRegistServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -22,11 +22,11 @@ public class CountsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/santé/LoginServlet");
-			return;
-		}
+				HttpSession session = request.getSession();
+				if (session.getAttribute("id") == null) {
+					response.sendRedirect("/santé/LoginServlet");
+					return;
+				}
 	}
 
 	/**
@@ -34,16 +34,14 @@ public class CountsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-				HttpSession session = request.getSession();
-				if (session.getAttribute("id") == null) {
-					response.sendRedirect("/santé/LoginServlet");
-					return;
+			HttpSession session = request.getSession();
+			if (session.getAttribute("id") == null) {
+				response.sendRedirect("/santé/LoginServlet");
+				return;
 				}
-				
-				
-				// アプリ利用者選別画面にフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
-				dispatcher.forward(request, response);
+		// 杯数選択画面にフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
+			dispatcher.forward(request, response);
 	}
 
 }

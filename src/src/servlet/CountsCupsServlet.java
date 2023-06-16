@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class CountsServlet
+ * Servlet implementation class CountsCupsServlet
  */
-@WebServlet("/CountsServlet")
-public class CountsServlet extends HttpServlet {
+@WebServlet("/CountsCupsServlet")
+public class CountsCupsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -34,16 +34,15 @@ public class CountsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-				HttpSession session = request.getSession();
-				if (session.getAttribute("id") == null) {
-					response.sendRedirect("/santé/LoginServlet");
-					return;
-				}
-				
-				
-				// アプリ利用者選別画面にフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
-				dispatcher.forward(request, response);
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/santé/LoginServlet");
+			return;
+		}
+		
+		// 割合表示画面にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsratio.jsp");
+		dispatcher.forward(request, response);
 	}
 
 }
