@@ -54,8 +54,9 @@ SELECT * FROM schedules
 【librariesテーブルを作成するSQL文】
 CREATE TABLE libraries (
     libraries_id INT PRIMARY KEY AUTO_INCREMENT,				/*お酒ID*/				
-    libraries_name VARCHAR(30) NOT NULL,							/*銘柄*/
-    libraries_kind VARCHAR(30) NOT NULL,							/*種類*/
+    libraries_name VARCHAR(30) NOT NULL,					/*銘柄*/
+    libraries_genre VARCHAR(30) NOT NULL,					/*酒類*/
+    libraries_kind VARCHAR(30) NOT NULL,					/*種類*/
     libraries_alcon DOUBLE,							/*度数*/
     libraries_from VARCHAR(20),							/*産地*/
     libraries_remarks VARCHAR(50),						/*産地*/
@@ -65,8 +66,8 @@ CREATE TABLE libraries (
 );
 
 【librariesテーブルにサンプルデータを登録するSQL文】
-INSERT INTO libraries (libraries_name,libraries_kind,libraries_alcon,libraries_from)
-                VALUES(   '春鹿'     ,   '日本酒'   ,   '12'        ,     '奈良県' )
+INSERT INTO libraries (libraries_name,libraries_genre,libraries_kind,libraries_alcon,libraries_from)
+                VALUES(   '春鹿'     ,   '日本酒'   ,   '辛口'      ,    '12'       ,     '奈良県' )
 
 SELECT * FROM libraries 
 --------------------------------------------------------------------------------------------------------------------------------------------
