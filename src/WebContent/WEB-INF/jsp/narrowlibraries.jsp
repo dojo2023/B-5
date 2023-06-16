@@ -73,7 +73,8 @@
                     <input type="checkbox" name="remarks" id="remarks">
                     <label for="remarks">お気に入り</label>
                 </div>
-                <input type="submit" name="narrow_libraries" value="絞り込み">
+                <input type="submit" name="narrow" value="絞り込み">
+                <input type="submit" name="cancel" value="キャンセル">
             </form>
             <script>
                 const first_categories = [
@@ -109,7 +110,7 @@
             </script>
             <!-- 仮のjsリンクです。要修正 -->
 
-            <script src="NarrowLibraries.js"></script>
+            <script src="/js/libraries/NarrowLibraries.js"></script>
         </body>
     </div>
     <!-- footer -->
