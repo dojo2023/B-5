@@ -32,7 +32,7 @@
     <!-- body -->
     <div class="body">
         <body>
-            <form method="POST" action="/santé !/CountsUsersMaxConfirmServlet">
+            <form method="POST" action="/sante/CountsUsersMaxConfirmServlet">
                 <p>上限を超過しました</p>
                 <p>水を1L飲んでください</p>
                 

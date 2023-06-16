@@ -32,7 +32,7 @@
     <!-- body -->
     <div class="body">
         <body>
-            <form method="POST" action="/santé/CountsServlet">
+            <form method="POST" action="/sante/CountsServlet">
                 <p>人数を入力してください</p>
                 <p><input type="text" name="counts"></p>
                 <input type="submit" name="next" value="次へ">

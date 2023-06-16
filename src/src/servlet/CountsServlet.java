@@ -20,6 +20,7 @@ public class CountsServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
@@ -28,6 +29,12 @@ public class CountsServlet extends HttpServlet {
 			
 			return;
 		}
+
+		// 集計入力画面にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
+		dispatcher.forward(request, response);
+		
+
 	}
 
 	/**
@@ -35,18 +42,18 @@ public class CountsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-				HttpSession session = request.getSession();
+/*				HttpSession session = request.getSession();
 				if (session.getAttribute("id") == null) {
 					response.sendRedirect("/sante/LoginServlet");
 					return;
 				}
-				
+*/				
 				// リクエストパラメータを取得する
-				request.setCharacterEncoding("UTF-8");
+/*				request.setCharacterEncoding("UTF-8");
 				String counts = request.getParameter("COUNTS");
 				
 				// 検索処理を行う
-/*			CountsDAO cDao = new CountsDAO();
+			    CountsDAO cDao = new CountsDAO();
 				List<Counts> cardList = cDao.select(new Counts(counts));
 
 				// 検索結果をリクエストスコープに格納する

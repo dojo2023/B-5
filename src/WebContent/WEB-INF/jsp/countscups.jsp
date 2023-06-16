@@ -32,7 +32,7 @@
     <!-- body -->
     <div class="body">
         <body>
-            <form method="POST" action="/santé !/CountsCupsServlet">
+            <form method="POST" action="/sante/CountsCupsServlet">
                 <p>杯数を選択してください</p>
             
                 <div class="">

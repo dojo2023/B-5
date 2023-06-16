@@ -24,7 +24,7 @@ public class CountsMaxConfirmServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/santé/LoginServlet");
+			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
 	}
@@ -36,7 +36,7 @@ public class CountsMaxConfirmServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/santé/LoginServlet");
+			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
 		// 上限確認画面にフォワードする

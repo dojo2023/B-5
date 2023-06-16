@@ -32,7 +32,7 @@
     <!-- body -->
     <div class="body">
         <body>
-            <form method="POST" action="/santé !/CountsRationServlet">
+            <form method="POST" action="/sante/CountsRationServlet">
                 <p>杯数</p>
                 <script src=""></script> <!--割合のグラフを挿入-->
                 

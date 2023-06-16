@@ -32,7 +32,7 @@
     <!-- body -->
     <div class="body">
         <body>
-            <form method="POST" action="/santé !/CountsUsersRegistServlet">
+            <form method="POST" action="/sante/CountsUsersRegistServlet">
                 <p>アプリ利用者の名前と生年月日を入力してください</p>
                 <table>
                     <tr>

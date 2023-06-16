@@ -24,22 +24,26 @@ public class CountsSortingServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 				HttpSession session = request.getSession();
 				if (session.getAttribute("id") == null) {
-					response.sendRedirect("/santé/LoginServlet");
+					response.sendRedirect("/sante/LoginServlet");
 					return;
-				}
+				}	
+				// 集計入力画面にフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
+				dispatcher.forward(request, response);
+				
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+/*		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/santé/LoginServlet");
+			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-		
+*/		
 		// アプリ利用者登録画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsusersregist.jsp");
 		dispatcher.forward(request, response);
