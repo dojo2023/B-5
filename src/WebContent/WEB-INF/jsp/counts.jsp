@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- 機能名|santé ! -->
-    <title></title>
+    <title>集計|santé !</title>
     <!-- hrefの後ろにcssのリンクを書く -->
     <link rel="stylesheet" href=>
 </head>
@@ -32,7 +32,7 @@
     <!-- body -->
     <div class="body">
         <body>
-            <form method="" action="">
+            <form method="POST" action="/santé !/CountsServlet">
                 <p>人数を入力してください</p>
                 <p><input type="text" name="counts"></p>
                 <input type="submit" name="next" value="次へ">

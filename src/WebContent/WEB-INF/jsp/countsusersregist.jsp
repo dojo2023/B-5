@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- 機能名|santé ! -->
-    <title></title>
+    <title>集計|santé !</title>
     <!-- hrefの後ろにcssのリンクを書く -->
     <link rel="stylesheet" href=>
 </head>
@@ -37,122 +37,32 @@
                 <table>
                     <tr>
                         <th>名前</th>
-                        <th>生年月日</th>
+                        <th><label>生年月日:<br>
+                        
+                        </label></th>
                     </tr>
 
                     <tr>
                         <td><input type="text" name="name"></td>
                     
                         <td>
-                            <select name="year">
-                                <option value="1941">1941</option>
-                                <option value="1942">1942</option>
-                                <option value="1943">1943</option>
-                                <option value="1944">1944</option>
-                                <option value="1945">1945</option>
-                                <option value="1946">1946</option>
-                                <option value="1947">1947</option>
-                                <option value="1948">1948</option>
-                                <option value="1949">1949</option>
-                                <option value="1950">1950</option>
-                                <option value="1951">1951</option>
-                                <option value="1952">1952</option>
-                                <option value="1953">1953</option>
-                                <option value="1954">1954</option>
-                                <option value="1955">1955</option>
-                                <option value="1956">1956</option>
-                                <option value="1957">1957</option>
-                                <option value="1958">1958</option>
-                                <option value="1959">1959</option>
-                                <option value="1960">1960</option>
-                                <option value="1961">1961</option>
-                                <option value="1962">1962</option>
-                                <option value="1963">1963</option>
-                                <option value="1964">1964</option>
-                                <option value="1965">1965</option>
-                                <option value="1966">1966</option>
-                                <option value="1967">1967</option>
-                                <option value="1968">1968</option>
-                                <option value="1969">1969</option>
-                                <option value="1970">1970</option>
-                                <option value="1971">1971</option>
-                                <option value="1972">1972</option>
-                                <option value="1973">1973</option>
-                                <option value="1974">1974</option>
-                                <option value="1975">1975</option>
-                                <option value="1976">1976</option>
-                                <option value="1977">1977</option>
-                                <option value="1978">1978</option>
-                                <option value="1979">1979</option>
-                                <option value="1980">1980</option>
-                                <option value="1981">1981</option>
-                                <option value="1982">1982</option>
-                                <option value="1983">1983</option>
-                                <option value="1984">1984</option>
-                                <option value="1985">1985</option>
-                                <option value="1986">1986</option>
-                                <option value="1987">1987</option>
-                                <option value="1988">1988</option>
-                                <option value="1989">1989</option>
-                                <option value="1990">1990</option>
-                                <option value="1991">1991</option>
-                                <option value="1992">1992</option>
-                                <option value="1993" selected>1993</option>
-                                <option value="1994">1994</option>
-                                <option value="1995">1995</option>
-                                <option value="1996">1996</option>
-                                <option value="1997">1997</option>
-                                <option value="1998">1998</option>
-                                <option value="1999">1999</option>
-                                <option value="2000">2000</option>
-                                <option value="2001">2001</option>
+                            <select name="year" onchange="handleIDInputChange()">
+                                <option value="年" selected>年</option>
+                                <c:forEach var="year" begin="1941" end="2015">
+                                    <option value="${year}">${year}</option>
+                                </c:forEach>
                             </select>
-                            <select name="month">
-                                <option value="1">1</option>
-                                <option value="2" selected>2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
+                            <select name="month" onchange="handleIDInputChange()" disabled>
+                                <option value="月" selected>月</option>
+                                <c:forEach var="month" begin="1" end="12">
+                                    <option value="${month}">${month}</option>
+                                </c:forEach>
                             </select>
-                            <select name="day">
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5" selected>5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                                <option value="11">11</option>
-                                <option value="12">12</option>
-                                <option value="13">13</option>
-                                <option value="14">14</option>
-                                <option value="15">15</option>
-                                <option value="16">16</option>
-                                <option value="17">17</option>
-                                <option value="18">18</option>
-                                <option value="19">19</option>
-                                <option value="20">20</option>
-                                <option value="21">21</option>
-                                <option value="22">22</option>
-                                <option value="23">23</option>
-                                <option value="24">24</option>
-                                <option value="25">25</option>
-                                <option value="26">26</option>
-                                <option value="27">27</option>
-                                <option value="28">28</option>
-                                <option value="29">29</option>
-                                <option value="30">30</option>
-                                <option value="31">31</option>
+                            <select name="day" disabled>
+                                <option value="日" selected>日</option>
+                                <c:forEach var="day" begin="1" end="31">
+                                    <option value="${day}">${day}</option>
+                                </c:forEach>
                             </select>
                         </td>
 
@@ -180,3 +90,68 @@
 </div>
 
 </html>
+
+<script>
+    function handleIDInputChange() {
+        var selectYear = document.getElementsByName("year")[0].value;
+        var selectMonth = document.getElementsByName("month")[0];
+        var selectDay = document.getElementsByName("day")[0];
+
+        if (selectYear === '年' || selectYear === '') {
+            selectMonth.disabled = true;
+            selectDay.disabled = true;
+            selectDay.selectedIndex = 0; // Reset
+            return;
+        } else {
+            selectMonth.disabled = false;
+            selectDay.disabled = true;
+            selectDay.selectedIndex = 0; // Reset
+        }
+
+        if (selectMonth.value === '月' || selectMonth.value === '') {
+            selectDay.disabled = true;
+            selectDay.selectedIndex = 0; // Reset
+            return;
+        } else {
+            selectDay.disabled = false;
+        }
+
+        var selectedDay = selectDay.value; // Store the selected day value
+
+        selectDay.innerHTML = '';
+
+        var maxDays = 31;
+
+        if (selectMonth.value !== '月') {
+            var month = parseInt(selectMonth.value, 10);
+            var year = parseInt(selectYear, 10);
+
+            if (month === 2) {
+                if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0){
+                    maxDays = 29;
+                } else {
+                    maxDays = 28;
+                }
+            } else if ([4, 6, 9, 11].includes(month)) {
+                maxDays = 30;
+            }
+        }
+
+        for (var i = 0; i <= maxDays; i++) {
+            var option = document.createElement('option');
+            if (i === 0) {
+                option.value = '日';
+                option.text = '日';
+            } else {
+                option.value = i;
+                option.text = i;
+            }
+            selectDay.appendChild(option);
+        }
+
+        // Restore the selected day value if it's within the range
+        if (selectedDay >= 1 && selectedDay <= maxDays) {
+            selectDay.value = selectedDay;
+        }
+    }
+    </script>
