@@ -34,12 +34,12 @@ public class CountsCupsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-		HttpSession session = request.getSession();
+/*		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-		
+*/		
 		// 割合表示画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsratio.jsp");
 		dispatcher.forward(request, response);
