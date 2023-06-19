@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UsersDAO;
+import model.LoginUser;
 import model.Users;
 
 /**
@@ -40,7 +41,7 @@ public class LoginServlet extends HttpServlet {
 
 		// ログイン処理を行う
 		UsersDAO iDao = new UsersDAO();
-		if (iDao.isLoginOK(new Users(users_name, users_password))) {	// ログイン成功
+		if (iDao.isLoginOK(new Users(0,users_name, users_password,null,null,null))) {	// ログイン成功
 			// セッションスコープにusers_nameを格納する
 			HttpSession session = request.getSession();
 			session.setAttribute("users_name", new LoginUser(users_name));
@@ -50,9 +51,9 @@ public class LoginServlet extends HttpServlet {
 		}
 		else {									// ログイン失敗
 			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-			request.setAttribute("result",
-			new Result("ログイン失敗！", "名刺ニックネームまたはパスワードに間違いがあります。", "/sante/LoginServlet"));
-
+//			request.setAttribute("result",
+//			new Result("ログイン失敗！", "ニックネームまたはパスワードに間違いがあります。", "/sante/LoginServlet"));
+			request.setAttribute("message", "ニックネームまたはパスワードに間違いがあります。");
 			// 結果ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp");
 			dispatcher.forward(request, response);
