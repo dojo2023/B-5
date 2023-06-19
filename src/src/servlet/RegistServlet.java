@@ -27,10 +27,19 @@ public class RegistServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		String users_name = request.getParameter("users_name");
-		String users_password = request.getParameter("users_password");
-		String users_birthday = request.getParameter("users_birthday");
+	    request.setCharacterEncoding("UTF-8");
+	    String users_name = request.getParameter("users_name");
+	    String users_password = request.getParameter("users_password");
+
+	    // 生年月日を一つの整数にまとめる
+	    int year = Integer.parseInt(request.getParameter("year"));
+	    int month = Integer.parseInt(request.getParameter("month"));
+	    int day = Integer.parseInt(request.getParameter("day"));
+
+	    int birthday = year * 10000 + month * 100 + day;
+	    // birthdayをString型に変換してusers_birthdayに格納する
+	    String users_birthday = String.valueOf(birthday);
+
         // DAOのメソッドを呼び出してニックネームとパスワードをデータベースに挿入
         UsersDAO UsersDAO = new UsersDAO();
         boolean registrationSuccess = UsersDAO.InsertUser(new Users(0,users_name, users_password, users_birthday, null, null));
