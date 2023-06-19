@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>マイページ|santé ! </title>
+    <title>マイページ|sante </title>
     <link rel="stylesheet" href=>
 </head>
 
@@ -30,11 +30,13 @@
     </div>
     <div class="body">
         <body>
-            <input type ="button" value = "コンディションとアルコール耐性 >" a href = "MypagePhysicalsServlet"><br>
-            <input type ="button" value = "使い方 >" a href = "/santé /MypageManualServlet">
+			<form id = "mypage_form" method = "POST" action = "/sante/MypageServlet">
+				<input type="submit" name = "submit" value="コンディションとアルコール耐性 "><br>
+				<input type="submit" name = "submit" value="使い方 " >
+			</form>
+			<script>
 
-            <script>
-            </script>
+			</script>
         </body>
     </div>
     <!-- footer -->
