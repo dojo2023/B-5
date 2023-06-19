@@ -2,19 +2,19 @@ package model;
 import java.io.Serializable;
 
 public class LoginUser implements Serializable {
-	private String id;	// ログイン時のID
+	private String users_name;	// ログイン時のusers_name
 
 	public LoginUser() {
 		this(null);
 	}
-	public LoginUser(String id) {
-		this.id = id;
+	public LoginUser(String users_name) {
+		this.users_name = users_name;
 	}
-	public String getId() {
-		return id;
+	public String getusers_name() {
+		return users_name;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public void setUsers_name(String users_name) {
+		this.users_name = users_name;
 	}
 
 }
