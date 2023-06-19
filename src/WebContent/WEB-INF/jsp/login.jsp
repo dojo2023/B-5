@@ -29,14 +29,14 @@
                     <tr>
                         <td>
                             <label>ニックネーム:<br>
-                                <input type="text" name="nickname" id="nickname" oninput="handleIDInputChange()">
+                                <input type="text" name="users_name" id="nickname" oninput="handleIDInputChange()">
                             </label>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <label>パスワード:<br>
-                                <input type="password" name="password" id="password">
+                                <input type="password" name="users_password" id="password">
                             </label>
                         </td>
                     </tr>
