@@ -11,8 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UsersDAO;
-import model.LoginUser;
-import model.Users;
+import model.LoginId;
 
 /**
  * Servlet implementation class LoginServlet
@@ -39,24 +38,40 @@ public class LoginServlet extends HttpServlet {
 		String users_name = request.getParameter("users_name");
 		String users_password = request.getParameter("users_password");
 
-		// ログイン処理を行う
 		UsersDAO iDao = new UsersDAO();
-		if (iDao.isLoginOK(new Users(0,users_name, users_password,null,null,null))) {	// ログイン成功
-			// セッションスコープにusers_nameを格納する
-			HttpSession session = request.getSession();
-			session.setAttribute("users_name", new LoginUser(users_name));
+		int users_id = iDao.getUserID(users_name, users_password);
 
-			// メニューサーブレットにリダイレクトする
-			response.sendRedirect("/sante/CalendarServlet");
-		}
-		else {									// ログイン失敗
-			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-//			request.setAttribute("result",
-//			new Result("ログイン失敗！", "ニックネームまたはパスワードに間違いがあります。", "/sante/LoginServlet"));
-			request.setAttribute("message", "ニックネームまたはパスワードに間違いがあります。");
-			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp");
-			dispatcher.forward(request, response);
-		}
+	    if (users_id != -1) { // Valid users_id retrieved
+	    	// セッションスコープにusers_idを格納する
+	        HttpSession session = request.getSession();
+	        session.setAttribute("users_id", new LoginId(users_id));
+	        // メニューサーブレットにリダイレクトする
+	        response.sendRedirect("/sante/CountsServlet");
+	    } else {
+	        request.setAttribute("message", "ニックネームまたはパスワードに間違いがあります。");
+	        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp");
+	        dispatcher.forward(request, response);
+	    }
+
+
+		// ログイン処理を行う
+
+//		if (iDao.isLoginOK(new Users(users_id,users_name, users_password,null,null,null))) {	// ログイン成功
+//			// セッションスコープにusers_nameを格納する
+//			HttpSession session = request.getSession();
+//			session.setAttribute("users_id", new LoginId(users_id));
+//
+//			// メニューサーブレットにリダイレクトする
+//			response.sendRedirect("/sante/CountServlet");
+//		}
+//		else {									// ログイン失敗
+//			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
+////			request.setAttribute("result",
+////			new Result("ログイン失敗！", "ニックネームまたはパスワードに間違いがあります。", "/sante/LoginServlet"));
+//			request.setAttribute("message", "ニックネームまたはパスワードに間違いがあります。");
+//			// 結果ページにフォワードする
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp");
+//			dispatcher.forward(request, response);
+//		}
 	}
 }
