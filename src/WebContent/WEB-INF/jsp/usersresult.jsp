@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <title>登録結果</title>
-    <link href="/simpleBC/css/style.css" rel="stylesheet">
+    <link href="" rel="stylesheet">
 </head>
 <body>
 <div class="wrapper">
     <h1 id="logo">
-    <a href="/sante/LoginServlet"><img src="/sante/img/logo.png" alt="名刺管理"></a>
+    <a href="/sante/LoginServlet"><img src="" alt=""></a>
   	</h1>
-    <h2>登録結果</h2>
+    <h2>ログイン・登録結果</h2>
     <%-- メッセージ表示 --%>
     <% if (request.getAttribute("message") != null) { %>
         <p><%= request.getAttribute("message") %></p>
