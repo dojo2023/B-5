@@ -28,20 +28,19 @@ public class RegistServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String users_id 
 		String users_name = request.getParameter("users_name");
 		String users_password = request.getParameter("users_password");
 		String users_birthday = request.getParameter("users_birthday");
         // DAOのメソッドを呼び出してニックネームとパスワードをデータベースに挿入
         UsersDAO UsersDAO = new UsersDAO();
-        boolean registrationSuccess = UsersDAO.InsertUser(new Users(users_id,users_name, users_password,users_birthday));
+        boolean registrationSuccess = UsersDAO.InsertUser(new Users(0,users_name, users_password, users_birthday, null, null));
 
         if (registrationSuccess) {
             // 登録成功時の処理
-            request.setAttribute("message", "ニックネームとpasswordを登録しました");
+            request.setAttribute("message", "ニックネームとパスワードを登録しました");
         } else {
             // 登録失敗時の処理
-            request.setAttribute("message", "ニックネームとpasswordの登録に失敗しました");
+            request.setAttribute("message", "ニックネームとパスワードの登録に失敗しました");
         }
 
         // メッセージを含めてregister.jspにフォワードする
