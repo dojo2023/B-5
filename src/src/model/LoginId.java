@@ -2,18 +2,18 @@ package model;
 import java.io.Serializable;
 
 public class LoginId implements Serializable {
-	private String users_id;	// ID
+	private int users_id;	// ID
 
-	public LoginId(String users_id) {
+	public LoginId(int users_id) {
 		this.users_id = users_id;
 	}
 	public LoginId() {
-		this.users_id = "";
+		this.users_id = 0;
 	}
-	public String getUsers_id() {
+	public int getUsers_id() {
 		return users_id;
 	}
-	public void setUsers_id(String users_id) {
+	public void setUsers_id(int users_id) {
 		this.users_id = users_id;
 	}
 
