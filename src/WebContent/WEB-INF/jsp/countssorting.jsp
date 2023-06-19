@@ -36,8 +36,8 @@
                 <p>アプリ利用者の人数を入力してください</p>
                 <p><input type="text" name="counts"></p>
                 <div class="">
-                    <input type="submit" name="next" value="次へ">
-                    <input type="submit" name="camcel" value="キャンセル">
+                    <input type="submit" name="submit" value="次へ">
+                    <input type="submit" name="submit" value="キャンセル">
                 </div>
             </form>
             <script src="CountsSorting.js"></script>

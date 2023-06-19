@@ -24,11 +24,12 @@ public class CountsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+/*		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/sante/LoginServlet");
 			
 			return;
 		}
+		*/
 
 		// 集計入力画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
@@ -42,27 +43,37 @@ public class CountsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-/*				HttpSession session = request.getSession();
-				if (session.getAttribute("id") == null) {
-					response.sendRedirect("/sante/LoginServlet");
-					return;
+			HttpSession session = request.getSession();
+/*			if (session.getAttribute("id") == null) {
+				response.sendRedirect("/sante/LoginServlet");
+				return;
 				}
 */				
-				// リクエストパラメータを取得する
-/*				request.setCharacterEncoding("UTF-8");
-				String counts = request.getParameter("COUNTS");
+		// リクエストパラメータを取得する
+/*			request.setCharacterEncoding("UTF-8");
+			String counts = request.getParameter("COUNTS");
 				
-				// 検索処理を行う
-			    CountsDAO cDao = new CountsDAO();
-				List<Counts> cardList = cDao.select(new Counts(counts));
+		// 検索処理を行う
+			CountsDAO cDao = new CountsDAO();
+			List<Counts> cardList = cDao.select(new Counts(counts));
 
-				// 検索結果をリクエストスコープに格納する
-				request.setAttribute("cardList", cardList);
+		// 検索結果をリクエストスコープに格納する
+			request.setAttribute("cardList", cardList);
 */				
+		// 次へを行う
+			if (request.getParameter("submit").equals("次へ")) {
+		//CountSortingServletサーブレットに処理を渡す(リダイレクト)
 				
-				// アプリ利用者選別画面にフォワードする
+
+				response.sendRedirect("/sante/CountSortingServlet");
+				response.sendRedirect("/WEB-INF/jsp/countssorting.jsp");
+			}
+			
+		
+			// アプリ利用者選別画面にフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
 				dispatcher.forward(request, response);
+	
 	}
 
 }

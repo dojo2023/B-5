@@ -32,7 +32,7 @@
     <!-- body -->
     <div class="body">
         <body>
-             <form method="POST" action="/sante/CountsRegistfirmServlet">
+             <form method="POST" action="/sante/CountsRegistConfirmServlet">
                 <p>杯数を登録してよろしいですか？</p>
                 
                 <div class="">

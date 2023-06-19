@@ -37,12 +37,24 @@ public class CountsRegistConfirmServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-/*		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/sante/LoginServlet");
-			return;
+		HttpSession session = request.getSession();
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/sante/LoginServlet");
+//			return;
+//		}
+
+		// はいまたはいいえを行う
+		if (request.getParameter("SUBMIT").equals("はい")) {
+			//次のサーブレットにリダイレクト
+		//セッションスコープ"dinrks"の値を読み込む(Drinks型)
+			
+		//DBのテーブルに格納するDAOを呼び出す(引数として上の値を渡す)
+		
+			
+		}else {
+			//元のページにもどる。
 		}
-*/
+		
 		// カレンダー画面にフォワードする
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 					dispatcher.forward(request, response);

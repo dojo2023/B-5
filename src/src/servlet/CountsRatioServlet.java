@@ -42,7 +42,15 @@ public class CountsRatioServlet extends HttpServlet {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-*/
+*/		
+		// 登録または戻るを行う
+		if (request.getParameter("SUBMIT").equals("登録")) {
+			//次のサーブレットにリダイレクト
+			
+		}else {
+			//元のページにもどる。
+		}
+
 		// 集計登録確認画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsregistconfirm.jsp");
 		dispatcher.forward(request, response);

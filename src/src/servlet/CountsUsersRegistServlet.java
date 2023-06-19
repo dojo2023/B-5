@@ -29,7 +29,7 @@ public class CountsUsersRegistServlet extends HttpServlet {
 				}
 				
 				// アプリ利用者数選別画面にフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsusersregist.jsp");
 				dispatcher.forward(request, response);
 	}
 
@@ -57,29 +57,16 @@ public class CountsUsersRegistServlet extends HttpServlet {
 		request.setAttribute("cardList", cardList);
 */
 		
-		// 更新または削除を行う
-/*				CountsDAO cDao = new CountsDAO();
-				if (request.getParameter("next").equals("次へ")) {
-					if (cDao.update(new Counts(counts))) {	// 更新成功
-						request.setAttribute("result",
-						new Result("更新成功！", "レコードを更新しました。", "/sante/Servlet"));
-					}
-					else {												// 更新失敗
-						request.setAttribute("result",
-						new Result("更新失敗！", "レコードを更新できませんでした。", "/sante/Servlet"));
-					}
-				}
-				else {
-					if (cDao.delete(number)) {	// 削除成功
-						request.setAttribute("result",
-						new Result("削除成功！", "レコードを削除しました。", "/sante/Servlet"));
-					}
-					else {						// 削除失敗
-						request.setAttribute("result",
-						new Result("削除失敗！", "レコードを削除できませんでした。", "/sante/Servlet"));
-					}
-				}
-*/		
+		// 次へまたはキャンセルを行う
+		if (request.getParameter("submit").equals("次へ")) {
+			//次のサーブレットにリダイレクト
+			response.sendRedirect("/sante/CountsRegistServlet");
+		}else {
+			//キャンセル元のページにもどる。
+			response.sendRedirect("/sante/CountsRegistServlet");
+		}		
+				
+		
 		// 杯数選択画面にフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
 			dispatcher.forward(request, response);

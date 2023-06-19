@@ -8,7 +8,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class CountsSortingServlet
@@ -22,13 +21,14 @@ public class CountsSortingServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-				HttpSession session = request.getSession();
+		/*		HttpSession session = request.getSession();
 				if (session.getAttribute("id") == null) {
 					response.sendRedirect("/sante/LoginServlet");
 					return;
 				}	
-				// 集計入力画面にフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
+				*/
+				// アプリ利用者選別画面にフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
 				dispatcher.forward(request, response);
 				
 	}
@@ -56,12 +56,15 @@ public class CountsSortingServlet extends HttpServlet {
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("cardList", cardList);
 */
-		if (request.getParameter("SUBMIT").equals("次へ")) {
-			//次のサーブレットにリダイレクト
-			
+		// 次へまたはキャンセルを行う
+		if (request.getParameter("submit").equals("次へ")) {
+			//次のページに移動
+			response.sendRedirect("/sante/CountsUsersRegistServlet");
 		}else {
 			//キャンセル元のページにもどる。
+			response.sendRedirect("/sante/CountsServlet");
 		}
+		
 		// アプリ利用者登録画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsusersregist.jsp");
 		dispatcher.forward(request, response);
