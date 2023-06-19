@@ -98,3 +98,7 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/dojo6/dat
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
 	... 21 more
+2023-06-19 21:29:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "USERS[*]"; 期待されるステートメント "UPDATE, USE"
+Syntax error in SQL statement "USERS[*]"; expected "UPDATE, USE"; SQL statement:
+USERS [42001-200]
