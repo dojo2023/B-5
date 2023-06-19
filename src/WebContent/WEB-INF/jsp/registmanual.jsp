@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- 機能名|santé ! -->
-    <title>登録|santé ! </title>
+    <title>登録|sante </title>
     <!-- hrefの後ろにcssのリンクを書く -->
     <link rel="stylesheet" href=>
 </head>
@@ -25,7 +25,8 @@
     <div class="body">
         <body>
             <img src = "">
-            <input type = "button" value = "次へ" a href = "/santé/RegistPhysicalsServlet">
+            <form id = "registmanual_form" method = "GET" action = "/sante/RegistManualServlet"></form>
+            <input type = "submit" name = "registmanual" value = "次へ">
 
             <script>
             </script>
