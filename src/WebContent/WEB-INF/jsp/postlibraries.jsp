@@ -46,6 +46,7 @@
                     産地:<input type="text" id="from" placeholder="奈良県"><br>
                     備考:<input type="text" id="remarks" placeholder="軽い酸味に少し強めの苦味、低アルで柔らかさも感じ飲みやすく後口はすっきり。"><br>
                     <input type="submit" name="post" value="投稿">
+                    <input type="submit" name="post" value="キャンセル">
                 </div>
             </form>
         </body>
