@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>登録|santé ! </title>
+    <title>登録|sante</title>
 
     <link rel="stylesheet" href=>
 </head>
@@ -25,7 +25,7 @@
     <div class="body">
     <body>
             <label for = "resistance-select">アルコール耐性</label><br>
-          <select name = "resistance">
+          <select name = "resistance" >
             <option value="">選択してください</option>
             <option value="高い">高い</option>
             <option value="やや高い">やや高い</option>
@@ -34,7 +34,7 @@
             <option value="低い">低い</option>
           </select><br>
             <label for = "condition-select">コンディション</label><br>
-            <select name = "condition">
+            <select name = "condition" required>
             <option value="">選択してください</option>
             <option value="10%">10%</option>
             <option value="20%">20%</option>
@@ -47,8 +47,9 @@
             <option value="90%">90%</option>
             <option value="100%">100%</option>
             </select><br>
-            <input type = "submit" value = "登録" a href = "/santé/CalendarServlet">
-
+            <form method="POST"action="RegistPhysicalsServlet">
+            <input type = "submit" name = "submit"value = "登録">
+			</form>
             <script>
             </script>
         </body>
