@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class MypageServlet
@@ -20,8 +21,8 @@ public class MypageServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		HttpSession session = request.getSession();
+		/*if (session.getAttribute("id") == null) {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}*/
@@ -33,11 +34,11 @@ public class MypageServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		if(request.getParameter("submit").equals("コンディションとアルコール耐性")) {
+		/*if(request.getParameter("submit").equals("コンディションとアルコール耐性")) {
 			request.getAttribute("/sante/MypagePhysicalsServlet");
 		}else if (request.getParameter("submit").equals("使い方")){
 			request.getAttribute("/sante/MypageManualServlet");
-		}
+		}*/
 	}
 
 }
