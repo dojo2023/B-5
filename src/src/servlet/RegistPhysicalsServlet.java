@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -39,8 +38,8 @@ public class RegistPhysicalsServlet extends HttpServlet {
 		int physicals_resistance = Integer.parseInt(request.getParameter("physicals_resistance"));
 		int physicals_condition = Integer.parseInt(request.getParameter("physicals_condition"));
 
-		PhysicalsDAO PhysiDao = new PhysicalsDAO();
-		if(PhysiDao.insert(new Physicals(physicals_id, users_id, physicals_resistance, physicals_condition, null, null));
+		PhysicalsDAO physiDao = new PhysicalsDAO();
+		if(physiDao.insert(new Physicals(physicals_id, users_id, physicals_resistance, physicals_condition, null, null)));
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 		dispatcher.forward(request, response);
