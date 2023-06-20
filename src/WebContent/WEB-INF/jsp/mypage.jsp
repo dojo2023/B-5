@@ -7,7 +7,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>マイページ|sante </title>
+    <title>マイページ|santé!</title>
     <link rel="stylesheet" href=>
 </head>
 
