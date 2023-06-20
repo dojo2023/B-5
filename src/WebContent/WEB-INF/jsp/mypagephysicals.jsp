@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- 機能名|santé ! -->
-    <title>アルコール耐性とコンディション|sante</title>
+    <title>アルコール耐性とコンディション|santé!</title>
     <!-- hrefの後ろにcssのリンクを書く -->
     <link rel="stylesheet" href=>
 </head>
