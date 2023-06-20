@@ -37,8 +37,8 @@
                 <script src=""></script> <!--割合のグラフを挿入-->
                 
                 <div class="">
-                    <input type="submit" name="regist" value="登録">
-                    <input type="submit" name="back" value="戻る">
+                    <input type="submit" name="submit" value="登録">
+                    <input type="submit" name="submit" value="戻る">
                 </div>
 
             </form>

@@ -24,8 +24,8 @@ public class CountsCupsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-/*		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		HttpSession session = request.getSession();
+/*		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
@@ -52,15 +52,13 @@ public class CountsCupsServlet extends HttpServlet {
 			Drinks dr = new Drinks(3,3,4,3);
 			session.setAttribute("dinrks", dr);
 				
-			if (request.getParameter("SUBMIT").equals("登録")) {
+			if (request.getParameter("submit").equals("登録")) {
 				//次のサーブレットにリダイレクト
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsregistconfirm.jsp");
-				dispatcher.forward(request, response);
+				response.sendRedirect("/sante/CountsUsersRegistServlet");
 					
 			}
-			else if (request.getParameter("SUBMIT").equals("割合表示")){
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsratio.jsp");
-				dispatcher.forward(request, response);
+			else if (request.getParameter("submit").equals("割合表示")){
+				response.sendRedirect("/sante/CountsUsersRegistServlet");
 			}
 				
 				

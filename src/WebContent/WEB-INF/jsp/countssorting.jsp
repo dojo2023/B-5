@@ -36,10 +36,12 @@
                 <p>アプリ利用者の人数を入力してください</p>
                 <p><input type="text" name="counts"></p>
                 <div class="">
-                    <input type="submit" name="submit" value="次へ">
+                    <input type="submit" name="submit" value="次へ"></form>
+                    <form method="GET" action="/sante/CountsServlet">
                     <input type="submit" name="submit" value="キャンセル">
+                    </form>
                 </div>
-            </form>
+            
             <script src="CountsSorting.js"></script>
         </body>
     </div>

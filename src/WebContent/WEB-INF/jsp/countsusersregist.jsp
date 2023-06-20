@@ -73,8 +73,8 @@
 
                 </table>
                 <div class="">
-                    <input type="submit" name="next" value="次へ">
-                    <input type="submit" name="cancel" value="キャンセル">
+                    <input type="submit" name="submit" value="次へ">
+                    <input type="submit" name="submit" value="キャンセル">
                 </div>
                 
             </form>

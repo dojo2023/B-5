@@ -23,10 +23,11 @@ public class CountsRatioServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+/*		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
+*/
 		// 杯数選択画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
 		dispatcher.forward(request, response);
@@ -37,14 +38,14 @@ public class CountsRatioServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
-/*		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		HttpSession session = request.getSession();
+/*		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
 */		
 		// 登録または戻るを行う
-		if (request.getParameter("SUBMIT").equals("登録")) {
+		if (request.getParameter("submit").equals("登録")) {
 			//次のサーブレットにリダイレクト
 			
 		}else {

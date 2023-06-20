@@ -48,8 +48,8 @@
                 </div>
 
                 <div class="">
-                    <input type="submit" name="regist" value="登録">
-                    <input type="submit" name="rate" value="割合表示">
+                    <input type="submit" name="submit" value="登録">
+                    <input type="submit" name="submit" value="割合表示">
                 </div>
 
             </form>

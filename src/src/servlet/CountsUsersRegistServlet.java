@@ -23,12 +23,12 @@ public class CountsUsersRegistServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 				HttpSession session = request.getSession();
-				if (session.getAttribute("id") == null) {
+/*				if (session.getAttribute("id") == null) {
 					response.sendRedirect("/sante/LoginServlet");
 					return;
 				}
-				
-				// アプリ利用者数選別画面にフォワードする
+*/				
+				// アプリ利用者登録画面にフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsusersregist.jsp");
 				dispatcher.forward(request, response);
 	}
@@ -37,9 +37,9 @@ public class CountsUsersRegistServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-/*		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
-			if (session.getAttribute("id") == null) {
+/*			if (session.getAttribute("id") == null) {
 				response.sendRedirect("/sante/LoginServlet");
 				return;
 				}
@@ -60,12 +60,12 @@ public class CountsUsersRegistServlet extends HttpServlet {
 		// 次へまたはキャンセルを行う
 		if (request.getParameter("submit").equals("次へ")) {
 			//次のサーブレットにリダイレクト
-			response.sendRedirect("/sante/CountsRegistServlet");
+			response.sendRedirect("/sante/CountsUsersRegistServlet");
 		}else {
 			//キャンセル元のページにもどる。
-			response.sendRedirect("/sante/CountsRegistServlet");
+			response.sendRedirect("/sante/CountsSortingServlet");
 		}		
-				
+		
 		
 		// 杯数選択画面にフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");

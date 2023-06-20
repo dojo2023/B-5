@@ -32,16 +32,16 @@
     <!-- body -->
     <div class="body">
         <body>
-             <form method="POST" action="/sante/CountsRegistConfirmServlet">
+             <form method="POST" action="/sante/CountsUsersRegistConfirmServlet">
                 <p>杯数を登録してよろしいですか？</p>
                 
                 <div class="">
-                    <input type="submit" name="yes" value="はい">
-                    <input type="submit" name="no" value="いいえ">
+                    <input type="submit" name="submit" value="はい">
+                    <input type="submit" name="submit" value="いいえ">
                 </div>
 
             </form>
-            <script src="CountsRegistConfirm.js"></script>
+            <script src="CountsUsersRegistConfirm.js"></script>
         </body>
     </div>
     <!-- footer -->
