@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -25,8 +24,8 @@ public class MypagePhysicalsServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	/*HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		HttpSession session = request.getSession();
+		/*if (session.getAttribute("id") == null) {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 	}*/
@@ -49,7 +48,7 @@ public class MypagePhysicalsServlet extends HttpServlet {
 
 
 		PhysicalsDAO PhysiDao = new PhysicalsDAO();
-		if(PhysiDao.insert(new Physicals(physicals_id, users_id, physicals_resistance, physicals_condition, null, null));
+		if(PhysiDao.insert(new Physicals(physicals_id, users_id, physicals_resistance, physicals_condition, null, null)));
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
