@@ -11,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class CountsUsersRegistConfirmServlet
+ * Servlet implementation class CountsRegistConfirmServlet
  */
 @WebServlet("/CountsRegistConfirmServlet")
-public class CountsUsersRegistConfirmServlet extends HttpServlet {
+public class CountsRegistConfirmServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -28,8 +28,8 @@ public class CountsUsersRegistConfirmServlet extends HttpServlet {
 			return;
 		}
 */
-		// 杯数選択画面にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
+		// 集計登録確認画面にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsregistconfirm.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -45,21 +45,21 @@ public class CountsUsersRegistConfirmServlet extends HttpServlet {
 //		}
 
 		// はいまたはいいえを行う
-		if (request.getParameter("SUBMIT").equals("はい")) {
-			//次のサーブレットにリダイレクト
-			response.sendRedirect("/sante/Servlet");
+		request.setCharacterEncoding("UTF-8");
+		if (request.getParameter("submit").equals("はい")) {
+			//カレンダーのサーブレットにリダイレクト
+			response.sendRedirect("/sante/CalendarServlet");
 		//セッションスコープ"dinrks"の値を読み込む(Drinks型)
 			
 		//DBのテーブルに格納するDAOを呼び出す(引数として上の値を渡す)
 		
 			
-		}else {
-			//元のページにもどる。
+		}
+		else {
+			//杯数選択画面のサーブレットにリダイレクト
+			response.sendRedirect("/sante/CountsCupsServlet");
 		}
 		
-		// カレンダー画面にフォワードする
-					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
-					dispatcher.forward(request, response);
 	}
 
 }

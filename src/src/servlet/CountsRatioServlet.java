@@ -28,8 +28,8 @@ public class CountsRatioServlet extends HttpServlet {
 			return;
 		}
 */
-		// 杯数選択画面にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
+		// 割合画面にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsratio.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -45,16 +45,15 @@ public class CountsRatioServlet extends HttpServlet {
 		}
 */		
 		// 登録または戻るを行う
+		request.setCharacterEncoding("UTF-8");
 		if (request.getParameter("submit").equals("登録")) {
-			//次のサーブレットにリダイレクト
-			
+			//集計登録確認画面のサーブレットにリダイレクト
+			response.sendRedirect("/sante/CountsRegistConfirmServlet");
 		}else {
-			//元のページにもどる。
+			//杯数選択画面のサーブレットにリダイレクト
+			response.sendRedirect("/sante/CountsCupsServlet");
 		}
 
-		// 集計登録確認画面にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsregistconfirm.jsp");
-		dispatcher.forward(request, response);
 	}
 
 }

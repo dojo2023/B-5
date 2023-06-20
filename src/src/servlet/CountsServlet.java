@@ -61,18 +61,12 @@ public class CountsServlet extends HttpServlet {
 			//session.setAttribute("all_menber", all_menber);
 			
 		// 次へを行う
-			//if (request.getParameter("submit").equals("次へ")) {
-		//CountSortingServletサーブレットに処理を渡す(リダイレクト)
-
+			request.setCharacterEncoding("UTF-8");
+			if (request.getParameter("submit").equals("次へ")) {
+				//CountSortingServletサーブレットに処理を渡す(リダイレクト)
 				response.sendRedirect("/sante/CountsSortingServlet");
 				
-			//}
-			
-		
-			// アプリ利用者選別画面にフォワードする
-				//RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
-				//dispatcher.forward(request, response);
-	
+			}
 	}
 
 }

@@ -58,18 +58,15 @@ public class CountsUsersRegistServlet extends HttpServlet {
 */
 		
 		// 次へまたはキャンセルを行う
-		if (request.getParameter("submit").equals("次へ")) {
+			request.setCharacterEncoding("UTF-8");
+			if (request.getParameter("submit").equals("次へ")) {
 			//次のサーブレットにリダイレクト
-			response.sendRedirect("/sante/CountsUsersRegistServlet");
+			response.sendRedirect("/sante/CountsCupsServlet");
 		}else {
-			//キャンセル元のページにもどる。
+			//キャンセル元のサーブレットにもどる。
 			response.sendRedirect("/sante/CountsSortingServlet");
 		}		
 		
-		
-		// 杯数選択画面にフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
-			dispatcher.forward(request, response);
 	}
 
 }

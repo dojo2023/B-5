@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import model.Drinks;
+//import model.Drinks;
 
 /**
  * Servlet implementation class CountsCupsServlet
@@ -30,8 +30,8 @@ public class CountsCupsServlet extends HttpServlet {
 			return;
 		}
 */
-		// アプリ利用者登録画面にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsusersregist.jsp");
+		// 杯数選択画面にフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
 		dispatcher.forward(request, response);
 	}
 
@@ -49,22 +49,20 @@ public class CountsCupsServlet extends HttpServlet {
 		// 検索処理を行う
 //			CountsDAO cDao = new CountsDAO();
 //			List<Counts> cardList = cDao.select(new Counts(counts));
-			Drinks dr = new Drinks(3,3,4,3);
-			session.setAttribute("dinrks", dr);
-				
+//			Drinks dr = new Drinks(3,3,4,3);
+//			session.setAttribute("dinrks", dr);
+			
+			request.setCharacterEncoding("UTF-8");
 			if (request.getParameter("submit").equals("登録")) {
-				//次のサーブレットにリダイレクト
-				response.sendRedirect("/sante/CountsUsersRegistServlet");
+				//集計登録確認画面のサーブレットにリダイレクト
+				response.sendRedirect("/sante/CountsRegistConfirmServlet");
 					
 			}
-			else if (request.getParameter("submit").equals("割合表示")){
-				response.sendRedirect("/sante/CountsUsersRegistServlet");
+			else if (request.getParameter("submit").equals("割合表示")) {
+				//割合画面のサーブレットにリダイレクト
+				response.sendRedirect("/sante/CountsRatioServlet");
 			}
-				
-				
-		// 割合表示画面にフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsregistconfirm.jsp");
-		dispatcher.forward(request, response);
+		
 	}
 
 }

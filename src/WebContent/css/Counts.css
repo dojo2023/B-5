@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/* 割合表示画面 */
+.chart-container{
+	position: relative;
+	height:330px;
+	width:300px
+}
+
+/* 杯数選択画面 */
+body {
+  margin: 0;
+  width: 100%;
+}
+
+/*.cupscounts {
+  width: 300px;
+  margin: 200px auto 0;
+}
+*/
+
+.field {
+  display: flex;
+}
+
+.inputtext {
+  color:rgba(43, 32, 32, 0.76) ;
+  font-size: 18px;
+  border-left: 0;
+  border-right: 0;
+  width: 80px;
+  line-height: 3rem;
+  text-align: center;
+  border: 1px solid #D7DBDD;
+  padding: 0 10px;
+}
+
+.button {
+  color:rgba(43, 32, 32, 0.76) ;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 6px 9px;
+  background-color: white;
+  border: 1px solid #D7DBDD;
+  border-radius: 0;
+  outline: 0;
+}
+
+.resetbtn {
+  margin: 10px 0 10px 45px;
+}

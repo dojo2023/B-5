@@ -10,7 +10,9 @@
     <!-- 機能名|santé ! -->
     <title>集計|santé !</title>
     <!-- hrefの後ろにcssのリンクを書く -->
-    <link rel="stylesheet" href=>
+    <link rel="stylesheet" href="css/Counts.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 </head>
 
 <div class="wrapper">
@@ -32,9 +34,12 @@
     <!-- body -->
     <div class="body">
         <body>
-            <form method="POST" action="/sante/CountsRationServlet">
+            <form method="POST" action="/sante/CountsRatioServlet">
                 <p>杯数</p>
-                <script src=""></script> <!--割合のグラフを挿入-->
+                <div class="chart-container" >
+					<canvas id="Chart" ></canvas>
+				</div>
+                <script src="js/counts/CountsRatio.js"></script> <!--割合のグラフを挿入-->
                 
                 <div class="">
                     <input type="submit" name="submit" value="登録">
@@ -42,7 +47,7 @@
                 </div>
 
             </form>
-            <script src="CountsRatio.js"></script>
+ 
         </body>
     </div>
     <!-- footer -->
