@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- 機能名|santé ! -->
-    <title>アルコール耐性とコンディション|santé ! </title>
+    <title>アルコール耐性とコンディション|sante</title>
     <!-- hrefの後ろにcssのリンクを書く -->
     <link rel="stylesheet" href=>
 </head>
@@ -35,7 +35,7 @@
     <div class="body">
         <body>
           <label for = "resistance-select">アルコール耐性</label><br>
-          <select name = "resistance">
+          <select name = "resistance" >
             <option value="">選択してください</option>
             <option value="高い">高い</option>
             <option value="やや高い">やや高い</option>
@@ -44,7 +44,7 @@
             <option value="低い">低い</option>
           </select><br>
             <label for = "condition-select">コンディション</label><br>
-            <select name = "condition">
+            <select name = "condition" required>
             <option value="">選択してください</option>
             <option value="10%">10%</option>
             <option value="20%">20%</option>
@@ -57,11 +57,16 @@
             <option value="90%">90%</option>
             <option value="100%">100%</option>
             </select><br>
-            <input type = "submit" value = "更新" >
-            <input type = "button" a href = "/santé/MypageServlet" value ="戻る">
+			<form method="POST"action="MypagePhysicalsServlet">
+				<input type="submit" name = "submit" value="更新">
+			</form>
+			<form method="GET"action="MypageServlet">
+				<input type="submit" name = "submit" value="戻る">
+			</form>
+			<script>
 
-            <script>
-            </script>
+
+			</script>
         </body>
     </div>
     <!-- footer -->
