@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- 機能名|santé ! -->
-    <title>登録|sante </title>
+    <title>登録|santé!</title>
     <!-- hrefの後ろにcssのリンクを書く -->
     <link rel="stylesheet" href=>
 </head>
