@@ -30,8 +30,10 @@
     </div>
     <div class="body">
         <body>
-			<form id = "mypage_form" method = "POST" action = "/sante/MypageServlet">
+			<form method = "GET" action = "/sante/MypagePhysicalsServlet">
 				<input type="submit" name = "submit" value="コンディションとアルコール耐性 "><br>
+			</form>
+			<form method = "GET" action = "/sante/MypageManualServlet">
 				<input type="submit" name = "submit" value="使い方 " >
 			</form>
 			<script>
