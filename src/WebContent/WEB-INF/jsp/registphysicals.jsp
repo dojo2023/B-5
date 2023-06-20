@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>登録|sante</title>
+    <title>登録|santé!</title>
 
     <link rel="stylesheet" href=>
 </head>
