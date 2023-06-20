@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <!-- 機能名|santé ! -->
-    <title>使い方|santé ! </title>
+    <title>使い方|sante</title>
     <!-- hrefの後ろにcssのリンクを書く -->
     <link rel="stylesheet" href=>
 </head>
@@ -36,7 +36,8 @@
     <div class="body">
         <body>
             <img src = "">
-            <input type = "button" value = "戻る" a href = "/santé/MypageServlet">
+            <form method="GET"action="MypageServlet">
+            <input type = "submit" name = "submit" value = "戻る">
 
             <script>
             </script>
