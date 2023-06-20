@@ -25,11 +25,13 @@
     <div class="body">
         <body>
             <img src = "">
-            <form id = "registmanual_form" method = "GET" action = "/sante/RegistManualServlet"></form>
-            <input type = "submit" name = "registmanual" value = "次へ">
+			<form method="GET" action="/sante/RegistPhysicalsServlet">
+				<input type="submit" name="submit" value="次へ">
+			</form>
+			<script>
 
-            <script>
-            </script>
+
+			</script>
         </body>
     </div>
     <!-- footer -->
