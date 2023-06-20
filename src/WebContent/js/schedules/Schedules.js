@@ -1,6 +1,5 @@
 'use strict';
 
-
 // 現在の年と月を取得
 var currentDate = new Date();
 var year = currentDate.getFullYear();
@@ -142,3 +141,6 @@ var selected_month = document.getElementById("calenderMonth");
 
 //年月を表示
 document.querySelector('#yearMonth').innerHTML = year + "年 " + month + "月";
+/**
+ *
+ */
