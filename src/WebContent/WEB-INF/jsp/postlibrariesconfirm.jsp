@@ -33,20 +33,21 @@
     <div class="body">
 
         <body>
-            <form>
-                <!-- ダミーを表示しています。 -->
-                <p>銘柄:${description}</p>
-                <p>酒類:${genre}</p>
-                <p>種類:${kind}</p>
-                <p>度数:${alcoholcontent}</p>
-                <p>産地:${from}</p>
-                <p>備考:${remarks}</p>
+            <form method="POST" autocomplete="off"
+            action="/sante/PostLibrariesConfirmServlet">
+
+                <p>銘柄:${post_lib.getPost_description()}</p>
+                <p>酒類:${post_lib.getPost_genre()}</p>
+                <p>種類:${post_lib.getPost_kind()}</p>
+                <p>度数:${post_lib.getPost_alcon()}</p>
+                <p>産地:${post_lib.getPost_from()}</p>
+                <p>備考:${post_lib.getPost_remarks()}</p>
 
                 <p>以上の内容で投稿してもよろしいですか？</p>
                 <!-- 送信用submit -->
                 <div class="post_libraries_confirm_input">
-                    <input type="submit" name="yes" value="はい">
-                    <input type="submit" name="no" value="いいえ">
+                    <input type="submit" name="submit" value="はい">
+                    <input type="submit" name="submit" value="いいえ">
                 </div>
             </form>
         </body>
