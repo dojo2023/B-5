@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+h1 {
+	color: #000066;  
+	font-size: 35px;
+	margin: 0 0 0 25px;
+	font-family: sawarabi mincho;
+}
+
+body {
+/* background-image:url("/simpleBC/img/30895.png");*/
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 25px 0 0 6px;
+	font-family: sawarabi mincho;
+}
+
+form{
+	margin: 10px 0 0 0;
+}
+
+/* テーブル　中心に揃える */
+table{
+	margin-left: auto;
+    margin-right: auto;
+    border-collapse: collapse;
+}
+
+/* searchとresultのテーブル内の書式設定 */
+.info td  , .info th{
+	padding: 10px;
+	text-align: left;
+	width: 130px;
+	font-size: 12pt;  
+	color: #322fcb;  
+}
+
+/* textボックスのサイズ */
+input.text1 {
+	width: 180px;
+}
+
+/* seach_resultのテーブル内の書式設定 */
+.info3 th, tr{
+	padding: 10px 0 0 10px;
+	text-align: left;
+	width: 130px;
+	font-size: 12pt;  
+	color: #322fcb;  
+}
+
+.info3 th{
+	padding-left: 50px;
+}
+
+/* loginのテーブル設定 */
+.loginMenu {
+	margin-top: 30px;
+}
+
+.loginMenu th {
+	padding: 10px;
+}
+
+.loginMenu td {
+	padding: 9px;
+	font-size : 14pt; 
+	color: #000073;
+}
+
+input#reset, input#login{
+	margin: 20px 15px 20px 15px;
+}
+
+.loginBottan tr {
+	padding: 14px;
+}
+/* 検索結果のフッター */
+.search_result td {
+	text-align: left;
+}
+
+/* 備考欄 */
+textarea {
+	width: 17em;
+	height: 2em;
+}
+
+/* 登録・検索ボタン */
+.info2 input {
+  display: inline-block;
+  border-radius: 20%;
+  font-size: 15pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 15px;
+  background: #999999;
+  color: #ffffff;
+  line-height: 1em;
+  transition: .3s;
+  box-shadow: 6px 6px 3px #666666;
+  border: 2px solid #999999;
+}
+.button:hover {
+  box-shadow: none;
+  color: #999999;
+  background: #ffffff;
+}
+
+/* 登録・検索ボタン */
+.loginBottan input{
+  display: inline-block;
+  border-radius: 14%;
+  font-size: 11pt;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 15px;
+  background: #a6a6a6;
+  color: #ffffff;
+  line-height: 1em;
+  transition: .3s;
+  box-shadow: 5px 6px 3px #666666;
+  border: 2px solid #999999;
+}
+.button:hover {
+  box-shadow: none;
+  color: #999999;
+  background: #ffffff;
+}
+
+.loginBottan {
+	margin-left: 425px;
+    margin-right: auto;
+}
+
+/* divのスタイル */
+div {
+	padding: 60px;
+	text-align: right;
+	margin: 80px 0 0 0;
+}
+
+.info2{
+	padding: 10px;
+	text-align: center;
+	margin: 0 50px 0 0;
+}
+
+.info4{
+	padding: 10px;
+	text-align: center;
+	margin: 0 -490px 0 0;
+
+}
+.submit {
+	width: 70px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.submit{
+  display       : inline-block;
+  border-radius : 14%;          /* 角丸       */
+  font-size     : 11pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 7px 15px;   /* 余白       */
+  background    : #a8a8a8;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 5px 6px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #999999;    /* 枠の指定 */
+}
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #999999;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+p {
+	margin: 20px 0 20px 15px;
+	font-size : 14pt; 
+}
+
+.footer{
+	font-size : 10pt; 
+	margin: 3px 0 0 0;
+}
+
+a {
+	color: red;
+	margin: 0 0 0 15px;
+	font-size : 14pt; 
+}
+
+.title {
+	color: #000073;
+	margin: 0 0 0 15px;
+	font-size : 40pt; 
+}
