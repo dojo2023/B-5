@@ -52,6 +52,7 @@
                     </thead>
                     <tbody id="calendar-body" onclick="clickDisplayAlert()">
                     </tbody>
+                </table>
             </div>
             <script src="Calendar.js"></script>
         </body>
