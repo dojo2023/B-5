@@ -13,13 +13,14 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class NarrowLibrariesServlet
  */
 @WebServlet("/NarrowLibrariesServlet")
-public class NarrowLibrariesServlet extends HttpServlet{
-private static final long serialVersionUID = 1L;
+public class NarrowLibrariesServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-/**
- * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
- */
-protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
 		//		HttpSession session = request.getSession();
 		//		if (session.getAttribute("id") == null) {
@@ -34,13 +35,25 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
 		dispatcher.forward(request, response);
 	}
 
-
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
+		//		HttpSession session = request.getSession();
+		//		if (session.getAttribute("id") == null) {
+		//			response.sendRedirect("/sante/LoginServlet");
+		//			return;
+		//		}
+		request.setCharacterEncoding("UTF-8");
+		if (request.getParameter("submit").equals("絞り込み")) {
+			// 処理結果をセッションスコープに入れる必要あり。要記載
+
+			response.sendRedirect("/sante/LibrariesServlet");
+		}else if (request.getParameter("submit").equals("キャンセル")) {
+			response.sendRedirect("/sante/LibrariesServlet");
+		}
 
 	}
 
