@@ -1,1 +1,18 @@
 @charset "UTF-8";
+#logo {
+    height: 150px;
+    width: 1000px;
+    text-align: center;
+    position: relative;
+}
+.header {
+    text-align: center;
+}
+ul {
+    padding-top: 0%;
+}
+li {
+display: inline;
+top: 10px;
+padding-right: 50px;
+}
