@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.PhysicalsDAO;
+import dao.UsersDAO;
 import model.Physicals;
 
 /**
@@ -33,13 +34,16 @@ public class RegistPhysicalsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		int physicals_id = Integer.parseInt(request.getParameter("physicals_id"));
-		int users_id=Integer.parseInt(request.getParameter("users_id"));
+		UsersDAO UsersDAO = new UsersDAO();
+		int users_id = UsersDAO.getMaxUserID();
 		int physicals_resistance = Integer.parseInt(request.getParameter("physicals_resistance"));
 		int physicals_condition = Integer.parseInt(request.getParameter("physicals_condition"));
+		System.out.println(physicals_resistance);
+		System.out.println(physicals_condition);
+
 
 		PhysicalsDAO physiDao = new PhysicalsDAO();
-		if(physiDao.insert(new Physicals(physicals_id, users_id, physicals_resistance, physicals_condition, null, null)));
+		if(physiDao.insertPhysicals(new Physicals(0, users_id, physicals_resistance, physicals_condition, null, null)));
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 		dispatcher.forward(request, response);
