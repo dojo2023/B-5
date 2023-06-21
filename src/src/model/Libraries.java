@@ -30,6 +30,7 @@ public class Libraries {
 		this.libraries_public = libraries_public;
 		this.created_at = created_at;
 		this.updated_at = updated_at;
+
 	}
 
 	public Libraries() {
@@ -58,7 +59,7 @@ public class Libraries {
 		return libraries_description;
 	}
 
-	public void setLibraries_name(String libraries_description) {
+	public void setLibraries_description(String libraries_description) {
 		this.libraries_description = libraries_description;
 	}
 
@@ -125,5 +126,6 @@ public class Libraries {
 	public void setUpdated_at(Timestamp updated_at) {
 		this.updated_at = updated_at;
 	}
+
 
 }
