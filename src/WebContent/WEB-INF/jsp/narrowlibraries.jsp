@@ -109,7 +109,7 @@
                 const forth_categories_select = document.getElementById('from');
             </script>
 
-            <script src="/js/libraries/NarrowLibraries.js"></script>
+            <script src="js/libraries/NarrowLibraries.js"></script>
         </body>
     </div>
     <!-- footer -->
