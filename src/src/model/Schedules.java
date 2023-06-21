@@ -1,6 +1,6 @@
 package model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class Schedules {
 private int schedules_id;
@@ -9,6 +9,7 @@ private Timestamp schedules_dt;
 private int users_id;
 private Timestamp created_at;
 private Timestamp updated_at;
+
 
 
 public Schedules(int schedules_id, String schedules_name, Timestamp schedules_dt, int users_id, Timestamp created_at,
