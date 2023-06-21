@@ -54,7 +54,7 @@
                     </tbody>
                 </table>
             </div>
-            <script src="Schedules.js"></script>
+            <script src="js/schedules/Schedules.js"></script>
         </body>
     </div>
     <!-- footer -->
