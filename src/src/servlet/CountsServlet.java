@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.PostCounts;
+
 /**
  * Servlet implementation class CountsServlet
  */
@@ -24,12 +26,10 @@ public class CountsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-/*		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/sante/LoginServlet");
-			
-			return;
-		}
-		*/
+//		if (session.getAttribute("id") == null) {
+//			response.sendRedirect("/sante/LoginServlet");
+//			return;
+//		}
 
 		// 集計入力画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
@@ -42,29 +42,57 @@ public class CountsServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8");
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
-/*			if (session.getAttribute("id") == null) {
-				response.sendRedirect("/sante/LoginServlet");
-				return;
-				}
-*/				
-		// リクエストパラメータを取得する
-			request.setCharacterEncoding("UTF-8");
-		//	int all_menber = request.getParameter("ALL_MENBER");
+	//		if (session.getAttribute("id") == null) {
+	//			response.sendRedirect("/sante/LoginServlet");
+	//			return;
+	//			}
 				
-		// 検索処理を行う
-		//	counts all_menber = new counts(menbers);
-			//ここはモデルをインスタンス化して引数としてカウントを指定する
-
-		// 検索結果をセッションスコープに格納する
-			//session.setAttribute("all_menber", all_menber);
-			
-		// 次へを行う
-			request.setCharacterEncoding("UTF-8");
+		
 			if (request.getParameter("submit").equals("次へ")) {
-				//CountSortingServletサーブレットに処理を渡す(リダイレクト)
-				response.sendRedirect("/sante/CountsSortingServlet");
+				try {
+					int all_member = Integer.parseInt(request.getParameter("counts"));
+				
+					if (all_member != 0) {
+						PostCounts counts_cou = new PostCounts();
+						// 投稿情報を格納
+						counts_cou.setAll_member(all_member);
+						session.setAttribute("post_counts",counts_cou );
+						
+						
+						if (all_member < 0) {
+							// 集計入力画面にフォワードする
+							RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
+							dispatcher.forward(request, response);
+						}
+						else if (all_member > 10) {
+							// 集計入力画面にフォワードする
+							RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
+							dispatcher.forward(request, response);
+						}
+					}
+					else if (all_member == 0) {
+						// 集計入力画面にフォワードする
+						RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
+						dispatcher.forward(request, response);
+					}
+					
+					
+				}
+				catch(NumberFormatException n) {
+					// 集計入力画面にフォワードする
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
+					dispatcher.forward(request, response);
+				}
+				
+
+				finally {
+					//CountSortingServletサーブレットに処理を渡す(リダイレクト)
+					response.sendRedirect("/sante/CountsSortingServlet");
+				}
+				
 				
 			}
 	}

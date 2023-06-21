@@ -44,18 +44,7 @@ public class CountsUsersRegistServlet extends HttpServlet {
 				return;
 				}
 */
-		
-		// リクエストパラメータを取得する
-/*				request.setCharacterEncoding("UTF-8");
-		String counts = request.getParameter("COUNTS");
-		
-		// 検索処理を行う
-	    CountsDAO cDao = new CountsDAO();
-		List<Counts> cardList = cDao.select(new Counts(counts));
 
-		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", cardList);
-*/
 		
 		// 次へまたはキャンセルを行う
 			request.setCharacterEncoding("UTF-8");

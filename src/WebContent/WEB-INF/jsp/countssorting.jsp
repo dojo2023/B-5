@@ -34,7 +34,7 @@
         <body>
             <form method="POST" action="/sante/CountsSortingServlet">
                 <p>アプリ利用者の人数を入力してください</p>
-                <p><input type="text" name="counts"></p>
+                <p><input type="text" name="userscounts"></p>
                 <div class="">
                     <input type="submit" name="submit" value="次へ">
                     <input type="submit" name="submit" value="キャンセル">

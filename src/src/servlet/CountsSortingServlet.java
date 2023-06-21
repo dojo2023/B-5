@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.PostCounts;
+
 /**
  * Servlet implementation class CountsSortingServlet
  */
@@ -46,30 +48,47 @@ public class CountsSortingServlet extends HttpServlet {
 			return;
 		}
 */		
-		// リクエストパラメータを取得する
-/*		
-		request.setCharacterEncoding("UTF-8");
-			int user_menber = request.getParameter("USER_MENBER");
-		// 検索処理を行う
-		counts user_menber = new counts(menbers);
-		
-		// 検索結果をセッションスコープに格納する
-		session.setAttribute("user_menber", user_menber);
 
-*/
 		// 次へまたはキャンセルを行う
 		request.setCharacterEncoding("UTF-8");
 		if (request.getParameter("submit").equals("次へ")) {
-
-			//次のサーブレットに移動
-			response.sendRedirect("/sante/CountsUsersRegistServlet");
-
-		}else {
-			//キャンセル元のサーブレットにもどる。
-			response.sendRedirect("/sante/CountsServlet");
+			try {
+				int users_member = Integer.parseInt(request.getParameter("userscounts"));
 			
-		}
-		
-	}
+				if (users_member != 0) {
+					PostCounts counts_data = (PostCounts)session.getAttribute("post_counts");
+					// 投稿情報を格納
+					counts_data.setUsers_member(users_member);
+					
+					session.setAttribute("post_counts",counts_data );
+					
+					if (users_member < 0) {
+						// アプリ利用者選別画面画面にフォワードする
+						RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+						dispatcher.forward(request, response);
+					}
+					else if (users_member > 10) {
+						// アプリ利用者選別画面にフォワードする
+						RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+						dispatcher.forward(request, response);
+					}
 
+				}
+				else if (users_member == 0) {
+					// アプリ利用者選別画面にフォワードする
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+					dispatcher.forward(request, response);
+				}
+			}
+			catch(NumberFormatException n) {
+				// アプリ利用者選別画面にフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+				dispatcher.forward(request, response);
+			}
+			finally {
+				//CountSortingServletサーブレットに処理を渡す(リダイレクト)
+				response.sendRedirect("/sante/CountsUsersRegistServlet");
+			}
+		}
+	}
 }
