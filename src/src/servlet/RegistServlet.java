@@ -46,13 +46,13 @@ public class RegistServlet extends HttpServlet {
 
         if (registrationSuccess) {
             // 登録成功時の処理
-            request.setAttribute("message", "ニックネームとパスワードを登録しました");
+        	request.getAttribute("/sante/RegistManualServlet");
         } else {
             // 登録失敗時の処理
             request.setAttribute("message", "ニックネームとパスワードの登録に失敗しました");
+            // メッセージを含めてregister.jspにフォワードする
+            request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp").forward(request, response);
         }
 
-        // メッセージを含めてregister.jspにフォワードする
-        request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp").forward(request, response);
     }
 }
