@@ -24,6 +24,7 @@
 
     <div class="body">
     <body>
+    	<form method="POST"action="RegistPhysicalsServlet">
             <label for = "resistance-select">アルコール耐性</label><br>
           <select name = "resistance" >
             <option value="">選択してください</option>
@@ -47,7 +48,7 @@
             <option value="90%">90%</option>
             <option value="100%">100%</option>
             </select><br>
-            <form method="POST"action="RegistPhysicalsServlet">
+
             <input type = "submit" name = "submit"value = "登録">
 			</form>
             <script>
