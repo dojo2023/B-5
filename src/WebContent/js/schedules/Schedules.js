@@ -135,11 +135,10 @@ function clickDisplayAlert() {
     alert(selected_year + "年" + selected_month + "月" + selected_day + "日");
   }
 
+//年月を表示
 var selected_year = document.getElementById("calenderYear");
 var selected_month = document.getElementById("calenderMonth");
 
-
-//年月を表示
 document.querySelector('#yearMonth').innerHTML = year + "年 " + month + "月";
 /**
  *
