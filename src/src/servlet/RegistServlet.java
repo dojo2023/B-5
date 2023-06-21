@@ -46,7 +46,7 @@ public class RegistServlet extends HttpServlet {
 
         if (registrationSuccess) {
             // 登録成功時の処理
-        	request.getAttribute("/sante/RegistManualServlet");
+        	response.sendRedirect("/sante/RegistManualServlet");
         } else {
             // 登録失敗時の処理
             request.setAttribute("message", "ニックネームとパスワードの登録に失敗しました");
