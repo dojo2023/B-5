@@ -33,12 +33,12 @@
     <div class="body">
 
         <body>
-            <form>
+            <form method="POST" autocomplete="off" action="/sante/BookmarksConfirmServlet">
                 <p>お気に入りを更新してもよろしいですか？</p>
                 <!-- 送信用submit -->
                 <div class="post_bookmarks_confirm_input">
-                    <input type="submit" name="yes" value="はい">
-                    <input type="submit" name="no" value="いいえ">
+                    <input type="submit" name="submit" value="はい">
+                    <input type="submit" name="submit" value="いいえ">
                 </div>
             </form>
         </body>
