@@ -34,19 +34,25 @@ public class RegistPhysicalsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		UsersDAO UsersDAO = new UsersDAO();
-		int users_id = UsersDAO.getMaxUserID();
+		UsersDAO usersDAO = new UsersDAO();
+		int users_id = usersDAO.getMaxUserID();
 		int physicals_resistance = Integer.parseInt(request.getParameter("physicals_resistance"));
 		int physicals_condition = Integer.parseInt(request.getParameter("physicals_condition"));
-		System.out.println(physicals_resistance);
-		System.out.println(physicals_condition);
-
-
+		System.out.println("取得:" + physicals_resistance + "\n");
+		System.out.println("取得:" + physicals_condition + "\n");
 		PhysicalsDAO physiDao = new PhysicalsDAO();
-		if(physiDao.insertPhysicals(new Physicals(0, users_id, physicals_resistance, physicals_condition, null, null)));
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+		boolean insertSuccess = physiDao.insertPhysicals(new Physicals(0, users_id, physicals_resistance, physicals_condition, null, null));
+		if(insertSuccess) {
+//			if (request.getParameter("submit").equals("登録")) {
+				response.sendRedirect("/sante/CalendarServlet");
+//			}
+//			request.getRequestDispatcher("/sante/CalendarServlet").forward(request, response);
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+//			dispatcher.forward(request, response);
+		} else {
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp");
 		dispatcher.forward(request, response);
+		}
 	}
 
 }
