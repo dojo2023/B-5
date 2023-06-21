@@ -34,7 +34,7 @@
 
         <body>
             <!-- ダミーデータ入れてます。*変更したら削除 -->
-            <form method="POST" autocomplete="off" action="/sante/NarrowLibrariesServlet.java">
+            <form method="POST" autocomplete="off" action="/sante/NarrowLibrariesServlet">
                 <div class="genre">
                     <label>酒類:</label>
                     <select name="genre" id="genre">
@@ -73,8 +73,8 @@
                     <input type="checkbox" name="remarks" id="remarks">
                     <label for="remarks">お気に入り</label>
                 </div>
-                <input type="submit" name="narrow" value="絞り込み">
-                <input type="submit" name="cancel" value="キャンセル">
+                <input type="submit" name="submit" value="絞り込み">
+                <input type="submit" name="submit" value="キャンセル">
             </form>
             <script>
                 const first_categories = [
