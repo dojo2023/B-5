@@ -6,47 +6,48 @@
 <html class="html">
 
 <head>
-    <meta charset="UTF-8">
-    <title>マイページ|santé!</title>
-    <link rel="stylesheet" href=>
+<meta charset="UTF-8">
+<title>マイページ|santé!</title>
+<link rel="stylesheet" type="text/css" href="css/Main.css">
+<link rel="stylesheet" type="text/css" href="css/Mypage.css">
 </head>
 
 <div class="wrapper">
-    <div class="header">
-        <header>
-            <h1>
-                <a href=""><img src="" alt="画像"></a>
-            </h1>
+	<div class="header">
+		<header>
+			<h1>
+				<div class="wood">
+					<img id="logo" src="/sante/img/wood.jpg" alt="画像">
+				</div>
+			</h1>
 
-            <ul>
-                <li><a href="">カレンダー</a></li>
-                <li><a href="">図鑑</a></li>
-                <li><a href="">集計</a></li>
-                <li><a href="">マイページ</a></li>
-                <li><a href="">ログアウト</a></li>
-            </ul>
-            <hr>
-        </header>
-    </div>
-    <div class="body">
-        <body>
-			<form method = "GET" action = "/sante/MypagePhysicalsServlet">
-				<input type="submit" name = "submit" value="コンディションとアルコール耐性 "><br>
+			<ul>
+				<li><a href="">カレンダー</a></li>
+				<li><a href="">図鑑</a></li>
+				<li><a href="">集計</a></li>
+				<li><a href="">マイページ</a></li>
+				<li><a href="">ログアウト</a></li>
+			</ul>
+			<hr>
+		</header>
+	</div>
+	<div class="body">
+		<body>
+			<form id = "Physicals" method="GET" action="/sante/MypagePhysicalsServlet">
+				<input type="submit" name="submit" value="コンディションとアルコール耐性 "><br>
 			</form>
-			<form method = "GET" action = "/sante/MypageManualServlet">
-				<input type="submit" name = "submit" value="使い方 " >
+			<form  id = "Manual" method="GET" action="/sante/MypageManualServlet">
+				<input type="submit" name="submit" value="使い方 ">
 			</form>
-			<script>
+			<script>
 
 			</script>
-        </body>
-    </div>
-    <!-- footer -->
-    <div class="footer">
-        <footer>
-
-        </footer>
-    </div>
+		</body>
+	</div>
+	<!-- footer -->
+	<div class="footer">
+		<footer> </footer>
+	</div>
 </div>
 
 </html>
