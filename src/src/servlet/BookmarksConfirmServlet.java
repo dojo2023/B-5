@@ -54,7 +54,7 @@ public class BookmarksConfirmServlet extends HttpServlet {
 
 				}else if(request.getParameter("submit").equals("いいえ")){
 					//お気に入り選択画面へとリダイレクトする。
-					response.sendRedirect("/sante/LibrariesBookmarksServlet");
+					response.sendRedirect("/sante/BookmarksServlet");
 				}
 	}
 
