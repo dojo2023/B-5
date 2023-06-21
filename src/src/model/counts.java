@@ -1,8 +1,8 @@
 package model;
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.util.Date;
 
-public class counts {
+public class Counts {
 private int counts_id;
 private int users_id;
 private int counts_alcohol;
@@ -13,7 +13,7 @@ private Timestamp updated_at;
 
 
 
-public counts(int counts_id, int users_id, int counts_alcohol, Date counts_date, Timestamp created_at,
+public Counts(int counts_id, int users_id, int counts_alcohol, Date counts_date, Timestamp created_at,
 		Timestamp updated_at) {
 	super();
 	this.counts_id = counts_id;
@@ -23,7 +23,7 @@ public counts(int counts_id, int users_id, int counts_alcohol, Date counts_date,
 	this.created_at = created_at;
 	this.updated_at = updated_at;
 }
-public counts() {
+public Counts() {
 	super();
 	this.counts_id = 0;
 	this.users_id = 0;
