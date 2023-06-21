@@ -68,7 +68,7 @@
                             </tr>
                             <!-- ここから下は実際のデータを入れる *書いたら消すこと -->
                             <tr>
-                                <td>${e.description}</td>
+                                <td>${description}</td>
                                 <td>${genre}</td>
                                 <td>${kind}</td>
                                 <td>${alcoholcontent}</td>
