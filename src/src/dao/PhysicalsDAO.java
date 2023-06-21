@@ -24,12 +24,11 @@ public class PhysicalsDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
 			// Prepare the SQL statement
-	        String sql = "INSERT INTO physicals (physicals_id, users_id, physicals_resistance, physicals_condition) VALUES (?, ?, ?, ?)";
+	        String sql = "INSERT INTO physicals (users_id, physicals_resistance, physicals_condition) VALUES (?, ?, ?)";
 	        PreparedStatement pstmt = conn.prepareStatement(sql);
-	        pstmt.setInt(1, physicals.getPhysicals_id());
-	        pstmt.setInt(2, physicals.getUsers_id());
-	        pstmt.setInt(3, physicals.getPhysicals_resistance());
-	        pstmt.setInt(4, physicals.getPhysicals_condition());
+	        pstmt.setInt(1, physicals.getUsers_id());
+	        pstmt.setInt(2, physicals.getPhysicals_resistance());
+	        pstmt.setInt(3, physicals.getPhysicals_condition());
 
 	        // Execute the update statement
 	        pstmt.executeUpdate();
