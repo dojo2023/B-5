@@ -25,31 +25,31 @@
     <div class="body">
     <body>
     	<form method="POST"action="RegistPhysicalsServlet">
-            <label for = "resistance-select">アルコール耐性</label><br>
-          <select name = "resistance" >
+            <label class = "resistance-select">アルコール耐性</label><br>
+          <select name = "physicals_resistance" >
             <option value="">選択してください</option>
-            <option value="高い">高い</option>
-            <option value="やや高い">やや高い</option>
-            <option value="普通">普通</option>
-            <option value="やや低い">やや低い</option>
-            <option value="低い">低い</option>
+            <option value="1">高い</option>
+            <option value="2">やや高い</option>
+            <option value="3">普通</option>
+            <option value="4">やや低い</option>
+            <option value="5">低い</option>
           </select><br>
-            <label for = "condition-select">コンディション</label><br>
-            <select name = "condition" required>
+            <label class = "condition-select">コンディション</label><br>
+            <select name = "physicals_condition" required>
             <option value="">選択してください</option>
-            <option value="10%">10%</option>
-            <option value="20%">20%</option>
-            <option value="30%">30%</option>
-            <option value="40%">40%</option>
-            <option value="50%">50%</option>
-            <option value="60%">60%</option>
-            <option value="70%">70%</option>
-            <option value="80%">80%</option>
-            <option value="90%">90%</option>
-            <option value="100%">100%</option>
+            <option value="1">10%</option>
+            <option value="2">20%</option>
+            <option value="3">30%</option>
+            <option value="4">40%</option>
+            <option value="5">50%</option>
+            <option value="6">60%</option>
+            <option value="7">70%</option>
+            <option value="8">80%</option>
+            <option value="9">90%</option>
+            <option value="10">100%</option>
             </select><br>
 
-            <input type = "submit" name = "submit"value = "登録">
+            <input type = "submit" name = "submit" value = "登録">
 			</form>
             <script>
             </script>
