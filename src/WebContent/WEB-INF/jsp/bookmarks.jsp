@@ -20,11 +20,11 @@
             <!-- 各ページへのリンク -->
             <nav>
                 <ul>
-                    <li><a href="/santé/CalendarServlet">カレンダー</a></li>
-                    <li><a href="/santé/LibrariesServlet">図鑑</a></li>
-                    <li><a href="/santé/CountsServlet">集計</a></li>
-                    <li><a href="/santé/MypageServlet">マイページ</a></li>
-                    <li><a href="/santé/UsersResultServlet">ログアウト</a></li>
+                    <li><a href="/sante/CalendarServlet">カレンダー</a></li>
+                    <li><a href="/sante/LibrariesServlet">図鑑</a></li>
+                    <li><a href="/sante/CountsServlet">集計</a></li>
+                    <li><a href="/sante/MypageServlet">マイページ</a></li>
+                    <li><a href="/sante/UsersResultServlet">ログアウト</a></li>
                 </ul>
             </nav>
         </header>
@@ -42,7 +42,7 @@
                 </c:if>
                 <!-- 図鑑の内容を要素数分表示させる -->
                 <!-- 条件式は後で記載 *書いたら消すこと -->
-                <form　>
+                <form method="POST" autocomplete="off" action="/sante/BookmarksServlet">
                     <c:forEach var="e" items="">
                         <div class="content_bookmarks_check_table">
                             <table>
@@ -56,7 +56,7 @@
                                 </tr>
                                 <!-- ここから下は実際のデータを入れる *書いたら消すこと -->
                                 <tr>
-                                    <td>${e.description}</td>
+                                    <td>${description}</td>
                                     <td>${genre}</td>
                                     <td>${kind}</td>
                                     <td>${alcoholcontent}</td>
@@ -70,8 +70,8 @@
                     </c:forEach>
                     <!-- 送信用submit -->
                     <div class="bookmarks_input">
-                        <input type="submit" name="yes" value="更新">
-                        <input type="submit" name="no" value="キャンセル">
+                        <input type="submit" name="submit" value="更新">
+                        <input type="submit" name="submit" value="キャンセル">
                     </div>
                 </form>
             </div>
