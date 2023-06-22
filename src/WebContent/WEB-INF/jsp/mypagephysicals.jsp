@@ -22,11 +22,11 @@
             </h1>
             <nav>
                 <ul>
-                    <li><a href="/santé/CalendarServlet">カレンダー</a></li>
-                    <li><a href="/santé/LibrariesServlet">図鑑</a></li>
-                    <li><a href="/santé/CountsServlet">集計</a></li>
-                    <li><a href="/santé/MypageServlet">マイページ</a></li>
-                    <li><a href="/santé/UsersResultServlet">ログアウト</a></li>
+                    <li><a href="/sante/CalendarServlet">カレンダー</a></li>
+                    <li><a href="/sante/LibrariesServlet">図鑑</a></li>
+                    <li><a href="/sante/CountsServlet">集計</a></li>
+                    <li><a href="/sante/MypageServlet">マイページ</a></li>
+                    <li><a href="/sante/LoginServlet">ログアウト</a></li>
                 </ul>
             </nav>
         </header>
@@ -34,33 +34,34 @@
     <!-- body -->
     <div class="body">
         <body>
-          <label for = "resistance-select">アルコール耐性</label><br>
-          <select name = "resistance" >
+          <form method="POST"action="/sante/MypagePhysicalsServlet">
+          <label class = "resistance-select">アルコール耐性</label><br>
+          <select name = "physicals_resistance" >
             <option value="">選択してください</option>
-            <option value="高い">高い</option>
-            <option value="やや高い">やや高い</option>
-            <option value="普通">普通</option>
-            <option value="やや低い">やや低い</option>
-            <option value="低い">低い</option>
+            <option value="1">高い</option>
+            <option value="2">やや高い</option>
+            <option value="3">普通</option>
+            <option value="4">やや低い</option>
+            <option value="5">低い</option>
           </select><br>
-            <label for = "condition-select">コンディション</label><br>
-            <select name = "condition" required>
+            <label class = "condition-select">コンディション</label><br>
+            <select name = "physicals_condition" required>
             <option value="">選択してください</option>
-            <option value="10%">10%</option>
-            <option value="20%">20%</option>
-            <option value="30%">30%</option>
-            <option value="40%">40%</option>
-            <option value="50%">50%</option>
-            <option value="60%">60%</option>
-            <option value="70%">70%</option>
-            <option value="80%">80%</option>
-            <option value="90%">90%</option>
-            <option value="100%">100%</option>
+            <option value="1">10%</option>
+            <option value="2">20%</option>
+            <option value="3">30%</option>
+            <option value="4">40%</option>
+            <option value="5">50%</option>
+            <option value="6">60%</option>
+            <option value="7">70%</option>
+            <option value="8">80%</option>
+            <option value="9">90%</option>
+            <option value="10">100%</option>
             </select><br>
-			<form method="POST"action="MypagePhysicalsServlet">
+
 				<input type="submit" name = "submit" value="更新">
 			</form>
-			<form method="GET"action="MypageServlet">
+			<form method="GET"action="/sante/MypageServlet">
 				<input type="submit" name = "submit" value="戻る">
 			</form>
 			<script>
