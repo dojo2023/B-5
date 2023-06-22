@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.PhysicalsDAO;
-import dao.UsersDAO;
+import model.LoginId;
 import model.Physicals;
 
 /**
@@ -42,20 +42,29 @@ public class MypagePhysicalsServlet extends HttpServlet {
 
 		//パラメーター取得
 		request.setCharacterEncoding("UTF-8");
-		UsersDAO usersDAO = new UsersDAO();
-		int users_id = usersDAO.getMaxUserID();
-		int physicals_id = Integer.parseInt(request.getParameter("physicals_id"));
+
+		// セッションスコープからLoginIdオブジェクトを取得し、users_idを取得する
+		HttpSession session = request.getSession();
+		LoginId loginId = (LoginId) session.getAttribute("users_id");
+		int users_id = loginId.getUsers_id();
+
+
 		int physicals_resistance = Integer.parseInt(request.getParameter("physicals_resistance"));
 		int physicals_condition = Integer.parseInt(request.getParameter("physicals_condition"));
 
+		System.out.println(physicals_resistance);
+		System.out.println(physicals_condition);
+		System.out.println(users_id);
 
 		PhysicalsDAO physiDao = new PhysicalsDAO();
-		boolean updateSuccess = physiDao.updatePhysicals(new Physicals(users_id, physicals_id, physicals_resistance, physicals_condition, null, null));
+		boolean updateSuccess = physiDao.updatePhysicals(new Physicals(0, users_id, physicals_resistance, physicals_condition, null, null));
 		if (updateSuccess) {
 			response.sendRedirect("/sante/MypageServlet");
+		} else {
+			response.sendRedirect("/sante/Servlet");
 		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
-		dispatcher.forward(request, response);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+//		dispatcher.forward(request, response);
 	}
 
 }
