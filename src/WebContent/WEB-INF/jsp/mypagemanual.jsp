@@ -23,11 +23,11 @@
             </h1>
             <nav>
                 <ul>
-                    <li><a href="/santé/CalendarServlet">カレンダー</a></li>
-                    <li><a href="/santé/LibrariesServlet">図鑑</a></li>
-                    <li><a href="/santé/CountsServlet">集計</a></li>
-                    <li><a href="/santé/MypageServlet">マイページ</a></li>
-                    <li><a href="/santé/UsersResultServlet">ログアウト</a></li>
+                    <li><a href="/sante/CalendarServlet">カレンダー</a></li>
+                    <li><a href="/sante/LibrariesServlet">図鑑</a></li>
+                    <li><a href="/sante/CountsServlet">集計</a></li>
+                    <li><a href="/sante/MypageServlet">マイページ</a></li>
+                    <li><a href="/sante/LoginServlet">ログアウト</a></li>
                 </ul>
             </nav>
         </header>
@@ -36,7 +36,7 @@
     <div class="body">
         <body>
             <img src = "">
-            <form method="GET"action="MypageServlet">
+            <form method="GET"action="/sante/MypageServlet">
             <input type = "submit" name = "submit" value = "戻る">
 
             <script>
