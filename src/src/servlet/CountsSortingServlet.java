@@ -56,21 +56,37 @@ public class CountsSortingServlet extends HttpServlet {
 				int users_member = Integer.parseInt(request.getParameter("userscounts"));
 			
 				if (users_member != 0) {
-					PostCounts counts_data = (PostCounts)session.getAttribute("post_counts");
-					// 投稿情報を格納
-					counts_data.setUsers_member(users_member);
+					//セッションスコープから「post_counts」のインスタンスを取り出し、PostCounts型にキャスタ(型変換)
+					PostCounts pcs = (PostCounts)session.getAttribute("post_counts");
+
+					//pcからall_memberの値を取り出すゲッターメソッドを実行する
+					int allmem = pcs.getAll_member();
+
 					
-					session.setAttribute("post_counts",counts_data );
 					
-					if (users_member < 0) {
-						// アプリ利用者選別画面画面にフォワードする
-						RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
-						dispatcher.forward(request, response);
-					}
-					else if (users_member > 10) {
+					if(users_member>allmem) {
+						//エラー処理
 						// アプリ利用者選別画面にフォワードする
 						RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
 						dispatcher.forward(request, response);
+					}else {
+						PostCounts counts_data = (PostCounts)session.getAttribute("post_counts");
+						// 投稿情報を格納
+						counts_data.setUsers_member(users_member);
+						
+						session.setAttribute("post_counts",counts_data );
+						
+						if (users_member < 0) {
+							// アプリ利用者選別画面にフォワードする
+							RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+							dispatcher.forward(request, response);
+						}
+						else if (users_member > 10) {
+							// アプリ利用者選別画面にフォワードする
+							RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+							dispatcher.forward(request, response);
+						}
+						
 					}
 
 				}

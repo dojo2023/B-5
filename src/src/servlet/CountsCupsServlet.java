@@ -30,9 +30,12 @@ public class CountsCupsServlet extends HttpServlet {
 			return;
 		}
 */
+		
+		
 		// 杯数選択画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countscups.jsp");
 		dispatcher.forward(request, response);
+		
 	}
 
 	/**
@@ -54,8 +57,15 @@ public class CountsCupsServlet extends HttpServlet {
 			
 			request.setCharacterEncoding("UTF-8");
 			if (request.getParameter("submit").equals("登録")) {
+				
+			//作成中です
+				//	int counts = Integer.parseInt(request.getParameter("counts"));
+				
+				
 				//集計登録確認画面のサーブレットにリダイレクト
 				response.sendRedirect("/sante/CountsRegistConfirmServlet");
+				
+				
 					
 			}
 			else if (request.getParameter("submit").equals("割合表示")) {

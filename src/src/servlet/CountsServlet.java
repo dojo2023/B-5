@@ -54,13 +54,13 @@ public class CountsServlet extends HttpServlet {
 			if (request.getParameter("submit").equals("次へ")) {
 				try {
 					int all_member = Integer.parseInt(request.getParameter("counts"));
-				
+					
 					if (all_member != 0) {
 						PostCounts counts_cou = new PostCounts();
 						// 投稿情報を格納
 						counts_cou.setAll_member(all_member);
 						session.setAttribute("post_counts",counts_cou );
-						
+	
 						
 						if (all_member < 0) {
 							// 集計入力画面にフォワードする

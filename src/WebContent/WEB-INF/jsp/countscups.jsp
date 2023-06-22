@@ -37,7 +37,8 @@
             
                 <div class="cupscounts">
                     <div>
-                        名前 <!--入力した各ユーザー名を表示する-->
+                        名前 <br><!--入力した各ユーザー名を表示する-->
+                        ${post_counts.users_name1}
                     </div><br>
                     <div class="field">
                        <button class="button" id="down">－</button>

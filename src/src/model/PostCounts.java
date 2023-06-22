@@ -1,12 +1,14 @@
 package model;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class PostCounts implements Serializable {
 	//集計投稿用フィールド
 	private int all_member;
 	private int users_member;
 	
+	private String users_name0;
 	private String users_name1;
 	private String users_name2;
 	private String users_name3;
@@ -16,8 +18,8 @@ public class PostCounts implements Serializable {
 	private String users_name7;
 	private String users_name8;
 	private String users_name9;
-	private String users_name10;
 	
+	private String users_birthday0;
 	private String users_birthday1;
 	private String users_birthday2;
 	private String users_birthday3;
@@ -27,7 +29,20 @@ public class PostCounts implements Serializable {
 	private String users_birthday7;
 	private String users_birthday8;
 	private String users_birthday9;
-	private String users_birthday10;
+	
+	private int counts_cups0;
+	private int counts_cups1;
+	private int counts_cups2;
+	private int counts_cups3;
+	private int counts_cups4;
+	private int counts_cups5;
+	private int counts_cups6;
+	private int counts_cups7;
+	private int counts_cups8;
+	private int counts_cups9;
+	
+	private Timestamp created_at;
+	private Timestamp updated_at;
 	
 	
 	public PostCounts() {
@@ -35,6 +50,7 @@ public class PostCounts implements Serializable {
 		
 	}
 	//ゲッターセッター
+
 
 	public int getAll_member() {
 		return all_member;
@@ -53,6 +69,16 @@ public class PostCounts implements Serializable {
 
 	public void setUsers_member(int users_member) {
 		this.users_member = users_member;
+	}
+
+
+	public String getUsers_name0() {
+		return users_name0;
+	}
+
+
+	public void setUsers_name0(String users_name0) {
+		this.users_name0 = users_name0;
 	}
 
 
@@ -146,13 +172,13 @@ public class PostCounts implements Serializable {
 	}
 
 
-	public String getUsers_name10() {
-		return users_name10;
+	public String getUsers_birthday0() {
+		return users_birthday0;
 	}
 
 
-	public void setUsers_name10(String users_name10) {
-		this.users_name10 = users_name10;
+	public void setUsers_birthday0(String users_birthday0) {
+		this.users_birthday0 = users_birthday0;
 	}
 
 
@@ -246,14 +272,125 @@ public class PostCounts implements Serializable {
 	}
 
 
-	public String getUsers_birthday10() {
-		return users_birthday10;
+	public int getCounts_cups0() {
+		return counts_cups0;
 	}
 
 
-	public void setUsers_birthday10(String users_birthday10) {
-		this.users_birthday10 = users_birthday10;
+	public void setCounts_cups0(int counts_cups0) {
+		this.counts_cups0 = counts_cups0;
 	}
 
+
+	public int getCounts_cups1() {
+		return counts_cups1;
+	}
+
+
+	public void setCounts_cups1(int counts_cups1) {
+		this.counts_cups1 = counts_cups1;
+	}
+
+
+	public int getCounts_cups2() {
+		return counts_cups2;
+	}
+
+
+	public void setCounts_cups2(int counts_cups2) {
+		this.counts_cups2 = counts_cups2;
+	}
+
+
+	public int getCounts_cups3() {
+		return counts_cups3;
+	}
+
+
+	public void setCounts_cups3(int counts_cups3) {
+		this.counts_cups3 = counts_cups3;
+	}
+
+
+	public int getCounts_cups4() {
+		return counts_cups4;
+	}
+
+
+	public void setCounts_cups4(int counts_cups4) {
+		this.counts_cups4 = counts_cups4;
+	}
+
+
+	public int getCounts_cups5() {
+		return counts_cups5;
+	}
+
+
+	public void setCounts_cups5(int counts_cups5) {
+		this.counts_cups5 = counts_cups5;
+	}
+
+
+	public int getCounts_cups6() {
+		return counts_cups6;
+	}
+
+
+	public void setCounts_cups6(int counts_cups6) {
+		this.counts_cups6 = counts_cups6;
+	}
+
+
+	public int getCounts_cups7() {
+		return counts_cups7;
+	}
+
+
+	public void setCounts_cups7(int counts_cups7) {
+		this.counts_cups7 = counts_cups7;
+	}
+
+
+	public int getCounts_cups8() {
+		return counts_cups8;
+	}
+
+
+	public void setCounts_cups8(int counts_cups8) {
+		this.counts_cups8 = counts_cups8;
+	}
+
+
+	public int getCounts_cups9() {
+		return counts_cups9;
+	}
+
+
+	public void setCounts_cups9(int counts_cups9) {
+		this.counts_cups9 = counts_cups9;
+	}
+
+
+	public Timestamp getCreated_at() {
+		return created_at;
+	}
+
+
+	public void setCreated_at(Timestamp created_at) {
+		this.created_at = created_at;
+	}
+
+
+	public Timestamp getUpdated_at() {
+		return updated_at;
+	}
+
+
+	public void setUpdated_at(Timestamp updated_at) {
+		this.updated_at = updated_at;
+	}
+
+	
 
 }
