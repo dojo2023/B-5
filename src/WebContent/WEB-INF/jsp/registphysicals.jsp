@@ -26,7 +26,7 @@
     <body>
     	<form method="POST"action="RegistPhysicalsServlet">
             <label class = "resistance-select">アルコール耐性</label><br>
-          <select name = "physicals_resistance" >
+          <select name = "physicals_resistance" required>
             <option value="">選択してください</option>
             <option value="1">高い</option>
             <option value="2">やや高い</option>
