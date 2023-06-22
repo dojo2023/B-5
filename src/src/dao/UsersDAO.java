@@ -63,7 +63,7 @@ public class UsersDAO {
 
 	public boolean InsertUser(Users users) {
 	    Connection conn = null;
-	    boolean updateSuccess = false;
+	    boolean insertSuccess = false;
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
@@ -82,7 +82,7 @@ public class UsersDAO {
 	        pstmt.executeUpdate();
 
 	        // The update was successful
-	        updateSuccess = true;
+	        insertSuccess = true;
 
 	        pstmt.close();
 
@@ -98,7 +98,7 @@ public class UsersDAO {
 	        }
 	    }
 
-	    return updateSuccess;
+	    return insertSuccess;
 	}
 
 	public int getUserID(String users_name, String users_password) {
