@@ -22,11 +22,11 @@
 			</h1>
 
 			<ul>
-				<li><a href="">カレンダー</a></li>
-				<li><a href="">図鑑</a></li>
-				<li><a href="">集計</a></li>
-				<li><a href="">マイページ</a></li>
-				<li><a href="">ログアウト</a></li>
+				<li><a href="/sante/CalendarServlet">カレンダー</a></li>
+                <li><a href="/sante/LibrariesServlet">図鑑</a></li>
+                <li><a href="/sante/CountsServlet">集計</a></li>
+                <li><a href="/sante/MypageServlet">マイページ</a></li>
+                <li><a href="/sante/LoginServlet">ログアウト</a></li>
 			</ul>
 			<hr>
 		</header>
