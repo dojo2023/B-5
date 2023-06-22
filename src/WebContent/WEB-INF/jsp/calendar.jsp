@@ -32,28 +32,9 @@
     <!-- body -->
     <div class="body">
         <body>
-            <div class="calendar_management">
-                <button id="prev-button" type="button" class="calender_prev">前の月</button>
-                <label id="yearMonth" class="calender_yearmonth"></label>
-                <label class="calender_countdown">次の予定まであと</label>
-                <label class="calender_condition">コンディション</label>
-                <button id="next-button" type="button" class="calender_next">次の月</button>
-                <table>
-                    <thead>
-                        <tr>
-                            <th class="sunday">日</th>
-                            <th>月</th>
-                            <th>火</th>
-                            <th>水</th>
-                            <th>木</th>
-                            <th>金</th>
-                            <th class="saturday">土</th>
-                        </tr>
-                    </thead>
-                    <tbody id="calendar-body" onclick="clickDisplayAlert()">
-                    </tbody>
-                </table>
-            </div>
+            <button id="prev" type="button">前の月</button>
+            <button id="next" type="button">次の月</button>
+            <div id="calendar"></div>
             <script src="js/schedules/Schedules.js"></script>
         </body>
     </div>
