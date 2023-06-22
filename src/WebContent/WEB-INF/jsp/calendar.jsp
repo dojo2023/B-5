@@ -10,7 +10,7 @@
     <!-- 機能名|santé ! -->
     <title>カレンダー|santé!</title>
     <!-- hrefの後ろにcssのリンクを書く -->
-    <link rel="stylesheet" href="calendar.css">
+    <link rel="stylesheet" href="css/Schedules.css">
 </head>
 
 <div class="wrapper">
