@@ -10,9 +10,9 @@ import model.Users;
 
 public class UsersDAO {
 	// ログインできるならtrueを返す
-	public boolean isLoginOK(Users users) {
+	public boolean registCheck(String users_name) {
 		Connection conn = null;
-		boolean loginResult = false;
+		boolean registResult = false;
 
 		try {
 			// JDBCドライバを読み込む
@@ -22,10 +22,9 @@ public class UsersDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
 			// SELECT文を準備する
-			String sql = "select count(*) from users where users_name = ? and users_password = ?";
+			String sql = "select count(*) from users where users_name = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-			pStmt.setString(1,users.getUsers_name());
-			pStmt.setString(2,users.getUsers_password());
+			pStmt.setString(1,users_name);
 
 			// SELECT文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
@@ -33,16 +32,16 @@ public class UsersDAO {
 			// ユーザーニックネームとパスワードが一致するユーザーがいたかどうかをチェックする
 			rs.next();
 			if (rs.getInt("count(*)") == 1) {
-				loginResult = true;
+				registResult = true;
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			loginResult = false;
+			registResult = false;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			loginResult = false;
+			registResult = false;
 		}
 		finally {
 			// データベースを切断
@@ -52,13 +51,13 @@ public class UsersDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					loginResult = false;
+					registResult = false;
 				}
 			}
 		}
 
 		// 結果を返す
-		return loginResult;
+		return registResult;
 	}
 
 	public boolean InsertUser(Users users) {
