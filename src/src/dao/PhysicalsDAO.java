@@ -96,4 +96,46 @@ public class PhysicalsDAO {
 
 	    return physicalsList;
 	}
+	//physicalsに更新
+	public boolean updatePhysicals(Physicals physicals) {
+	    Connection conn = null;
+	    boolean updateSuccess = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
+
+			// Prepare the SQL statement
+	        String sql = "UPDATE physicals set physicals_resistance=?, physicals_condition=? where users_id=?" ;
+	        PreparedStatement pstmt = conn.prepareStatement(sql);
+	        pstmt.setInt(1, physicals.getPhysicals_resistance());
+	        pstmt.setInt(2, physicals.getPhysicals_condition());
+	        pstmt.setInt(3, physicals.getUsers_id());
+
+
+	        // Execute the update statement
+	        pstmt.executeUpdate();
+
+	        // The update was successful
+	        updateSuccess = true;
+
+	        pstmt.close();
+
+	    } catch (SQLException | ClassNotFoundException e) {
+	        e.printStackTrace();
+	    } finally {
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+
+	    return updateSuccess;
+	}
 }
