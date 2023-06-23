@@ -1,5 +1,3 @@
-<!-- エラーメッセージ（一致しません）を表示させる -->
-<!-- まだコピペしただけ -->
 
 var formObj = document.getElementById('submit');
 var errorMessageObj = document.getElementById('error_message');
