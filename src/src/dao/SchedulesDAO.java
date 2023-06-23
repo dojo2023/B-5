@@ -24,12 +24,12 @@ public class SchedulesDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
 			// Prepare the SQL statement
-	        String sql = "INSERT INTO schedules (schedules_id, schedules_name, schedules_dt, users_id) VALUES (?, ?, ?, ?)";
+	        String sql = "INSERT INTO schedules ( schedules_name, schedules_dt, users_id) VALUES ( ?, ?, ?)";
 	        PreparedStatement pstmt = conn.prepareStatement(sql);
-	        pstmt.setInt(1, schedules.getSchedules_id());
-	        pstmt.setString(2, schedules.getSchedules_name());
-	        pstmt.setTimestamp(3, schedules.getSchedules_dt());
-	        pstmt.setInt(4, schedules.getUsers_id());
+	        //pstmt.setInt(1, schedules.getSchedules_id());
+	        pstmt.setString(1, schedules.getSchedules_name());
+	        pstmt.setTimestamp(2, schedules.getSchedules_dt());
+	        pstmt.setInt(3, schedules.getUsers_id());
 
 
 	        // Execute the update statement
