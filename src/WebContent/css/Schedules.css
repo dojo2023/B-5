@@ -1,8 +1,10 @@
 @charset "UTF-8";
+
 #calendar {
   display: flex;
   flex-wrap: wrap;
 }
+
 
 section {
   margin: 10px;
