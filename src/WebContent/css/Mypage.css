@@ -1,43 +1,23 @@
 @charset "UTF-8";
-.header {
-    padding-right: 370px;
-    background-image: url("/sante/img/background1.png");
-    background-size: 30%;
-    background-repeat: no-repeat;
-    background-position: center;
-    text-align:right;
-    height: 300px;
-    width: 500px;
-}
-ul  {
-    margin: 0 0 0 350px;
-    padding-top: 120px;
-    list-style: none;
-}
-li {
-    display: inline;
-    font-family: 'Times New Roman', Times, serif;
-    top: 50px;
-    padding-right: 50px;
-}
+
 .body {
-    margin: 100px 35px auto 50px;
-    width: 780px;
-    height: 780px;
+    /*margin: 100px 35px auto 50px;*/
+    width: 50%;
+    height: 50%;
     border-radius: 50%;
     background: radial-gradient(#fcfcfc, #fcfcfc 43%, #e7e7e7 51% 52%, #fff 53% 66%, #e0e0e0 70%, #c0c0c0);
     filter: drop-shadow(2px 3px 4px #888);
     justify-content: center;
     list-style: none;
 }
-.cutlery {
+/*.cutlery {
     padding-top: 100px;
     padding-left: 680px;
     height: 650px;
-}
+}*/
 .paper {
     width: 500px;
-  height: 780px;
+  height: 700px;
   margin: 0 auto;
   margin-top: 10px;
   box-shadow: 0 10px 6px -6px #777;
