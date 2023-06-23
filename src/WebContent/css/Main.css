@@ -1,18 +1,35 @@
 @charset "UTF-8";
-#logo {
-    height: 150px;
-    width: 1000px;
-    text-align: center;
-    position: relative;
-}
+
 .header {
     text-align: center;
 }
+.headerbackground {
+	width: 50%;
+}
+ul{
+
+}
+li {
+	display: inline;
+	padding-right: 50px;
+	font-family: 'Times New Roman', Times, serif;
+}
+/*
 ul {
-    padding-top: 0%;
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 }
 li {
 display: inline;
 top: 10px;
 padding-right: 50px;
 }
+.headerbackground {
+
+	position:relative;
+}*/
