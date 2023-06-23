@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.PostCounts;
+
 /**
  * Servlet implementation class CountsUsersRegistServlet
  */
@@ -69,7 +71,7 @@ public class CountsUsersRegistServlet extends HttpServlet {
 					
 					String users_birthday = String.valueOf(birthday);
 //					
-					System.out.println(users_birthday);
+//					System.out.println(users_birthday);
 					//users_name,users_birthdayのデータがdbにあるかチェックする
 
 					//ArrayListを使った試し
@@ -85,22 +87,13 @@ public class CountsUsersRegistServlet extends HttpServlet {
 			}
 
 			//セッションスコープから「post_counts」のインスタンスを取り出し、PostCounts型にキャスタ(型変換)
-//			PostCounts counts_name = (PostCounts) session.getAttribute("post_counts");
+			PostCounts counts_name = (PostCounts) session.getAttribute("post_counts");
 //			PostCounts counts_birthday = (PostCounts) session.getAttribute("post_counts");
 
-//			birthday_list.add("users_birthday0");
-//			birthday_list.add("users_birthday1");
-//			birthday_list.add("users_birthday2");
-//			birthday_list.add("users_birthday3");
-//			birthday_list.add("users_birthday4");
-//			birthday_list.add("users_birthday5");
-//			birthday_list.add("users_birthday6");
-//			birthday_list.add("users_birthday7");
-//			birthday_list.add("users_birthday8");
-//			birthday_list.add("users_birthday9");
+
 
 			// 投稿情報を格納
-//			counts_name.setName_list(name_list);
+			counts_name.setName_list(name_list);
 //			counts_birthday.setBirthday_list(birthday_list);
 
 			//				counts_name.setUsers_name(users_name);

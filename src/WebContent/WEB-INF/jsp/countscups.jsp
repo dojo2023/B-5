@@ -39,14 +39,14 @@
             
                 <div class="cupscounts" ${status.index}>
                     <div>
-                       ${post_counts.users_name1}<br><!--入力した各ユーザー名を表示する-->
+                       ${name}${status.index}<br><!--入力した各ユーザー名を表示する-->
                     </div><br>
                     <div class="field">
-                       <button class="button" id="down">－</button>
+                       <button class="button" id="down${status.index}">－</button>
     					<input type="text" name="counts" value='0' class="inputtext" id="textbox${status.index}"> <!--杯数カウントボタンの値を出力する-->
-    					<button class="button" id="up">＋</button>
+    					<button class="button" id="up${status.index}">＋</button>
                     </div>
-                    	<button class="button resetbtn" id="reset">RESET</button>
+                    	<button class="button resetbtn" id="reset${status.index}">RESET</button>
                 </div>
                 
                 </c:forEach>
