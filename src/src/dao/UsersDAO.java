@@ -136,6 +136,43 @@ public class UsersDAO {
 	    return userID;
 	}
 
+	public int getUserIDCounts(String users_name, String users_birthday) {
+	    Connection conn = null;
+	    int userID = -1; // Initialize with an invalid value
+
+	    try {
+	    	// JDBCドライバを読み込む
+	    	Class.forName("org.h2.Driver");
+
+	    	// データベースに接続する
+	    	conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
+
+
+	        String sql = "SELECT users_id FROM users WHERE users_name = ? AND users_birthday = ?";
+	        PreparedStatement pstmt = conn.prepareStatement(sql);
+	        pstmt.setString(1, users_name);
+	        pstmt.setString(2, users_birthday);
+
+	        ResultSet rs = pstmt.executeQuery();
+	        if (rs.next()) {
+	            userID = rs.getInt("users_id");
+	        }
+	    } catch (SQLException | ClassNotFoundException e) {
+	        e.printStackTrace();
+	    } finally {
+	        if (conn != null) {
+	            try {
+	                conn.close();
+	            } catch (SQLException e) {
+	                e.printStackTrace();
+	            }
+	        }
+	    }
+
+	    return userID;
+	}
+
+
 	public int getMaxUserID() {
 	    Connection conn = null;
 	    int maxUserID = -1; // Initialize with an invalid value
