@@ -15,11 +15,7 @@
 <div class="wrapper">
 	<div class="header">
 		<header>
-			<h1>
 				<div class="wood">
-					<img id="logo" src="/sante/img/wood.jpg" alt="画像">
-				</div>
-			</h1>
 
 			<ul>
 				<li><a href="/sante/CalendarServlet">カレンダー</a></li>
@@ -28,10 +24,15 @@
                 <li><a href="/sante/MypageServlet">マイページ</a></li>
                 <li><a href="/sante/LoginServlet">ログアウト</a></li>
 			</ul>
+
+			</div>
 			<hr>
 		</header>
 	</div>
+	</div>
 	<div class="body">
+	<div class = "paper">
+	 <img src = "/sante/img/cutlery.png" class = "cutlery">
 		<body>
 			<form id = "Physicals" method="GET" action="/sante/MypagePhysicalsServlet">
 				<input type="submit" name="submit" value="コンディションとアルコール耐性 "><br>
@@ -44,10 +45,10 @@
 			</script>
 		</body>
 	</div>
+	</div>
 	<!-- footer -->
 	<div class="footer">
 		<footer> </footer>
 	</div>
-</div>
 
 </html>
