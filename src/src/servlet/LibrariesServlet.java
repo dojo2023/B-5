@@ -31,9 +31,11 @@ public class LibrariesServlet extends HttpServlet {
 		//					response.sendRedirect("/sante/LoginServlet");
 		//					return;
 		//				}
-
-		//検索処理を行う
-
+		//図鑑全体テーブルを表示する
+		LibrariesDAO librariesDAO = new LibrariesDAO();
+		List<Libraries> librariesList = librariesDAO.getAllLibraries();
+		System.out.println(librariesList);
+		request.setAttribute("librariesList", librariesList);
 		//librariesページにフォワードする。
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/libraries.jsp");
 		dispatcher.forward(request, response);
@@ -50,14 +52,15 @@ public class LibrariesServlet extends HttpServlet {
 		//					response.sendRedirect("/sante/LoginServlet");
 		//					return;
 		//				}
-
+//		HttpSession session = request.getSession();
 		request.setCharacterEncoding("UTF-8");
-		//図鑑全体テーブルを表示する
+
 
 
 
 		String keyword = request.getParameter("search_box");
-		if (request.getParameter("submit").equals("検索")) {
+		System.out.println(keyword);
+		if ("検索".equals(request.getParameter("submit"))) {
 			//ここだけ修正必要
 			//キーワード検索で結果を表示する
 			if (keyword != null && !keyword.isEmpty()) {
@@ -68,20 +71,21 @@ public class LibrariesServlet extends HttpServlet {
 	            // 検索結果をリクエスト属性に保存
 	            request.setAttribute("searchList", searchList);
 
-//				//検索結果を表示
-//				response.sendRedirect("/sante/LibrariesServlet");
+	          //librariesページにフォワードする。
+	    		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/libraries.jsp");
+	    		dispatcher.forward(request, response);
 	        } else {
 	        	//検索結果を表示
 				response.sendRedirect("/sante/LibrariesServlet");
 	        }
 
-		} else if (request.getParameter("submit").equals("絞り込み")) {
+		} else if ("絞り込み".equals(request.getParameter("submit"))) {
 			//絞り込み検索画面へとリダイレクトする。
 			response.sendRedirect("/sante/NarrowLibrariesServlet");
-		} else if (request.getParameter("submit").equals("投稿")) {
+		} else if ("投稿".equals(request.getParameter("submit"))) {
 			//投稿画面へとリダイレクトする。
 			response.sendRedirect("/sante/PostLibrariesServlet");
-		} else if (request.getParameter("submit").equals("お気に入り")) {
+		} else if ("お気に入り".equals(request.getParameter("submit"))) {
 			//お気に入り画面へとリダイレクトする。
 			response.sendRedirect("/sante/BookmarksServlet");
 		}
