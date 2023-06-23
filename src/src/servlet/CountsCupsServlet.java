@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.PostCounts;
+
 //import model.Drinks;
 
 /**
@@ -48,20 +50,21 @@ public class CountsCupsServlet extends HttpServlet {
 //			response.sendRedirect("/sante/LoginServlet");
 //			return;
 //		}
-		
-		// 検索処理を行う
-//			CountsDAO cDao = new CountsDAO();
-//			List<Counts> cardList = cDao.select(new Counts(counts));
-//			Drinks dr = new Drinks(3,3,4,3);
-//			session.setAttribute("dinrks", dr);
+
 			
 			request.setCharacterEncoding("UTF-8");
 			if (request.getParameter("submit").equals("登録")) {
 				
 			//作成中です
-				//	int counts = Integer.parseInt(request.getParameter("counts"));
+					int counts_cups = Integer.parseInt(request.getParameter("counts"));
 				
-				
+					PostCounts counts_cupsdata = (PostCounts)session.getAttribute("post_counts");
+					// 投稿情報を格納
+					counts_cupsdata.setCounts_cups0(counts_cups);
+					session.setAttribute("post_counts",counts_cupsdata );
+
+
+					
 				//集計登録確認画面のサーブレットにリダイレクト
 				response.sendRedirect("/sante/CountsRegistConfirmServlet");
 				

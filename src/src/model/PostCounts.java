@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.ArrayList;
 
 public class PostCounts implements Serializable {
 	//集計投稿用フィールド
@@ -40,6 +41,10 @@ public class PostCounts implements Serializable {
 	private int counts_cups7;
 	private int counts_cups8;
 	private int counts_cups9;
+
+	//追記　試し
+	private ArrayList<String> name_list;
+	private ArrayList<String> birthday_list;
 	
 	private Timestamp created_at;
 	private Timestamp updated_at;
@@ -372,6 +377,26 @@ public class PostCounts implements Serializable {
 	}
 
 
+	public ArrayList<String> getName_list() {
+		return name_list;
+	}
+
+
+	public void setName_list(ArrayList<String> name_list) {
+		this.name_list = name_list;
+	}
+
+
+	public ArrayList<String> getBirthday_list() {
+		return birthday_list;
+	}
+
+
+	public void setBirthday_list(ArrayList<String> birthday_list) {
+		this.birthday_list = birthday_list;
+	}
+
+
 	public Timestamp getCreated_at() {
 		return created_at;
 	}
@@ -390,6 +415,7 @@ public class PostCounts implements Serializable {
 	public void setUpdated_at(Timestamp updated_at) {
 		this.updated_at = updated_at;
 	}
+
 
 	
 

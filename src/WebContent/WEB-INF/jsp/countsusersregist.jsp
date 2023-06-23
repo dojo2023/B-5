@@ -47,7 +47,7 @@
 
 
 
-					<c:forEach var="i" begin="0" end="${post_counts.users_member}" step="1" varStatus="status">
+					<c:forEach var="i" begin="1" end="${post_counts.users_member}" step="1" varStatus="status">
 
                     <tr>
                         <td><input type="text" name="name${status.index}"></td>
@@ -59,13 +59,13 @@
                                     <option value="${year}">${year}</option>
                                 </c:forEach>
                             </select>
-                            <select name="month${status.index}" onchange="handleIDInputChange()" disabled>
+                            <select name="month${status.index}" onchange="handleIDInputChange()">
                                 <option value="月" selected>月</option>
                                 <c:forEach var="month" begin="1" end="12">
                                     <option value="${month}">${month}</option>
                                 </c:forEach>
                             </select>
-                            <select name="day${status.index}" disabled>
+                            <select name="day${status.index}">
                                 <option value="日" selected>日</option>
                                 <c:forEach var="day" begin="1" end="31">
                                     <option value="${day}">${day}</option>
@@ -74,7 +74,7 @@
                         </td>
 
                         <td>
-                            <span id="error_message"></span>
+                            <span id="error_message" name="error_message${status.index}"></span>
                         </td>                                         
                         
                         
@@ -102,7 +102,7 @@
 
 </html>
 
-<script>
+<!-- <script>
 	function handleIDInputChange() {
 		var selectYear = document.getElementsByName("year")[0].value;
 		var selectMonth = document.getElementsByName("month")[0];
@@ -166,3 +166,4 @@
 		}
 	}
 </script>
+ -->

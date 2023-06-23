@@ -8,7 +8,7 @@
   const upbutton = document.getElementById('up');
   const text = document.getElementById('textbox');
   const reset = document.getElementById('reset');
-
+  
   //ボタンが押されたらカウント減
   downbutton.addEventListener('click', (event) => {
   //0以下にはならないようにする

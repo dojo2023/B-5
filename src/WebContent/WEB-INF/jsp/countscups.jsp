@@ -35,18 +35,23 @@
             
                 <p>杯数を選択してください</p>
             
-                <div class="cupscounts">
+            <c:forEach var="i" begin="1" end="${post_counts.users_member}" step="1" varStatus="status">
+            
+                <div class="cupscounts" ${status.index}>
                     <div>
-                        名前 <br><!--入力した各ユーザー名を表示する-->
-                        ${post_counts.users_name1}
+                       ${post_counts.users_name1}<br><!--入力した各ユーザー名を表示する-->
                     </div><br>
                     <div class="field">
                        <button class="button" id="down">－</button>
-    					<input type="text" value='0' class="inputtext" id="textbox"> <!--杯数カウントボタンの値を出力する-->
+    					<input type="text" name="counts" value='0' class="inputtext" id="textbox${status.index}"> <!--杯数カウントボタンの値を出力する-->
     					<button class="button" id="up">＋</button>
                     </div>
                     	<button class="button resetbtn" id="reset">RESET</button>
                 </div>
+                
+                </c:forEach>
+                
+                
                 
             <form method="POST" action="/sante/CountsCupsServlet">
                 <div class="">
