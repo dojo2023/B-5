@@ -58,7 +58,6 @@ public class RegistServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp").forward(request, response);
             return;
         }
-        System.out.print(registResult);
 
         // Insert the user into the database
         boolean registrationSuccess = usersDAO.InsertUser(new Users(0, users_name, users_password, users_birthday, null, null));
