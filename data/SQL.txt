@@ -54,7 +54,7 @@ SELECT * FROM schedules
 【librariesテーブルを作成するSQL文】
 CREATE TABLE libraries (
     libraries_id INT PRIMARY KEY AUTO_INCREMENT,				/*お酒ID*/				
-    libraries_name VARCHAR(30) NOT NULL,					/*銘柄*/
+    libraries_description VARCHAR(30) NOT NULL,					/*銘柄*/
     libraries_genre VARCHAR(30) NOT NULL,					/*酒類*/
     libraries_kind VARCHAR(30) NOT NULL,					/*種類*/
     libraries_alcon DOUBLE,							/*度数*/
@@ -66,7 +66,7 @@ CREATE TABLE libraries (
 );
 
 【librariesテーブルにサンプルデータを登録するSQL文】
-INSERT INTO libraries (libraries_name,libraries_genre,libraries_kind,libraries_alcon,libraries_from)
+INSERT INTO libraries (libraries_description,libraries_genre,libraries_kind,libraries_alcon,libraries_from)
                 VALUES(   '春鹿'     ,   '日本酒'   ,   '辛口'      ,    '12'       ,     '奈良県' )
 
 SELECT * FROM libraries 
@@ -123,7 +123,7 @@ CREATE TABLE counts (
 
 【countsテーブルにサンプルデータを登録するSQL文】
 INSERT INTO counts(users_id,counts_alcohol,counts_date)
-	    VALUES(  '3'   ,  '5'         ,'2023-06-16')
+	    VALUES(  '2'   ,  '5'         ,'2023-06-16')
 
 SELECT * FROM counts
 --------------------------------------------------------------------------------------------------------------------------------------------------
