@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.PostCounts;
+
 /**
  * Servlet implementation class CountsUsersRegistServlet
  */
@@ -69,7 +71,11 @@ public class CountsUsersRegistServlet extends HttpServlet {
 					// birthdayをString型に変換してusers_birthdayに格納する
 					
 					String users_birthday = String.valueOf(birthday);
+<<<<<<< Updated upstream
 			
+=======
+//					
+>>>>>>> Stashed changes
 //					System.out.println(users_birthday);
 					//users_name,users_birthdayのデータがdbにあるかチェックする
 
@@ -85,8 +91,31 @@ public class CountsUsersRegistServlet extends HttpServlet {
 
 			}
 
+<<<<<<< Updated upstream
 			session.setAttribute("nameList", name_list);
 
+=======
+			//セッションスコープから「post_counts」のインスタンスを取り出し、PostCounts型にキャスタ(型変換)
+			PostCounts counts_name = (PostCounts) session.getAttribute("post_counts");
+//			PostCounts counts_birthday = (PostCounts) session.getAttribute("post_counts");
+
+
+
+			// 投稿情報を格納
+			counts_name.setName_list(name_list);
+//			counts_birthday.setBirthday_list(birthday_list);
+
+			//				counts_name.setUsers_name(users_name);
+			//				counts_birthday.setUsers_birthday(users_birthday);
+
+//			session.setAttribute("post_counts", counts_name);
+//			session.setAttribute("post_counts", counts_birthday);
+
+//			for (String i : name_list) {
+//				System.out.println(name_list.get(0));
+//				System.out.println(name_list.get(1));
+//			}
+>>>>>>> Stashed changes
 			System.out.println(name_list);
 			System.out.println(birthday_list);
 			

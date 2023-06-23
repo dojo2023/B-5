@@ -39,18 +39,30 @@
         
                 <div class="cupscounts" ${status.index+1}>
                     <div>
+<<<<<<< Updated upstream
                    ${post_counts.name_list[status.index]}
                    
                       <br><!--入力した各ユーザー名を表示する name_listセッションスコープにArrayList型で入っている。
                       -->
+=======
+                       ${name}${status.index}<br><!--入力した各ユーザー名を表示する-->
+>>>>>>> Stashed changes
                     </div><br>
                      
                     <div class="field">
+<<<<<<< Updated upstream
                        <button class="button" id="down${status.index+1}">－</button>
     					<input type="text" value='0' class="inputtext" id="textbox${status.index+1}"> <!--杯数カウントボタンの値を出力する-->
     					<button class="button" id="up${status.index+1}">＋</button>
                     </div>
                     	<button class="button resetbtn" id="reset${status.index+1}">RESET</button>
+=======
+                       <button class="button" id="down${status.index}">－</button>
+    					<input type="text" name="counts" value='0' class="inputtext" id="textbox${status.index}"> <!--杯数カウントボタンの値を出力する-->
+    					<button class="button" id="up${status.index}">＋</button>
+                    </div>
+                    	<button class="button resetbtn" id="reset${status.index}">RESET</button>
+>>>>>>> Stashed changes
                 </div>
                 
                 </c:forEach>
