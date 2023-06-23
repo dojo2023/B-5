@@ -35,6 +35,17 @@
             <button id="prev" type="button">前の月</button>
             <button id="next" type="button">次の月</button>
             <div id="calendar"></div>
+            <div class="dummy_buttons">
+            	<form method="POST" autocomplete="off"
+					action="/sante/CalenderServlet">
+					<input type="submit"
+						name="submit" value="過去予定無"> <input type="submit"
+						name="submit" value="過去予定有">
+						<input type="submit"
+						name="submit" value="未来予定無"> <input type="submit"
+						name="submit" value="未来予定有">
+            	</form>
+            </div>
            <script src="js/schedules/Schedules.js"></script>
         </body>
     </div>
