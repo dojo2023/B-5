@@ -1,6 +1,6 @@
 package model;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 public class Libraries {
 	// 図鑑表示用フィールド
@@ -46,6 +46,7 @@ public class Libraries {
 		this.created_at = null;
 		this.updated_at = null;
 	}
+
 
 	public int getLibraries_id() {
 		return libraries_id;
