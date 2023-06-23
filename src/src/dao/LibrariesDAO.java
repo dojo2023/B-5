@@ -59,7 +59,7 @@ public class LibrariesDAO {
 	    return insertSuccess;
 	}
 
-	// librariesを取得
+	// libraries全部を取得
 	public List<Libraries> getAllLibraries() {
 	    Connection conn = null;
 	    List<Libraries> librariesList = new ArrayList<>();
@@ -71,7 +71,7 @@ public class LibrariesDAO {
 	        // データベースに接続する
 	        conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
-	        String sql = "SELECT * FROM libraries WHERE libraries_id = ?";
+	        String sql = "SELECT * FROM libraries";
 	        PreparedStatement pstmt = conn.prepareStatement(sql);
 
 	        ResultSet rs = pstmt.executeQuery();
@@ -79,7 +79,7 @@ public class LibrariesDAO {
 	            int libraries_id = rs.getInt("libraries_id");
 	            String libraries_description = rs.getString("libraries_description");
 	            String libraries_genre = rs.getString("libraries_genre");
-	            String libraries_kind = rs.getString("llibraries_kind");
+	            String libraries_kind = rs.getString("libraries_kind");
 	            Double libraries_alcon = rs.getDouble("libraries_alcon");
 	            String libraries_from = rs.getString("libraries_from");
 	            String libraries_remarks = rs.getString("libraries_remarks");
@@ -110,5 +110,58 @@ public class LibrariesDAO {
 	    return librariesList;
 	}
 
+	// librariesキーワード検索
+		public List<Libraries> searchLibraries(String keyword) {
+		    Connection conn = null;
+		    List<Libraries> searchList = new ArrayList<>();
+
+		    try {
+		        // JDBCドライバを読み込むs
+		        Class.forName("org.h2.Driver");
+
+		        // データベースに接続する
+		        conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
+
+		        String sql = "SELECT * FROM libraries WHERE libraries_description LIKE ? OR libraries_genre LIKE ? OR libraries_kind LIKE ? OR libraries_from LIKE ? OR libraries_remarks LIKE ?";
+		        PreparedStatement pstmt = conn.prepareStatement(sql);
+	            String wildcardKeyword = "%" + keyword + "%";
+	            pstmt.setString(1, wildcardKeyword);
+	            pstmt.setString(2, wildcardKeyword);
+	            pstmt.setString(3, wildcardKeyword);
+	            pstmt.setString(4, wildcardKeyword);
+	            pstmt.setString(5, wildcardKeyword);
+		        ResultSet rs = pstmt.executeQuery();
+		        while (rs.next()) {
+		            int libraries_id = rs.getInt("libraries_id");
+		            String libraries_description = rs.getString("libraries_description");
+		            String libraries_genre = rs.getString("libraries_genre");
+		            String libraries_kind = rs.getString("llibraries_kind");
+		            Double libraries_alcon = rs.getDouble("libraries_alcon");
+		            String libraries_from = rs.getString("libraries_from");
+		            String libraries_remarks = rs.getString("libraries_remarks");
+		            Boolean libraries_public = rs.getBoolean("libraries_public");
+
+
+		            // librariesオブジェクトを作成してリストに追加
+		            Libraries libraries = new Libraries(libraries_id, libraries_description, libraries_genre, libraries_kind, libraries_alcon, libraries_from, libraries_remarks, libraries_public, null, null);
+		            searchList.add(libraries);
+		        }
+
+		        pstmt.close();
+		        rs.close();
+		    } catch (SQLException | ClassNotFoundException e) {
+		        e.printStackTrace();
+		    } finally {
+		        if (conn != null) {
+		            try {
+		                conn.close();
+		            } catch (SQLException e) {
+		                e.printStackTrace();
+		            }
+		        }
+		    }
+
+		    return searchList;
+		}
 
 }
