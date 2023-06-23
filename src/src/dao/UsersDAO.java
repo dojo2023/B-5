@@ -31,7 +31,7 @@ public class UsersDAO {
 
 			// ユーザーニックネームとパスワードが一致するユーザーがいたかどうかをチェックする
 			rs.next();
-			if (rs.getInt("count(*)") == 1) {
+			if (rs.getInt("count(*)") == 0) {
 				registResult = true;
 			}
 		}
