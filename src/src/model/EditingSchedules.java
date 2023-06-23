@@ -10,11 +10,11 @@ public class EditingSchedules implements Serializable {
 	private int editing_schedules_users_id;
 
 	// スケジュール追加用セッションスコープ格納
-			public EditingSchedules(String editing_schedules_name, String editing_schedules_schedules_dt,
+			public EditingSchedules(String editing_schedules_name, String editing_schedules_dt,
 					int editing_schedules_users_id) {
 				super();
 				this.editing_schedules_name = editing_schedules_name;
-				this.editing_schedules_dt = editing_schedules_schedules_dt;
+				this.editing_schedules_dt = editing_schedules_dt;
 				this.editing_schedules_users_id = editing_schedules_users_id;
 			}
 		// スケジュール編集用セッションスコープ格納
