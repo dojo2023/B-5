@@ -25,7 +25,6 @@
                     <li><a href="/sante/CountsServlet">集計</a></li>
                     <li><a href="/sante/MypageServlet">マイページ</a></li>
                     <li><a href="/sante/UsersResultServlet">ログアウト</a></li>
-                </ul>
             </nav>
         </header>
     </div>
