@@ -16,9 +16,9 @@
 	<div class="header">
 		<header>
 				<div class="wood">
-
+			<img src = "/sante/img/background1.png" class = "headerbackground">
 			<ul>
-				<li><a href="/sante/CalendarServlet">カレンダー</a></li>
+				<li><a href="/sante/CalendarServlet" ><img src = "/sante/img/schedulesleaf.png" alt="カレンダー"></a></li>
                 <li><a href="/sante/LibrariesServlet">図鑑</a></li>
                 <li><a href="/sante/CountsServlet">集計</a></li>
                 <li><a href="/sante/MypageServlet">マイページ</a></li>
@@ -26,7 +26,6 @@
 			</ul>
 
 			</div>
-			<hr>
 		</header>
 	</div>
 	</div>
