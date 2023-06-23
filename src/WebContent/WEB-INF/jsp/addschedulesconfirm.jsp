@@ -32,14 +32,14 @@
     <!-- body -->
     <div class="body">
         <body>
-            <form>
-                <p>取得した日付・時間に予定名を登録してよろしいですか？
-                </p>
-                <div>
-                    <input type="submit" name="yes" value="はい">
-                    <input type="submit" name="no" value="いいえ">
-                </div>
-            </form>
+            <form method="POST" autocomplete="off"
+					action="/sante/AddSchedulesConfirmServlet">
+					<label>日付:</label><label>"${add_schedules.getEditing_schedules_dt()}"</label><br>
+					<label>予定:</label><label>"${add_schedules.getEditing_schedules_name()}"</label><br>
+					<label>上記の内容で追加してよろしいですか？</label><br>
+					<input type="submit" name="submit" value="登録">
+					<input type="submit" name="submit" value="戻る">
+				</form>
         </body>
     </div>
     <!-- footer -->
