@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,56 +60,55 @@ public class LibrariesDAO {
 	    return insertSuccess;
 	}
 
-	// libraries全部を取得
-	public List<Libraries> getAllLibraries() {
-	    Connection conn = null;
-	    List<Libraries> librariesList = new ArrayList<>();
+	 // 全てのLibrariesを取得
+    public List<Libraries> getAllLibraries() {
+        Connection conn = null;
+        List<Libraries> librariesList = new ArrayList<>();
 
-	    try {
-	        // JDBCドライバを読み込むs
-	        Class.forName("org.h2.Driver");
+        try {
+            // JDBCドライバを読み込む
+            Class.forName("org.h2.Driver");
 
-	        // データベースに接続する
-	        conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
+            // データベースに接続する
+            conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
-	        String sql = "SELECT * FROM libraries";
-	        PreparedStatement pstmt = conn.prepareStatement(sql);
+            String sql = "SELECT * FROM libraries ORDER BY libraries_id";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            // SQL文を実行し、結果を取得する
+            ResultSet rs = pstmt.executeQuery();
+            // 結果をコレクションにコピーする
+            while (rs.next()) {
+                Libraries libraries = new Libraries(
+                        rs.getInt("libraries_id"),
+                        rs.getString("libraries_description"),
+                        rs.getString("libraries_genre"),
+                        rs.getString("libraries_kind"),
+                        rs.getDouble("libraries_alcon"),
+                        rs.getString("libraries_from"),
+                        rs.getString("libraries_remarks"),
+                        rs.getBoolean("libraries_public"),
+                        rs.getTimestamp("created_at"),
+                        rs.getTimestamp("updated_at")
+                );
+                librariesList.add(libraries);
+            }
 
-	        ResultSet rs = pstmt.executeQuery();
-	        while (rs.next()) {
-	            int libraries_id = rs.getInt("libraries_id");
-	            String libraries_description = rs.getString("libraries_description");
-	            String libraries_genre = rs.getString("libraries_genre");
-	            String libraries_kind = rs.getString("libraries_kind");
-	            Double libraries_alcon = rs.getDouble("libraries_alcon");
-	            String libraries_from = rs.getString("libraries_from");
-	            String libraries_remarks = rs.getString("libraries_remarks");
-	            Boolean libraries_public = rs.getBoolean("libraries_public");
+            pstmt.close();
+            rs.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 
-
-
-
-	            // librariesオブジェクトを作成してリストに追加
-	            Libraries libraries = new Libraries(libraries_id, libraries_description, libraries_genre, libraries_kind, libraries_alcon, libraries_from, libraries_remarks, libraries_public, null, null);
-	            librariesList.add(libraries);
-	        }
-
-	        pstmt.close();
-	        rs.close();
-	    } catch (SQLException | ClassNotFoundException e) {
-	        e.printStackTrace();
-	    } finally {
-	        if (conn != null) {
-	            try {
-	                conn.close();
-	            } catch (SQLException e) {
-	                e.printStackTrace();
-	            }
-	        }
-	    }
-
-	    return librariesList;
-	}
+        return librariesList;
+    }
 
 	// librariesキーワード検索
 		public List<Libraries> searchLibraries(String keyword) {
@@ -135,15 +135,17 @@ public class LibrariesDAO {
 		            int libraries_id = rs.getInt("libraries_id");
 		            String libraries_description = rs.getString("libraries_description");
 		            String libraries_genre = rs.getString("libraries_genre");
-		            String libraries_kind = rs.getString("llibraries_kind");
+		            String libraries_kind = rs.getString("libraries_kind");
 		            Double libraries_alcon = rs.getDouble("libraries_alcon");
 		            String libraries_from = rs.getString("libraries_from");
 		            String libraries_remarks = rs.getString("libraries_remarks");
 		            Boolean libraries_public = rs.getBoolean("libraries_public");
+		            Timestamp created_at = rs.getTimestamp("updated_at");
+		            Timestamp updated_at = rs.getTimestamp("created_at");
 
 
 		            // librariesオブジェクトを作成してリストに追加
-		            Libraries libraries = new Libraries(libraries_id, libraries_description, libraries_genre, libraries_kind, libraries_alcon, libraries_from, libraries_remarks, libraries_public, null, null);
+		            Libraries libraries = new Libraries(libraries_id, libraries_description, libraries_genre, libraries_kind, libraries_alcon, libraries_from, libraries_remarks, libraries_public, created_at, updated_at);
 		            searchList.add(libraries);
 		        }
 
