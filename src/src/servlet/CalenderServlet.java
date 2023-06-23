@@ -54,7 +54,7 @@ public class CalenderServlet extends HttpServlet {
 			String editing_schedules_name = "ダミー過去予定無";
 			Date dummy = new Date();
 			String editing_schedules_dt = new SimpleDateFormat("yyyy/MM/dd").format(dummy);
-			int editing_schedules_users_id = 0;
+			int editing_schedules_users_id = 1;
 			// ダミーの追加情報を格納
 			EditingSchedules add_schedules = new EditingSchedules(editing_schedules_name, editing_schedules_dt,
 					editing_schedules_users_id);
