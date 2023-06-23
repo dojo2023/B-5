@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,8 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import model.PostCounts;
 
 //import model.Drinks;
 
@@ -53,15 +52,18 @@ public class CountsCupsServlet extends HttpServlet {
 
 			
 			request.setCharacterEncoding("UTF-8");
+			
+			ArrayList<String> counts_alcohol = new ArrayList<String>();
 			if (request.getParameter("submit").equals("登録")) {
 				
 			//作成中です
-					int counts_cups = Integer.parseInt(request.getParameter("counts"));
+	//				int counts_cups = Integer.parseInt(request.getParameter("counts"));
 				
-					PostCounts counts_cupsdata = (PostCounts)session.getAttribute("post_counts");
+	//				PostCounts counts_cupsdata = (PostCounts)session.getAttribute("post_counts");
 					// 投稿情報を格納
-					counts_cupsdata.setCounts_cups0(counts_cups);
-					session.setAttribute("post_counts",counts_cupsdata );
+					//0番目だけとってきてるから、これを人数分とるようにする
+	//				counts_cupsdata.setCounts_cups0(counts_cups);
+	//				session.setAttribute("post_counts",counts_cupsdata );
 
 
 					

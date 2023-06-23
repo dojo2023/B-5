@@ -35,23 +35,25 @@
             
                 <p>杯数を選択してください</p>
             
-            <c:forEach var="i" begin="1" end="${post_counts.users_member}" step="1" varStatus="status">
-            
-                <div class="cupscounts" ${status.index}>
+            <c:forEach var="i" begin="0" end="${post_counts.users_member-1}" step="1" varStatus="status">
+        
+                <div class="cupscounts" ${status.index+1}>
                     <div>
-                       ${name}${status.index}<br><!--入力した各ユーザー名を表示する-->
+                   ${post_counts.name_list[status.index]}
+                   
+                      <br><!--入力した各ユーザー名を表示する name_listセッションスコープにArrayList型で入っている。
+                      -->
                     </div><br>
+                     
                     <div class="field">
-                       <button class="button" id="down${status.index}">－</button>
-    					<input type="text" name="counts" value='0' class="inputtext" id="textbox${status.index}"> <!--杯数カウントボタンの値を出力する-->
-    					<button class="button" id="up${status.index}">＋</button>
+                       <button class="button" id="down${status.index+1}">－</button>
+    					<input type="text" value='0' class="inputtext" id="textbox${status.index+1}"> <!--杯数カウントボタンの値を出力する-->
+    					<button class="button" id="up${status.index+1}">＋</button>
                     </div>
-                    	<button class="button resetbtn" id="reset${status.index}">RESET</button>
+                    	<button class="button resetbtn" id="reset${status.index+1}">RESET</button>
                 </div>
                 
                 </c:forEach>
-                
-                
                 
             <form method="POST" action="/sante/CountsCupsServlet">
                 <div class="">
@@ -59,6 +61,7 @@
                     <input type="submit" name="submit" value="割合表示">
                 </div>
             </form>
+            <script>let c = ${post_counts.users_member};</script>
             <script src="js/counts/CountsCups.js"></script>
         </body>
     </div>

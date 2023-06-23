@@ -39,6 +39,7 @@
                 <div class="chart-container" >
 					<canvas id="Chart" ></canvas>
 				</div>
+				<script>let data = ${post_counts.name_list.get(namei)};</script>
                 <script src="js/counts/CountsRatio.js"></script> <!--割合のグラフを挿入-->
                 
                 <div class="">
