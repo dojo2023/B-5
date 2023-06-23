@@ -44,7 +44,7 @@ public class RegistPhysicalsServlet extends HttpServlet {
 		boolean insertSuccess = physiDao.insertPhysicals(new Physicals(0, users_id, physicals_resistance, physicals_condition, null, null));
 		if(insertSuccess) {
 //			if (request.getParameter("submit").equals("登録")) {
-				response.sendRedirect("/sante/CalendarServlet");
+				response.sendRedirect("/sante/CountsServlet");
 //			}
 //			request.getRequestDispatcher("/sante/CalendarServlet").forward(request, response);
 //			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
