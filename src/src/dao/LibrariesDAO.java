@@ -9,10 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Libraries;
+import model.PostLibraries;
 
 public class LibrariesDAO {
 	// Librariesに格納
-	public boolean insertLibraries(Libraries libraries) {
+	public boolean insertLibraries(PostLibraries post_lib) {
 	    Connection conn = null;
 	    boolean insertSuccess = false;
 
@@ -24,16 +25,15 @@ public class LibrariesDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
 			// Prepare the SQL statement
-	        String sql = "INSERT INTO libraries (libraries_id, libraries_description, libraries_genre, libraries_kind, libraries_alcon, libraries_from, libraries_remarks, libraries_public) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+	        String sql = "INSERT INTO libraries (libraries_description, libraries_genre, libraries_kind, libraries_alcon, libraries_from, libraries_remarks) VALUES (?, ?, ?, ?, ?, ?)";
 	        PreparedStatement pstmt = conn.prepareStatement(sql);
-	        pstmt.setInt(1, libraries.getLibraries_id());
-	        pstmt.setString(2, libraries.getLibraries_description());
-	        pstmt.setString(3, libraries.getLibraries_genre());
-	        pstmt.setString(4, libraries.getLibraries_kind());
-	        pstmt.setDouble(5, libraries.getLibraries_alcon());
-	        pstmt.setString(6, libraries.getLibraries_from());
-	        pstmt.setString(7, libraries.getLibraries_remarks());
-	        pstmt.setBoolean(8, libraries.isLibraries_public());
+	        pstmt.setString(1, post_lib.getPost_description());
+	        pstmt.setString(2, post_lib.getPost_genre());
+	        pstmt.setString(3, post_lib.getPost_kind());
+	        double post_alcon = Double.parseDouble(post_lib.getPost_alcon());
+	        pstmt.setDouble(4, post_alcon);
+	        pstmt.setString(5, post_lib.getPost_from());
+	        pstmt.setString(6, post_lib.getPost_remarks());
 
 
 	        // Execute the update statement
