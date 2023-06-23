@@ -1,4 +1,94 @@
 @charset "UTF-8";
-#Physicals {
-	text-align:center;
+.header {
+    padding-right: 370px;
+    background-image: url("/sante/img/background1.png");
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align:right;
+    height: 300px;
+    width: 500px;
+}
+ul  {
+    margin: 0 0 0 350px;
+    padding-top: 120px;
+    list-style: none;
+}
+li {
+    display: inline;
+    font-family: 'Times New Roman', Times, serif;
+    top: 50px;
+    padding-right: 50px;
+}
+.body {
+    margin: 100px 35px auto 50px;
+    width: 780px;
+    height: 780px;
+    border-radius: 50%;
+    background: radial-gradient(#fcfcfc, #fcfcfc 43%, #e7e7e7 51% 52%, #fff 53% 66%, #e0e0e0 70%, #c0c0c0);
+    filter: drop-shadow(2px 3px 4px #888);
+    justify-content: center;
+    list-style: none;
+}
+.cutlery {
+    padding-top: 100px;
+    padding-left: 680px;
+    height: 650px;
+}
+.paper {
+    width: 500px;
+  height: 780px;
+  margin: 0 auto;
+  margin-top: 10px;
+  box-shadow: 0 10px 6px -6px #777;
+  background: #ffc6ff;
+  opacity: 0.9;
+}
+#Physicals input {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display       : inline-block;
+    border-radius : 50%;          /* 角丸       */
+    font-size     : 21pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 17px 88px;   /* 余白       */
+    background    : rgba(247, 228, 209, 0.72);     /* 背景色     */
+    color         : #006600;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    opacity       : 1;           /* 透明度     */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+}
+#Physicals :hover {
+    box-shadow: none;
+    color: #006600;
+    background:rgba(247, 228, 209, 0.72);
+}
+#Manual input {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display       : inline-block;
+    border-radius : 50%;          /* 角丸       */
+    font-size     : 21pt;        /* 文字サイズ */
+    text-align    : center;      /* 文字位置   */
+    cursor        : pointer;     /* カーソル   */
+    padding       : 17px 88px;   /* 余白       */
+    background    : rgba(247, 228, 209, 0.72);     /* 背景色     */
+    color         : #006600;     /* 文字色     */
+    line-height   : 1em;         /* 1行の高さ  */
+    opacity       : 1;           /* 透明度     */
+    transition    : .3s;         /* なめらか変化 */
+    box-shadow    : 6px 6px 3px #666666;  /* 影の設定 */
+}
+#Manual :hover {
+    box-shadow: none;
+    color: #006600;
+    background:rgba ;
 }
