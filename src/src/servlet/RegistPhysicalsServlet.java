@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.PhysicalsDAO;
 import dao.UsersDAO;
@@ -25,6 +26,13 @@ public class RegistPhysicalsServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/registphysicals.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -32,7 +40,15 @@ public class RegistPhysicalsServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 		request.setCharacterEncoding("UTF-8");
 		UsersDAO usersDAO = new UsersDAO();
 		int users_id = usersDAO.getMaxUserID();
@@ -41,17 +57,18 @@ public class RegistPhysicalsServlet extends HttpServlet {
 		System.out.println("取得:" + physicals_resistance + "\n");
 		System.out.println("取得:" + physicals_condition + "\n");
 		PhysicalsDAO physiDao = new PhysicalsDAO();
-		boolean insertSuccess = physiDao.insertPhysicals(new Physicals(0, users_id, physicals_resistance, physicals_condition, null, null));
-		if(insertSuccess) {
-//			if (request.getParameter("submit").equals("登録")) {
-				response.sendRedirect("/sante/CountsServlet");
-//			}
-//			request.getRequestDispatcher("/sante/CalendarServlet").forward(request, response);
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
-//			dispatcher.forward(request, response);
+		boolean insertSuccess = physiDao
+				.insertPhysicals(new Physicals(0, users_id, physicals_resistance, physicals_condition, null, null));
+		if (insertSuccess) {
+			//			if (request.getParameter("submit").equals("登録")) {
+			response.sendRedirect("/sante/CountsServlet");
+			//			}
+			//			request.getRequestDispatcher("/sante/CalendarServlet").forward(request, response);
+			//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
+			//			dispatcher.forward(request, response);
 		} else {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp");
-		dispatcher.forward(request, response);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp");
+			dispatcher.forward(request, response);
 		}
 	}
 
