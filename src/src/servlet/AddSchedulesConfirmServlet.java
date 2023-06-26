@@ -28,11 +28,12 @@ public class AddSchedulesConfirmServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		//		HttpSession session = request.getSession();
-		//		if (session.getAttribute("id") == null) {
-		//			response.sendRedirect("/sante/LoginServlet");
-		//			return;
-		//		}
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 		// addschedulesページにフォワードする。
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/addschedulesconfirm.jsp");
 		dispatcher.forward(request, response);
@@ -46,16 +47,17 @@ public class AddSchedulesConfirmServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
 		HttpSession session = request.getSession();
-		//		if (session.getAttribute("id") == null) {
-		//			response.sendRedirect("/sante/LoginServlet");
-		//			return;
-		//		}
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 		// jspのtextboxの値を取得
 		if (request.getParameter("submit").equals("登録")) {
 			EditingSchedules dummyES = (EditingSchedules) session.getAttribute("add_schedules");
-			String editing_schedules_name =dummyES.getEditing_schedules_name();
+			String editing_schedules_name = dummyES.getEditing_schedules_name();
 			//String→Date→Timestamp
-			String editing_schedules_dt =dummyES.getEditing_schedules_dt();
+			String editing_schedules_dt = dummyES.getEditing_schedules_dt();
 			System.out.println("予定テスト" + editing_schedules_name);
 			System.out.println("日付テスト" + editing_schedules_dt);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
