@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class MypageManualServlet
@@ -21,11 +22,13 @@ public class MypageManualServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
 			response.sendRedirect("/sante/LoginServlet");
 			return;
-		}*/
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypagemanual.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -35,6 +38,13 @@ public class MypageManualServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
 		dispatcher.forward(request, response);
 
