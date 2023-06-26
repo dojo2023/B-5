@@ -10,7 +10,7 @@
 
     <title>登録|santé!</title>
 
-    <link rel="stylesheet" href=>
+    <link rel="stylesheet" type="text/css" href="css/Main.css">
 </head>
 
 <div class="wrapper">
@@ -58,8 +58,8 @@
 
     <div class="footer">
         <footer>
-
-        </footer>
+		<p>&copy;Copyright 美酒乱-Michelin-. All rights reserved.</p>
+		</footer>
     </div>
 </div>
 
