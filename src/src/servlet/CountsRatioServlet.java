@@ -20,14 +20,15 @@ public class CountsRatioServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
 		HttpSession session = request.getSession();
-/*		if (session.getAttribute("id") == null) {
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-*/
 		// 割合画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countsratio.jsp");
 		dispatcher.forward(request, response);
@@ -36,20 +37,21 @@ public class CountsRatioServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
 		HttpSession session = request.getSession();
-/*		if (session.getAttribute("id") == null) {
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-*/		
 		// 登録または戻るを行う
 		request.setCharacterEncoding("UTF-8");
 		if (request.getParameter("submit").equals("登録")) {
 			//集計登録確認画面のサーブレットにリダイレクト
 			response.sendRedirect("/sante/CountsRegistConfirmServlet");
-		}else {
+		} else {
 			//杯数選択画面のサーブレットにリダイレクト
 			response.sendRedirect("/sante/CountsCupsServlet");
 		}
