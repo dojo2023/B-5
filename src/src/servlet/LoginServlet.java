@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
 	        HttpSession session = request.getSession();
 	        session.setAttribute("users_id", new LoginId(users_id));
 	        // メニューサーブレットにリダイレクトする
-	        response.sendRedirect("/sante/CountsServlet");
+	        response.sendRedirect("/sante/CalendarServlet");
 	    } else {
 	        request.setAttribute("message", "ニックネームまたはパスワードに間違いがあります。");
 	        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/usersresult.jsp");
