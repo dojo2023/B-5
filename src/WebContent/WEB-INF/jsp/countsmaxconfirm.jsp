@@ -10,24 +10,23 @@
     <!-- 機能名|santé ! -->
     <title>集計|santé !</title>
     <!-- hrefの後ろにcssのリンクを書く -->
-    <link rel="stylesheet" href=>
+    <link rel="stylesheet" type="text/css" href="css/Main.css">
+	<link rel="stylesheet" type="text/css" href="css/Counts.css">
 </head>
 
 <div class="wrapper">
     <!-- header -->
     <div class="header">
         <header>
-            <!-- 各ページへのリンク -->
-            <nav>
-                <ul>
-                    <li><a href="/sante/CalendarServlet">カレンダー</a></li>
-                    <li><a href="/sante/LibrariesServlet">図鑑</a></li>
-                    <li><a href="/sante/CountsServlet">集計</a></li>
-                    <li><a href="/sante/MypageServlet">マイページ</a></li>
-                    <li><a href="/sante/UsersResultServlet">ログアウト</a></li>
-                </ul>
-            </nav>
-        </header>
+			<img src = "/sante/img/background1.png" class = "headerbackground">
+			<ul class="header_ul">
+				<li class="header_li"><a href="/sante/CalendarServlet" ><img src = "/sante/img/calendar_leaf.png" alt="カレンダー" class="calendar_leaf" width="7%"></a></li>
+                <li class="header_li"><a href="/sante/LibrariesServlet"><img src = "/sante/img/libraries_leaf.png" alt="図鑑" class="libraries_leaf" width="7%"></a></li>
+                <li class="header_li"><a href="/sante/CountsServlet"><img src = "/sante/img/counts_leaf.png" alt="集計" class="counts_leaf" width="7%"></a></li>
+                <li class="header_li"><a href="/sante/MypageServlet"><img src = "/sante/img/mypage_leaf.png" alt="マイページ" class="mypage_leaf" width="7%"></a></li>
+                <li class="header_li"><a href="/sante/LoginServlet"><img src = "/sante/img/logout_leaf.png" alt="ログアウト" class="logout_leaf" width="7%"></a></li>
+			</ul>
+		</header>
     </div>
     <!-- body -->
     <div class="body">
@@ -35,7 +34,7 @@
             <form method="POST" action="/sante/CountsUsersMaxConfirmServlet">
                 <p>上限を超過しました</p>
                 <p>水を1L飲んでください</p>
-                
+
                 <input type="submit" name="submit" value="はい">
             </form>
             <script src="CountsMaxConfirm.js"></script>
@@ -44,8 +43,8 @@
     <!-- footer -->
     <div class="footer">
         <footer>
-
-        </footer>
+		<p>&copy;Copyright 美酒乱-Michelin-. All rights reserved.</p>
+		</footer>
     </div>
 </div>
 
