@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
@@ -10,7 +9,7 @@
     <!-- 機能名|santé ! -->
     <title>図鑑|santé !</title>
     <!-- hrefの後ろにcssのリンクを書く -->
-    <link rel="stylesheet" href=>
+    <link rel="stylesheet" href="">
 </head>
 
 <div class="wrapper">
@@ -38,35 +37,29 @@
                 <div class="genre">
                     <label>酒類:</label>
                     <select name="genre" id="genre">
-                        <option>-選択-</option>
+                        <option value="">-選択-</option>
+                        <c:forEach var="category" items="${first_categories}">
+                            <option value="${category}">${category}</option>
+                        </c:forEach>
                     </select>
                 </div>
                 <div class="kind">
                     <label>種類:</label>
                     <select name="kind" id="kind" disabled>
-                        <option>-選択-</option>
+                        <option value="">-選択-</option>
+                        <c:forEach var="category" items="${second_categories}">
+                            <option value="${category.name}">${category.name}</option>
+                        </c:forEach>
                     </select>
                 </div>
-                <div class="alcoholcontent">
-                    <label>度数:</label>
-                    <select name="">
-                        <option hidden>-選択-</option>
-                        <option>0%~9%</option>
-                        <option>10%~19%</option>
-                        <option>20%~29%</option>
-                        <option>30%~39%</option>
-                        <option>40%~49%</option>
-                        <option>50%~59%</option>
-                        <option>60%~69%</option>
-                        <option>70%~79%</option>
-                        <option>80%~89%</option>
-                        <option>90%~99%</option>
-                    </select>
-                </div>
+
                 <div class="from">
                     <label>産地:</label>
                     <select name="from" id="from" disabled>
-                        <option hidden>-選択-</option>
+                        <option value="">-選択-</option>
+                        <c:forEach var="category" items="${forth_categories}">
+                            <option value="${category.name}">${category.name}</option>
+                        </c:forEach>^
                     </select>
                 </div>
                 <div class="remarks">
@@ -80,7 +73,8 @@
                 const first_categories = [
                     '日本酒',
                     '焼酎',
-                    'ワイン'
+                    'ワイン',
+                    'ビール'
                 ];
 
                 const second_categories = [
@@ -92,7 +86,9 @@
                     { first_category: '焼酎', name: '蕎麦焼酎' },
                     { first_category: 'ワイン', name: '赤ワイン' },
                     { first_category: 'ワイン', name: '白ワイン' },
-                    { first_category: 'ワイン', name: 'スパークリング' }
+                    { first_category: 'ワイン', name: 'スパークリング' },
+                    { first_category: 'ビール', name: '甘口' },
+                    { first_category: 'ビール', name: '辛口' }
                 ];
 
                 const forth_categories = [
@@ -102,6 +98,8 @@
                     { first_category: '焼酎', name: '鹿児島県' },
                     { first_category: '焼酎', name: '福岡県' },
                     { first_category: 'ワイン', name: 'フランス' },
+                    { first_category: 'ビール', name: '東京' },
+                    { first_category: 'ビール', name: '北海道' }
                 ]
 
                 const first_categories_select = document.getElementById('genre');
