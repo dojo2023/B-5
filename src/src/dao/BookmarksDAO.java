@@ -24,12 +24,12 @@ public class BookmarksDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
 			// Prepare the SQL statement
-	        String sql = "INSERT INTO bookmarks (bookmarks_id, libraries_id, users_id, bookmarks_remarks) VALUES (?, ?, ?, ?)";
+	        String sql = "INSERT INTO bookmarks (libraries_id, users_id, bookmarks_remarks) VALUES (?, ?, ?)";
 	        PreparedStatement pstmt = conn.prepareStatement(sql);
-	        pstmt.setInt(1, bookmarks.getBookmarks_id());
-	        pstmt.setInt(2, bookmarks.getLibraries_id());
-	        pstmt.setInt(3, bookmarks.getUsers_id());
-	        pstmt.setString(4, bookmarks.getBookmarks_remarks());
+//	        pstmt.setInt(1, bookmarks.getBookmarks_id());
+	        pstmt.setInt(1, bookmarks.getLibraries_id());
+	        pstmt.setInt(2, bookmarks.getUsers_id());
+	        pstmt.setString(3, bookmarks.getBookmarks_remarks());
 
 	        // Execute the update statement
 	        pstmt.executeUpdate();
