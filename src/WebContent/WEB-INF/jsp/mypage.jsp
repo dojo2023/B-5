@@ -42,7 +42,9 @@
 	</div>
 	<!-- footer -->
 	<div class="footer">
-		<footer> </footer>
+		<footer>
+		<p>&copy;Copyright 美酒乱-Michelin-. All rights reserved.</p>
+		</footer>
 	</div>
 
 </html>
