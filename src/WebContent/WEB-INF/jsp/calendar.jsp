@@ -46,6 +46,11 @@
 						name="submit" value="未来予定有">
             	</form>
             </div>
+            <!-- 表示されないスケジュールリスト -->
+            <div id="schedules_list">
+            	<c:forEach var="e" items="${schedulesList }" varStatus="status">
+            	</c:forEach>
+            </div>
            <script src="js/schedules/Schedules.js"></script>
         </body>
     </div>
