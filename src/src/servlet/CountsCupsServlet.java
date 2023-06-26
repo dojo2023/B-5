@@ -53,17 +53,23 @@ public class CountsCupsServlet extends HttpServlet {
 			
 			request.setCharacterEncoding("UTF-8");
 			
-			ArrayList<String> counts_alcohol = new ArrayList<String>();
+			ArrayList<String> counts_list = new ArrayList<String>();
 			if (request.getParameter("submit").equals("登録")) {
 				
-			//作成中です
-	//				int counts_cups = Integer.parseInt(request.getParameter("counts"));
+				for (int i = 1; i < 11; i++) {
+					if (request.getParameter("counts_cups" + i) != null) {
+						System.out.println(request.getParameter("counts_cups" + i));
+						System.out.println("counts_cups" + i);
+
+					String counts_cups = request.getParameter("counts_cups" + i);
 				
-	//				PostCounts counts_cupsdata = (PostCounts)session.getAttribute("post_counts");
-					// 投稿情報を格納
-					//0番目だけとってきてるから、これを人数分とるようにする
-	//				counts_cupsdata.setCounts_cups0(counts_cups);
-	//				session.setAttribute("post_counts",counts_cupsdata );
+					counts_list.add(counts_cups);
+					}
+				}
+				
+				session.setAttribute("counts_list",counts_list );
+					
+				System.out.println(counts_list);
 
 
 					

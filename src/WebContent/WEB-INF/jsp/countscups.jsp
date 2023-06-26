@@ -49,7 +49,7 @@
                     <div class="field">
 
                        <button class="button" id="down${status.index+1}">－</button>
-    					<input type="text" value='0' class="inputtext" id="textbox${status.index+1}"> <!--杯数カウントボタンの値を出力する-->
+    					<input type="text" name="counts_cups${status.index+1}" value='0' class="inputtext" id="textbox${status.index+1}"> <!--杯数カウントボタンの値を出力する-->
     					<button class="button" id="up${status.index+1}">＋</button>
                     </div>
                     	<button class="button resetbtn" id="reset${status.index+1}">RESET</button>

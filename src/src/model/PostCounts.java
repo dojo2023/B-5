@@ -42,9 +42,9 @@ public class PostCounts implements Serializable {
 	private int counts_cups8;
 	private int counts_cups9;
 
-	//追記　試し
 	private ArrayList<String> name_list;
 	private ArrayList<String> birthday_list;
+	private ArrayList<String> counts_list;
 	
 	private Timestamp created_at;
 	private Timestamp updated_at;

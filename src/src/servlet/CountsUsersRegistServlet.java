@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.UsersDAO;
 import model.PostCounts;
 
 /**
@@ -75,10 +76,34 @@ public class CountsUsersRegistServlet extends HttpServlet {
 //					System.out.println(users_birthday);
 					//users_name,users_birthdayのデータがdbにあるかチェックする
 
-					//ArrayListを使った試し
-
 					name_list.add(name);
+					
 					birthday_list.add(users_birthday);
+					
+					PostCounts counts_name = (PostCounts) session.getAttribute("post_counts");
+					counts_name.setName_list(name_list);
+					session.setAttribute("post_counts", counts_name);
+					session.setAttribute("nameList", name_list);
+					
+					int name_count = 0;
+					String bi = "";
+					for(String na : name_list) {
+						bi=birthday_list.get(name_count);
+						
+						UsersDAO uDao =new UsersDAO();
+						int id_count = uDao.getUserIDCounts(na,bi);
+						if(id_count != -1) {
+							//成功。サーブレット移動
+							System.out.println("success");
+						}else {
+							//失敗。なにかする
+							System.out.println("fail");
+						}
+						name_count++;
+						
+						
+					}
+					
 				}
 
 				//あれば次をやる
@@ -90,37 +115,13 @@ public class CountsUsersRegistServlet extends HttpServlet {
 
 			session.setAttribute("nameList", name_list);
 
-			//セッションスコープから「post_counts」のインスタンスを取り出し、PostCounts型にキャスタ(型変換)
-			PostCounts counts_name = (PostCounts) session.getAttribute("post_counts");
-//			PostCounts counts_birthday = (PostCounts) session.getAttribute("post_counts");
-
-
-
-			// 投稿情報を格納
-			counts_name.setName_list(name_list);
-//			counts_birthday.setBirthday_list(birthday_list);
-
-			//				counts_name.setUsers_name(users_name);
-			//				counts_birthday.setUsers_birthday(users_birthday);
-
-//			session.setAttribute("post_counts", counts_name);
-//			session.setAttribute("post_counts", counts_birthday);
-
-//			for (String i : name_list) {
-//				System.out.println(name_list.get(0));
-//				System.out.println(name_list.get(1));
-//			}
-
 			System.out.println(name_list);
 			System.out.println(birthday_list);
 			
 			//DBでname,birthday_listを使ってSelect文であるかどうかをチェック
 
 			
-			
-			
-			
-			
+
 			
 			//次のサーブレットにリダイレクト
 			response.sendRedirect("/sante/CountsCupsServlet");
