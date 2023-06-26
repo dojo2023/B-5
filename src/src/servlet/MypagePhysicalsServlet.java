@@ -24,12 +24,16 @@ public class MypagePhysicalsServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
 		HttpSession session = request.getSession();
-		/*if (session.getAttribute("id") == null) {
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
 			response.sendRedirect("/sante/LoginServlet");
 			return;
-	}*/
+		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypagephysicals.jsp");
 		dispatcher.forward(request, response);
 	}
@@ -37,17 +41,21 @@ public class MypagePhysicalsServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 		//パラメーター取得
 		request.setCharacterEncoding("UTF-8");
 
 		// セッションスコープからLoginIdオブジェクトを取得し、users_idを取得する
-		HttpSession session = request.getSession();
 		LoginId loginId = (LoginId) session.getAttribute("users_id");
 		int users_id = loginId.getUsers_id();
-
 
 		int physicals_resistance = Integer.parseInt(request.getParameter("physicals_resistance"));
 		int physicals_condition = Integer.parseInt(request.getParameter("physicals_condition"));
@@ -57,14 +65,15 @@ public class MypagePhysicalsServlet extends HttpServlet {
 		System.out.println(users_id);
 
 		PhysicalsDAO physiDao = new PhysicalsDAO();
-		boolean updateSuccess = physiDao.updatePhysicals(new Physicals(0, users_id, physicals_resistance, physicals_condition, null, null));
+		boolean updateSuccess = physiDao
+				.updatePhysicals(new Physicals(0, users_id, physicals_resistance, physicals_condition, null, null));
 		if (updateSuccess) {
 			response.sendRedirect("/sante/MypageServlet");
 		} else {
 			response.sendRedirect("/sante/Servlet");
 		}
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
-//		dispatcher.forward(request, response);
+		//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypage.jsp");
+		//		dispatcher.forward(request, response);
 	}
 
 }
