@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html class="html">
@@ -47,44 +46,41 @@
             <!-- 図鑑の内容 -->
             <div class="content">
                 <!-- 一致する結果の有無 -->
-                <!-- 条件式は後で記載 *書いたら消すこと -->
-                <c:if test="${empty searchList }">
-                	<c:if test="${empty librariesList }">
-                    <div class="result_not_found">
-                        <p>一致する結果はありません。</p>
-                    </div>
-                    </c:if>
-                </c:if>
-                <!-- 図鑑の内容を要素数分表示させる -->
-                <!-- 条件式は後で記載 *書いたら消すこと -->
-
-                    <div class="content_table">
-                        <table>
-                            <tr>
-                            	<td>番号</td>
-                                <td>銘柄</td>
-                                <td>酒類</td>
-                                <td>種類</td>
-                                <td>度数</td>
-                                <td>産地</td>
-                                <td>備考</td>
-                                <td>公開</td>
-                            </tr>
-                            <!-- ここから下は実際のデータを入れる *書いたら消すこと -->
-                            <c:forEach var="libraries" items="${empty searchList ? librariesList : searchList}">
-                            <tr>
-                            	<td>${libraries.libraries_id}</td>
-                                <td>${libraries.libraries_description}</td>
-                                <td>${libraries.libraries_genre}</td>
-                                <td>${libraries.libraries_kind}</td>
-                                <td>${libraries.libraries_alcon}</td>
-                                <td>${libraries.libraries_from}</td>
-                                <td>${libraries.libraries_remarks}</td>
-                                <td>${libraries.libraries_public}</td>
-                            </tr>
-                            </c:forEach>
-                        </table>
-                    </div>
+                <c:choose>
+                    <c:when test="${not empty searchList or not empty narrowList or not empty librariesList}">
+                        <div class="content_table">
+                            <table>
+                                <tr>
+                                    <td>番号</td>
+                                    <td>銘柄</td>
+                                    <td>酒類</td>
+                                    <td>種類</td>
+                                    <td>度数</td>
+                                    <td>産地</td>
+                                    <td>備考</td>
+                                    <td>公開</td>
+                                </tr>
+                                <c:forEach var="libraries" items="${not empty narrowList ? narrowList : not empty searchList ? searchList : librariesList}">
+                                    <tr>
+                                        <td>${libraries.libraries_id}</td>
+                                        <td>${libraries.libraries_description}</td>
+                                        <td>${libraries.libraries_genre}</td>
+                                        <td>${libraries.libraries_kind}</td>
+                                        <td>${libraries.libraries_alcon}</td>
+                                        <td>${libraries.libraries_from}</td>
+                                        <td>${libraries.libraries_remarks}</td>
+                                        <td>${libraries.libraries_public}</td>
+                                    </tr>
+                                </c:forEach>
+                            </table>
+                        </div>
+                    </c:when>
+                    <c:otherwise>
+                        <div class="result_not_found">
+                            <p>一致する結果はありません。</p>
+                        </div>
+                    </c:otherwise>
+                </c:choose>
 
             </div>
         </body>
