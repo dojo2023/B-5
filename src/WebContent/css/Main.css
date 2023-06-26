@@ -1,15 +1,18 @@
 @charset "UTF-8";
+html {
+	  background-color: #ffffd8;
 
+}
 header {
     text-align: center;
 
 }
 .headerbackground {
-	width: 50%;
+	width: 35%;
 	position: relative;
 }
 .header_ul {
-	top: 25%;
+	top: 18%;
 	position: absolute;
 }
 .header_li {
@@ -20,4 +23,10 @@ header {
 .calendar_leaf:hover,.libraries_leaf:hover,.counts_leaf:hover,.mypage_leaf:hover,.logout_leaf:hover {
 	transform: scale(1.5,1.5); /*画像の拡大*/
 	cursor: pointer; /*カーソルをポインターにする*/
+}
+
+body {
+	{
+    background-image: url(/sante/img/blackboard.png);
+}
 }
