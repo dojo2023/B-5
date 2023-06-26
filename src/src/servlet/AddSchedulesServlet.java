@@ -69,7 +69,7 @@ public class AddSchedulesServlet extends HttpServlet {
 		} else if (request.getParameter("submit").equals("キャンセル")) {
 			// セッションスコープの破棄
 			session.removeAttribute("add_schedules");
-			response.sendRedirect("/sante/CalenderServlet");
+			response.sendRedirect("/sante/CalendarServlet");
 
 		}
 	}
