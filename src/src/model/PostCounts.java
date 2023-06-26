@@ -397,6 +397,16 @@ public class PostCounts implements Serializable {
 	}
 
 
+	public ArrayList<String> getCounts_list() {
+		return counts_list;
+	}
+
+
+	public void setCounts_list(ArrayList<String> counts_list) {
+		this.counts_list = counts_list;
+	}
+
+
 	public Timestamp getCreated_at() {
 		return created_at;
 	}
