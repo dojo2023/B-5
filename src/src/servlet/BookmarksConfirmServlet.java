@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class BookmarksConfirmServlet
@@ -22,11 +23,12 @@ public class BookmarksConfirmServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		//		HttpSession session = request.getSession();
-		//		if (session.getAttribute("id") == null) {
-		//			response.sendRedirect("/sante/LoginServlet");
-		//			return;
-		//		}
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 
 		//検索処理を行う
 
@@ -41,21 +43,22 @@ public class BookmarksConfirmServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-				//		HttpSession session = request.getSession();
-				//		if (session.getAttribute("id") == null) {
-				//			response.sendRedirect("/sante/LoginServlet");
-				//			return;
-				//		}
-				request.setCharacterEncoding("UTF-8");
-				if(request.getParameter("submit").equals("はい")) {
-					//ここだけ修正必要
-					//検索結果を表示
-					response.sendRedirect("/sante/LibrariesServlet");
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
+		request.setCharacterEncoding("UTF-8");
+		if (request.getParameter("submit").equals("はい")) {
+			//ここだけ修正必要
+			//検索結果を表示
+			response.sendRedirect("/sante/LibrariesServlet");
 
-				}else if(request.getParameter("submit").equals("いいえ")){
-					//お気に入り選択画面へとリダイレクトする。
-					response.sendRedirect("/sante/BookmarksServlet");
-				}
+		} else if (request.getParameter("submit").equals("いいえ")) {
+			//お気に入り選択画面へとリダイレクトする。
+			response.sendRedirect("/sante/BookmarksServlet");
+		}
 	}
 
 }
