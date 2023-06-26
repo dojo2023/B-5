@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.LibrariesDAO;
 import model.PostLibraries;
+
 /**
  * Servlet implementation class PostLibrariesConfirmServlet
  */
@@ -25,11 +26,12 @@ public class PostLibrariesConfirmServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		//		HttpSession session = request.getSession();
-		//		if (session.getAttribute("id") == null) {
-		//			response.sendRedirect("/sante/LoginServlet");
-		//			return;
-		//		}
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 		// postlibrariesconfirmページにフォワードする。
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/postlibrariesconfirm.jsp");
 		dispatcher.forward(request, response);
@@ -42,17 +44,17 @@ public class PostLibrariesConfirmServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-				//		HttpSession session = request.getSession();
-				//		if (session.getAttribute("id") == null) {
-				//			response.sendRedirect("/sante/LoginServlet");
-				//			return;
-				//		}
-		if(request.getParameter("submit").equals("はい")) {
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
+		if (request.getParameter("submit").equals("はい")) {
 			// DBにinsertする
-			HttpSession session = request.getSession();
 			PostLibraries post_lib = (PostLibraries) session.getAttribute("post_lib");
 
-//			int libraries_id = post_lib.getLibraries_id;
+			//			int libraries_id = post_lib.getLibraries_id;
 			String post_description = post_lib.getPost_description();
 			String post_genre = post_lib.getPost_genre();
 			String post_kind = post_lib.getPost_kind();
@@ -67,18 +69,18 @@ public class PostLibrariesConfirmServlet extends HttpServlet {
 			System.out.println(post_from);
 			System.out.println(post_remarks);
 
-
 			LibrariesDAO librariesDAO = new LibrariesDAO();
-			boolean insertSuccess = librariesDAO.insertLibraries(new PostLibraries(post_description, post_genre, post_kind, post_alcon, post_from, post_remarks));
+			boolean insertSuccess = librariesDAO.insertLibraries(
+					new PostLibraries(post_description, post_genre, post_kind, post_alcon, post_from, post_remarks));
 
 			if (insertSuccess) {
-			// セッションスコープの破棄
-	        session.removeAttribute("post_lib");
-	        response.sendRedirect("/sante/LibrariesServlet");
-		}else if(request.getParameter("submit").equals("いいえ")) {
-			response.sendRedirect("/sante/PostLibrariesServlet");
+				// セッションスコープの破棄
+				session.removeAttribute("post_lib");
+				response.sendRedirect("/sante/LibrariesServlet");
+			} else if (request.getParameter("submit").equals("いいえ")) {
+				response.sendRedirect("/sante/PostLibrariesServlet");
+			}
 		}
-	}
 
-}
+	}
 }
