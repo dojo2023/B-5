@@ -1,35 +1,23 @@
 @charset "UTF-8";
 
-.header {
+header {
     text-align: center;
+
 }
 .headerbackground {
 	width: 50%;
+	position: relative;
 }
-ul{
-
+.header_ul {
+	top: 25%;
+	position: absolute;
 }
-li {
+.header_li {
 	display: inline;
-	padding-right: 50px;
-	font-family: 'Times New Roman', Times, serif;
+ 	font-family: 'Times New Roman', Times, serif;
 }
-/*
-ul {
-    display: block;
-    list-style-type: disc;
-    margin-block-start: 1em;
-    margin-block-end: 1em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
-    padding-inline-start: 40px;
-}
-li {
-display: inline;
-top: 10px;
-padding-right: 50px;
-}
-.headerbackground {
 
-	position:relative;
-}*/
+.calendar_leaf:hover,.libraries_leaf:hover,.counts_leaf:hover,.mypage_leaf:hover,.logout_leaf:hover {
+	transform: scale(1.5,1.5); /*画像の拡大*/
+	cursor: pointer; /*カーソルをポインターにする*/
+}
