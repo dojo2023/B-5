@@ -54,10 +54,10 @@ public class AddSchedulesConfirmServlet extends HttpServlet {
 		}
 		// jspのtextboxの値を取得
 		if (request.getParameter("submit").equals("登録")) {
-			EditingSchedules dummyES = (EditingSchedules) session.getAttribute("add_schedules");
-			String editing_schedules_name = dummyES.getEditing_schedules_name();
+			EditingSchedules editingSchedules = (EditingSchedules) session.getAttribute("add_schedules");
+			String editing_schedules_name = editingSchedules.getEditing_schedules_name();
 			//String→Date→Timestamp
-			String editing_schedules_dt = dummyES.getEditing_schedules_dt();
+			String editing_schedules_dt = editingSchedules.getEditing_schedules_dt();
 			System.out.println("予定テスト" + editing_schedules_name);
 			System.out.println("日付テスト" + editing_schedules_dt);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
@@ -65,10 +65,7 @@ public class AddSchedulesConfirmServlet extends HttpServlet {
 			try {
 				date_esd = sdf.parse(editing_schedules_dt);
 				Timestamp ts_esd = new Timestamp(date_esd.getTime());
-				// こっちが正しい
-				// int editing_schedules_users_id = (int) session.getAttribute("id");
-				// ダミー
-				int editing_schedules_users_id = dummyES.getEditing_schedules_users_id();
+				int editing_schedules_users_id = editingSchedules.getEditing_schedules_users_id();
 
 				//DBに送信
 				SchedulesDAO schedulesDAO = new SchedulesDAO();
