@@ -25,11 +25,12 @@ public class AddSchedulesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		//		HttpSession session = request.getSession();
-		//		if (session.getAttribute("id") == null) {
-		//			response.sendRedirect("/sante/LoginServlet");
-		//			return;
-		//		}
+				HttpSession session = request.getSession();
+				if (session.getAttribute("users_id") == null) {
+					System.out.println("ログイン失敗");
+					response.sendRedirect("/sante/LoginServlet");
+					return;
+				}
 		// addschedulesページにフォワードする。
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/addschedules.jsp");
 		dispatcher.forward(request, response);
@@ -42,19 +43,18 @@ public class AddSchedulesServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		HttpSession session = request.getSession();
-		//		if (session.getAttribute("id") == null) {
-		//			response.sendRedirect("/sante/LoginServlet");
-		//			return;
-		//		}
+				HttpSession session = request.getSession();
+				if (session.getAttribute("users_id") == null) {
+					System.out.println("ログイン失敗");
+					response.sendRedirect("/sante/LoginServlet");
+					return;
+				}
 		// jspのtextboxの値を取得
 		if (request.getParameter("submit").equals("追加")) {
 			String editing_schedules_name = request.getParameter("add_schedules_name");
-			EditingSchedules dummyES = (EditingSchedules)session.getAttribute("add_schedules");
-			String editing_schedules_dt = dummyES.getEditing_schedules_dt();
-			// int editing_schedules_users_id = (int) session.getAttribute("id");
-			// ダミー
-			int editing_schedules_users_id = dummyES.getEditing_schedules_users_id();
+			EditingSchedules editingSchedules = (EditingSchedules)session.getAttribute("add_schedules");
+			String editing_schedules_dt = editingSchedules.getEditing_schedules_dt();
+			int editing_schedules_users_id = editingSchedules.getEditing_schedules_users_id();
 
 			// 追加情報を格納
 			EditingSchedules add_schedules = new EditingSchedules(editing_schedules_name, editing_schedules_dt,
