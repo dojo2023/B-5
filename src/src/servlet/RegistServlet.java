@@ -20,6 +20,13 @@ public class RegistServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	// もしもログインしていなかったらログインサーブレットにリダイレクトする。
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
         // Forward to the regist.jsp page
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
         dispatcher.forward(request, response);
@@ -27,6 +34,13 @@ public class RegistServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	// もしもログインしていなかったらログインサーブレットにリダイレクトする。
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
         // Retrieve request parameters
         request.setCharacterEncoding("UTF-8");
         String users_name = request.getParameter("users_name");
@@ -68,7 +82,6 @@ public class RegistServlet extends HttpServlet {
             // Retrieve the generated users_id
             int users_id = usersDAO.getUserID(users_name, users_password);
             // Store users_id in the session scope
-            HttpSession session = request.getSession();
             session.setAttribute("users_id", new LoginId(users_id));
         } else {
             // Registration failed
