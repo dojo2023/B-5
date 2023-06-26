@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import dao.LibrariesDAO;
 import model.Libraries;
@@ -26,11 +27,12 @@ public class LibrariesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		//				HttpSession session = request.getSession();
-		//				if (session.getAttribute("id") == null) {
-		//					response.sendRedirect("/sante/LoginServlet");
-		//					return;
-		//				}
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 		//図鑑全体テーブルを表示する
 		LibrariesDAO librariesDAO = new LibrariesDAO();
 		List<Libraries> librariesList = librariesDAO.getAllLibraries();
@@ -47,12 +49,12 @@ public class LibrariesServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		//				HttpSession session = request.getSession();
-		//				if (session.getAttribute("id") == null) {
-		//					response.sendRedirect("/sante/LoginServlet");
-		//					return;
-		//				}
-//		HttpSession session = request.getSession();
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 		request.setCharacterEncoding("UTF-8");
 
 
@@ -77,7 +79,7 @@ public class LibrariesServlet extends HttpServlet {
 	        } else {
 	        	//検索結果を表示
 				response.sendRedirect("/sante/LibrariesServlet");
-	        }
+			}
 
 		} else if ("絞り込み".equals(request.getParameter("submit"))) {
 			//絞り込み検索画面へとリダイレクトする。
