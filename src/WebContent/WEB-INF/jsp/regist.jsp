@@ -8,7 +8,7 @@
     <!-- 機能名|santé ! -->
     <title>新規登録|santé !</title>
     <!-- hrefの後ろにcssのリンクを書く -->
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" type="text/css" href="css/Main.css">
     <!-- <script src="Regist.js"></script> -->
     <script>
     function handleIDInputChange() {
@@ -150,8 +150,8 @@
     <!-- footer -->
     <div class="footer">
         <footer>
-
-        </footer>
+		<p>&copy;Copyright 美酒乱-Michelin-. All rights reserved.</p>
+		</footer>
     </div>
 </div>
 
