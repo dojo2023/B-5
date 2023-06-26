@@ -76,7 +76,7 @@ public class AddSchedulesConfirmServlet extends HttpServlet {
 					// セッションスコープの破棄
 					session.removeAttribute("add_schedules_dt");
 					// 画面を遷移
-					response.sendRedirect("/sante/CalenderServlet");
+					response.sendRedirect("/sante/CalendarServlet");
 				}
 			} catch (ParseException e) {
 				// TODO 自動生成された catch ブロック
