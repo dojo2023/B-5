@@ -33,6 +33,7 @@ for (let i = 1; i <= counts; i++) {
 			if (text.value >= 1) {
 				text.value--;
 			}
+			event.preventDefault();
 		});
 
 
@@ -40,11 +41,13 @@ for (let i = 1; i <= counts; i++) {
 		//ボタンが押されたらカウント増
 		upbutton.addEventListener('click', (event) => {
 			text.value++;
+			event.preventDefault();
 		});
 
 
 		//ボタンがされたら0に戻る
 		reset.addEventListener('click', (event) => {
 			text.value = 0;
+			event.preventDefault();
 		});
 	}

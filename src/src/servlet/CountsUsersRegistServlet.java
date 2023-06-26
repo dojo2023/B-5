@@ -85,23 +85,7 @@ public class CountsUsersRegistServlet extends HttpServlet {
 					session.setAttribute("post_counts", counts_name);
 					session.setAttribute("nameList", name_list);
 
-					int name_count = 0;
-					String bi = "";
-					for (String na : name_list) {
-						bi = birthday_list.get(name_count);
 
-						UsersDAO uDao = new UsersDAO();
-						int id_count = uDao.getUserIDCounts(na, bi);
-						if (id_count != -1) {
-							//成功。サーブレット移動
-							System.out.println("success");
-						} else {
-							//失敗。なにかする
-							System.out.println("fail");
-						}
-						name_count++;
-
-					}
 
 				}
 
@@ -110,11 +94,34 @@ public class CountsUsersRegistServlet extends HttpServlet {
 				//なければエラーでdoGetをやり直す
 
 			}
+			//入力されたid,brithdayが一致したら
+			int name_count = 0;
+			String bi = "";
+			for (String na : name_list) {
+				bi = birthday_list.get(name_count);
 
-			session.setAttribute("nameList", name_list);
+				UsersDAO uDao = new UsersDAO();
+				int id_count = uDao.getUserIDCounts(na, bi);
+				if (id_count == -1) {
+					System.out.println("fail");
+					
+				}
+				name_count++;
+
+			}
+			//成功。サーブレット移動
+			System.out.println("success");
+//			session.setAttribute("nameList", name_list);
 
 			System.out.println(name_list);
 			System.out.println(birthday_list);
+
+			//DBでname,birthday_listを使ってSelect文であるかどうかをチェック
+
+//			session.setAttribute("nameList", name_list);
+
+//			System.out.println(name_list);
+//			System.out.println(birthday_list);
 
 			//DBでname,birthday_listを使ってSelect文であるかどうかをチェック
 

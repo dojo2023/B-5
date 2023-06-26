@@ -32,16 +32,16 @@
     <!-- body -->
     <div class="">
         <body>
-            
+                            
+            <form method="POST" action="/sante/CountsCupsServlet">
                 <p>杯数を選択してください</p>
             
-            <c:forEach var="i" begin="0" end="${post_counts.users_member-1}" step="1" varStatus="status">
+            <c:forEach var="i" begin="0" end="${post_counts.all_member-1}" step="1" varStatus="status">
         
                 <div class="cupscounts" ${status.index+1}>
                     <div>
 
                    ${post_counts.name_list[status.index]}
-                   
                       <br>
 
                     </div><br>
@@ -58,14 +58,13 @@
                 </div>
                 
                 </c:forEach>
-                
-            <form method="POST" action="/sante/CountsCupsServlet">
+
                 <div class="">
                     <input type="submit" name="submit" value="登録">
                     <input type="submit" name="submit" value="割合表示">
                 </div>
             </form>
-            <script>let c = ${post_counts.users_member};</script>
+            <script>let c = ${post_counts.all_member};</script>
             <script src="js/counts/CountsCups.js"></script>
         </body>
     </div>
