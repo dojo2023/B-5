@@ -25,11 +25,12 @@ public class PostLibrariesServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		//		HttpSession session = request.getSession();
-		//		if (session.getAttribute("id") == null) {
-		//			response.sendRedirect("/sante/LoginServlet");
-		//			return;
-		//		}
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 		// PostLibrariesページにフォワードする。
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/postlibraries.jsp");
 		dispatcher.forward(request, response);
@@ -42,11 +43,12 @@ public class PostLibrariesServlet extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		//		HttpSession session = request.getSession();
-		//		if (session.getAttribute("id") == null) {
-		//			response.sendRedirect("/sante/LoginServlet");
-		//			return;
-		//		}
+		HttpSession session = request.getSession();
+		if (session.getAttribute("users_id") == null) {
+			System.out.println("ログイン失敗");
+			response.sendRedirect("/sante/LoginServlet");
+			return;
+		}
 		// jspのtextboxの値を取得
 		if (request.getParameter("submit").equals("投稿")) {
 			String post_description = request.getParameter("description");
@@ -74,7 +76,6 @@ public class PostLibrariesServlet extends HttpServlet {
 				post_lib.setPost_remarks(post_remarks);
 
 				// セッションスコープに投稿情報を保存
-				HttpSession session = request.getSession();
 				session.setAttribute("post_lib", post_lib);
 				System.out.println("格納:" + post_lib.getPost_description() + "\n");
 				System.out.println("格納:" + post_lib.getPost_genre() + "\n");
@@ -91,7 +92,6 @@ public class PostLibrariesServlet extends HttpServlet {
 			}
 		} else if (request.getParameter("submit").equals("キャンセル")) {
 			// セッションスコープの破棄
-			HttpSession session = request.getSession();
 			session.removeAttribute("post_lib");
 			response.sendRedirect("/sante/LibrariesServlet");
 		}
