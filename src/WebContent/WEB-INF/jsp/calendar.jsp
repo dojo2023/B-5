@@ -37,7 +37,7 @@
             <div id="calendar"></div>
             <div class="dummy_buttons">
             	<form method="POST" autocomplete="off"
-					action="/sante/CalenderServlet">
+					action="/sante/CalendarServlet">
 					<input type="submit"
 						name="submit" value="過去予定無"> <input type="submit"
 						name="submit" value="過去予定有">
