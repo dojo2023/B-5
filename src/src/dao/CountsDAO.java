@@ -23,12 +23,12 @@ public class CountsDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
 			// Prepare the SQL statement
-	        String sql = "INSERT INTO counts (counts_id, users_id, counts_alcohol, counts_date) VALUES (?, ?, ?, ?)";
+	        String sql = "INSERT INTO counts (users_id, counts_alcohol, counts_date) VALUES (?, ?, ?)";
 	        PreparedStatement pstmt = conn.prepareStatement(sql);
-	        pstmt.setInt(1, counts.getCounts_id());
-	        pstmt.setInt(2, counts.getUsers_id());
-	        pstmt.setInt(3, counts.getCounts_alcohol());
-	        pstmt.setDate(4, (java.sql.Date) counts.getCounts_date());
+//	        pstmt.setInt(1, counts.getCounts_id());
+	        pstmt.setInt(1, counts.getUsers_id());
+	        pstmt.setInt(2, counts.getCounts_alcohol());
+	        pstmt.setDate(3, (java.sql.Date) counts.getCounts_date());
 
 
 	        // Execute the update statement
