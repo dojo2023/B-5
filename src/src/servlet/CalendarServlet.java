@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import model.EditingSchedules;
+import model.LoginId;
 
 /**
  * Servlet implementation class CalendarServlet
@@ -50,13 +51,16 @@ public class CalendarServlet extends HttpServlet {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
+		// セッションスコープからLoginIdオブジェクトを取得し、users_idを取得する
+		LoginId loginId = (LoginId) session.getAttribute("users_id");
+
 		// ダミーボタンの処理なので最終的に全部消すこと。
 		if (request.getParameter("submit").equals("過去予定無")) {
 			// ダミーの値を生成
 			String editing_schedules_name = "ダミー過去予定無";
 			Date dummy = new Date();
 			String editing_schedules_dt = new SimpleDateFormat("yyyy/MM/dd").format(dummy);
-			int editing_schedules_users_id = 1;
+			int editing_schedules_users_id = loginId.getUsers_id();
 			// ダミーの追加情報を格納
 			EditingSchedules add_schedules = new EditingSchedules(editing_schedules_name, editing_schedules_dt,
 					editing_schedules_users_id);
@@ -76,7 +80,7 @@ public class CalendarServlet extends HttpServlet {
 			String editing_schedules_name = "ダミー未来予定無";
 			Date dummy = new Date();
 			String editing_schedules_dt = new SimpleDateFormat("yyyy/MM/dd").format(dummy);
-			int editing_schedules_users_id = 1;
+			int editing_schedules_users_id = loginId.getUsers_id();
 			// ダミーの追加情報を格納
 			EditingSchedules add_schedules = new EditingSchedules(editing_schedules_name, editing_schedules_dt,
 					editing_schedules_users_id);
