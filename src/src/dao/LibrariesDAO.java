@@ -253,5 +253,127 @@ public class LibrariesDAO {
 
 		    return narrowList;
 		}
+		// Librariesのlibraries_descriptionを取得
+	    public List<Libraries> getDescription() {
+	        Connection conn = null;
+	        List<Libraries> descriptionList = new ArrayList<>();
+
+	        try {
+	            // JDBCドライバを読み込む
+	            Class.forName("org.h2.Driver");
+
+	            // データベースに接続する
+	            conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
+
+	            String sql = "SELECT libraries_description FROM libraries";
+	            PreparedStatement pstmt = conn.prepareStatement(sql);
+	            // SQL文を実行し、結果を取得する
+	            ResultSet rs = pstmt.executeQuery();
+	            // 結果をコレクションにコピーする
+	            while (rs.next()) {
+	                String description = rs.getString("libraries_description");
+	                Libraries libraries = new Libraries();
+	                libraries.setLibraries_description(description);
+	                descriptionList.add(libraries);
+	            }
+
+	            pstmt.close();
+	            rs.close();
+	        } catch (SQLException | ClassNotFoundException e) {
+	            e.printStackTrace();
+	        } finally {
+	            if (conn != null) {
+	                try {
+	                    conn.close();
+	                } catch (SQLException e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        }
+
+	        return descriptionList;
+	    }
+
+	 // Librariesのlibraries_genreを取得
+	    public List<Libraries> getGenre() {
+	        Connection conn = null;
+	        List<Libraries> genreList = new ArrayList<>();
+
+	        try {
+	            // JDBCドライバを読み込む
+	            Class.forName("org.h2.Driver");
+
+	            // データベースに接続する
+	            conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
+
+	            String sql = "SELECT libraries_genre FROM libraries";
+	            PreparedStatement pstmt = conn.prepareStatement(sql);
+	            // SQL文を実行し、結果を取得する
+	            ResultSet rs = pstmt.executeQuery();
+	            // 結果をコレクションにコピーする
+	            while (rs.next()) {
+	                String genre = rs.getString("libraries_genre");
+	                Libraries libraries = new Libraries();
+	                libraries.setLibraries_genre(genre);
+	                genreList.add(libraries);
+	            }
+
+	            pstmt.close();
+	            rs.close();
+	        } catch (SQLException | ClassNotFoundException e) {
+	            e.printStackTrace();
+	        } finally {
+	            if (conn != null) {
+	                try {
+	                    conn.close();
+	                } catch (SQLException e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        }
+
+	        return genreList;
+	    }
+
+	 // Librariesのlibraries_kindを取得
+	    public List<Libraries> getKind() {
+	        Connection conn = null;
+	        List<Libraries> kindList = new ArrayList<>();
+
+	        try {
+	            // JDBCドライバを読み込む
+	            Class.forName("org.h2.Driver");
+
+	            // データベースに接続する
+	            conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
+
+	            String sql = "SELECT libraries_kind FROM libraries";
+	            PreparedStatement pstmt = conn.prepareStatement(sql);
+	            // SQL文を実行し、結果を取得する
+	            ResultSet rs = pstmt.executeQuery();
+	            // 結果をコレクションにコピーする
+	            while (rs.next()) {
+	                String kind = rs.getString("libraries_genre");
+	                Libraries libraries = new Libraries();
+	                libraries.setLibraries_kind(kind);
+	                kindList.add(libraries);
+	            }
+
+	            pstmt.close();
+	            rs.close();
+	        } catch (SQLException | ClassNotFoundException e) {
+	            e.printStackTrace();
+	        } finally {
+	            if (conn != null) {
+	                try {
+	                    conn.close();
+	                } catch (SQLException e) {
+	                    e.printStackTrace();
+	                }
+	            }
+	        }
+
+	        return kindList;
+	    }
 
 }
