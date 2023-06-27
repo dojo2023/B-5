@@ -26,12 +26,12 @@ public class CountsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		HttpSession session = request.getSession();
+/*		HttpSession session = request.getSession();
 		if (session.getAttribute("users_id") == null) {
 			System.out.println("ログイン失敗");
 			response.sendRedirect("/sante/LoginServlet");
 			return;
-		}
+		}*/
 
 		// 集計入力画面にフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
@@ -47,11 +47,11 @@ public class CountsServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
 		HttpSession session = request.getSession();
-		if (session.getAttribute("users_id") == null) {
+/*		if (session.getAttribute("users_id") == null) {
 			System.out.println("ログイン失敗");
 			response.sendRedirect("/sante/LoginServlet");
 			return;
-		}
+		}*/
 
 		if (request.getParameter("submit").equals("次へ")) {
 			try {
