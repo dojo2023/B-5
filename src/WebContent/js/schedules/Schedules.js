@@ -66,6 +66,14 @@ function createCalendar(year, month) {
     return calendarHtml
 }
 
+//表示されているカレンダーの年月を取得
+let year_month;
+let display_year_month;
+let display_year = year;
+//月は1桁の時は前に0をつける
+let display_month_pre;
+let display_month = month;
+
 function moveCalendar(e) {
     document.querySelector('#calendar').innerHTML = ''
 
@@ -88,6 +96,22 @@ function moveCalendar(e) {
     }
 
     showCalendar(year, month)
+
+    year_month = document.getElementById("calendar");
+
+	display_year_month = year_month.querySelector("h1").textContent;
+	//console.log("year_day:" + display_year_month);
+	display_year = display_year_month.substring(0, 4);
+	//console.log("year:" + display_year);
+	//月は1桁の時は前に0をつける
+	display_month_pre = display_year_month.substring(5, 8);
+	display_month = display_month_pre.padStart(2, '0');
+
+
+	//console.log("month:" + display_month);
+
+
+	weight_insert();
 }
 
 document.querySelector('#prev').addEventListener('click', moveCalendar)
@@ -110,6 +134,52 @@ document.addEventListener("click", function (e) {
 })
 
 showCalendar(year, month)
+
+const start = document.addEventListener("load", schedules_insert());
+
+function schedules_insert() {
+
+	//セッションスコープの内容を取得
+	//const list = document.getElementById("schedules_list");
+	//データの個数を取得
+	const end_num = document.querySelector(".true").id;
+
+	//console.log(end_num);
+	//console.log(list);
+	//htmlのclass名が「calender_td」のものを取得
+	const calender_td = document.querySelectorAll(".calendar_td");
+
+
+
+
+	//セッションスコープの内容がある限り続ける
+	for (let i = 0; i < end_num; i++) {
+		const id = document.getElementById("id" + i).value;
+		const name = document.getElementById("name" + i).value;
+		const dt = document.getElementById("dt" + i).value;
+		const date = document.getElementById("date" + i).value;
+		//const time = document.getElementById("time" + i).value;
+		const date_year = date.substring(0, 4)
+		const date_month = date.substring(5, 7)
+		const date_day = date.substring(8)
+		//console.log("id:"+id);
+		//console.log("dt:"+date);
+		//console.log("date_year:"+date_year);
+		//console.log("date_month:"+date_month);
+		//console.log("date_day:"+date_day);
+
+		//カレンダーにセッションスコープの日時のデータが有ればその日のtdに追加
+		for (let i = 1; i < calender_td.length; i++) {
+			//年月日で一緒かどうかを判別
+			if (display_year == date_year && display_month == date_month && i == date_day) {
+				calender_td[i].innerText = (i+1) + "\n" + name;
+				//console.log(calender_td[i].textContent);
+			}
+
+		}
+	}
+
+}
 
 /**
  *
