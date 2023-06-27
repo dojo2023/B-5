@@ -17,10 +17,12 @@
 	<div class="wrapper">
 		<!-- header -->
 		<div class="header">
-			<header> </header>
+			<header>
+			<img src = "/sante/img/background1.png" class = "headerbackground">
+			</header>
 		</div>
 		<!-- body -->
-		<div class="body">
+		<div class="l_body">
 
 			<img src="/sante/img/openedDoor.png" class="login_body">
 			<form method="POST" action="/sante/LoginServlet">
