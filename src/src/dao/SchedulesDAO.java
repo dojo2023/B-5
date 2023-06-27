@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +57,7 @@ public class SchedulesDAO {
 	}
 
 	// schedulesを取得
-	public List<Schedules> getAllSchedules() {
+	public List<Schedules> getAllSchedules(int users_id) {
 	    Connection conn = null;
 	    List<Schedules> schedulesList = new ArrayList<>();
 
@@ -75,11 +76,13 @@ public class SchedulesDAO {
 	            int schedules_id = rs.getInt("schedules_id");
 	            String schedules_name = rs.getString("schedules_name");
 	            Timestamp schedules_dt = rs.getTimestamp("schedules_dt");
-	            int users_id = rs.getInt("users_id");
-
+	            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	            String schedules_dt_str = sdf.format(schedules_dt);
+	            String schedules_date = schedules_dt_str.substring(0,10);
+	            String schedules_time = schedules_dt_str.substring(11,19);
 
 	            // schedulesオブジェクトを作成してリストに追加
-	            Schedules schedules = new Schedules(schedules_id, schedules_name, schedules_dt, users_id, null, null);
+	            Schedules schedules = new Schedules(schedules_id, schedules_name, schedules_dt, schedules_date, schedules_time, users_id);
 	            schedulesList.add(schedules);
 	        }
 
