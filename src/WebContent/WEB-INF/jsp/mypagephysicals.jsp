@@ -12,6 +12,7 @@
     <!-- hrefの後ろにcssのリンクを書く -->
     <link rel="stylesheet" type="text/css" href="css/Main.css">
 	<link rel="stylesheet" type="text/css" href="css/Mypage.css">
+	<link rel="stylesheet" type="text/css" href="css/Login.css">
 </head>
 
 <div class="wrapper">
@@ -31,6 +32,7 @@
     <!-- body -->
     <div class="body">
         <body>
+        <img src = "/sante/img/cutlery.png" style = "width: 350px; padding-left: 600px; top: 200px;">
           <form method="POST"action="/sante/MypagePhysicalsServlet">
           <label class = "resistance-select">アルコール耐性</label><br>
           <select name = "physicals_resistance" >
@@ -65,7 +67,7 @@
 
 
 			</script>
-        </body>
+
     </div>
     <!-- footer -->
     <div class="footer">
@@ -74,5 +76,5 @@
 		</footer>
     </div>
 </div>
-
+ </body>
 </html>
