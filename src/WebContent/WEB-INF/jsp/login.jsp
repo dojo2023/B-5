@@ -14,7 +14,6 @@
 
 </head>
 <body>
-	<div class="wrapper">
 		<!-- header -->
 		<div class="header">
 			<header>
@@ -22,7 +21,6 @@
 			</header>
 		</div>
 		<!-- body -->
-		<div class="l_body">
 
 			<img src="/sante/img/openedDoor.png" class="login_body">
 			<form method="POST" action="/sante/LoginServlet">
@@ -50,13 +48,12 @@
 					</tr>
 				</table>
 			</form>
-		</div>
+
 		<!-- footer -->
 		<div class="login_footer">
 			<footer>
 			<p>&copy;Copyright 美酒乱-Michelin-. All rights reserved.</p>
 			</footer>
-		</div>
-	</div>
-</body>
+			</div>
+			</body>
 </html>
