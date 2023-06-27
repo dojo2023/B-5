@@ -42,3 +42,18 @@ td.is-disabled {
 	transform: scale(1.5,1.5);
 	cursor: pointer;
 }
+
+/*body*/
+.body {
+    font-family: HuiFontP109;
+    color: #fff;
+    background-color: #114400;
+    margin: 50px 150px 50px 150px;
+    padding: 15px;
+    border: 9px solid #a60;
+    border-radius: 3px;
+    box-shadow: 2px 2px 4px #666, 2px 2px 2px #111 inset;
+    text-shadow: 0px 0px 2px #000;
+    line-height: 1.9;
+    text-align: center;
+}
