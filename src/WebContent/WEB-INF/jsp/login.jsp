@@ -52,8 +52,10 @@
 			</form>
 		</div>
 		<!-- footer -->
-		<div class="footer">
-			<footer> </footer>
+		<div class="login_footer">
+			<footer>
+			<p>&copy;Copyright 美酒乱-Michelin-. All rights reserved.</p>
+			</footer>
 		</div>
 	</div>
 </body>
