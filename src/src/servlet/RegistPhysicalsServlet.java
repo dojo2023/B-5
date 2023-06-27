@@ -61,7 +61,7 @@ public class RegistPhysicalsServlet extends HttpServlet {
 				.insertPhysicals(new Physicals(0, users_id, physicals_resistance, physicals_condition, null, null));
 		if (insertSuccess) {
 			//			if (request.getParameter("submit").equals("登録")) {
-			response.sendRedirect("/sante/CountsServlet");
+			response.sendRedirect("/sante/CalendarServlet");
 			//			}
 			//			request.getRequestDispatcher("/sante/CalendarServlet").forward(request, response);
 			//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
