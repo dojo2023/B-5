@@ -49,22 +49,22 @@
 					<c:forEach var="i" begin="1" end="${post_counts.users_member}" step="1" varStatus="status">
 
                     <tr>
-                        <td><input type="text" name="name${status.index}"></td>
+                        <td><input type="text" name="name${status.index}" class="inputtext"></td>
 
                         <td>
-                            <select name="year${status.index}" onchange="handleIDInputChange()">
+                            <select name="year${status.index}" onchange="handleIDInputChange()" class="inputtext">
                                 <option value="年" selected>年</option>
                                 <c:forEach var="year" begin="1941" end="2015">
                                     <option value="${year}">${year}</option>
                                 </c:forEach>
                             </select>
-                            <select name="month${status.index}" onchange="handleIDInputChange()">
+                            <select name="month${status.index}" onchange="handleIDInputChange()" class="inputtext">
                                 <option value="月" selected>月</option>
                                 <c:forEach var="month" begin="1" end="12">
                                     <option value="${month}">${month}</option>
                                 </c:forEach>
                             </select>
-                            <select name="day${status.index}">
+                            <select name="day${status.index}" class="inputtext">
                                 <option value="日" selected>日</option>
                                 <c:forEach var="day" begin="1" end="31">
                                     <option value="${day}">${day}</option>
@@ -85,8 +85,8 @@
 
 				</table>
 				<div class="">
-					<input type="submit" name="submit" value="次へ"> <input
-						type="submit" name="submit" value="キャンセル">
+					<input type="submit" name="submit" value="次へ" class="button">
+					<input type="submit" name="submit" value="キャンセル" class="button">
 				</div>
 
 			</form>
