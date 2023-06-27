@@ -39,7 +39,6 @@
                     <input type="submit" name="submit" value="検索">
                     <input type="submit" name="submit" value="絞り込み">
                     <input type="submit" name="submit" value="投稿">
-                    <input type="submit" name="submit" value="お気に入り">
                 </form>
             </div>
             <br>
@@ -58,7 +57,7 @@
                                     <td>度数</td>
                                     <td>産地</td>
                                     <td>備考</td>
-                                    <td>公開</td>
+
                                 </tr>
                                 <c:forEach var="libraries" items="${not empty narrowList ? narrowList : not empty searchList ? searchList : librariesList}">
                                     <tr>
@@ -69,7 +68,7 @@
                                         <td>${libraries.libraries_alcon}</td>
                                         <td>${libraries.libraries_from}</td>
                                         <td>${libraries.libraries_remarks}</td>
-                                        <td>${libraries.libraries_public}</td>
+
                                     </tr>
                                 </c:forEach>
                             </table>
