@@ -21,12 +21,12 @@ public class RegistServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
     	// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		HttpSession session = request.getSession();
+		/*HttpSession session = request.getSession();
 		if (session.getAttribute("users_id") == null) {
 			System.out.println("ログイン失敗");
 			response.sendRedirect("/sante/LoginServlet");
 			return;
-		}
+		}*/
         // Forward to the regist.jsp page
         RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/regist.jsp");
         dispatcher.forward(request, response);
