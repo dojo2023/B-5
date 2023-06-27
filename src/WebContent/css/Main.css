@@ -1,30 +1,31 @@
 @charset "UTF-8";
 html {
-	  background-color: #ffffd8;
-
+	background:
+	conic-gradient(at 5% 45%,#ccaaaa 90deg,transparent 90deg) 0px 0px/40px 40px
+	,conic-gradient(at 5% 45%,#ccaaaa 90deg,transparent 90deg) 20px 20px/40px 40px
+	,#eeeeee;
 }
 header {
     text-align: center;
-
+    height: 300px;
 }
 .headerbackground {
-	width: 35%;
+	width: 650px;
 	position: relative;
 }
 .header_ul {
-	top: 18%;
+	top: 135px;
 	position: absolute;
 }
 .header_li {
 	display: inline;
  	font-family: 'Times New Roman', Times, serif;
 }
-
+/*
 .calendar_leaf:hover,.libraries_leaf:hover,.counts_leaf:hover,.mypage_leaf:hover,.logout_leaf:hover {
-	transform: scale(1.5,1.5); /*画像の拡大*/
-	cursor: pointer; /*カーソルをポインターにする*/
-}
-
+	transform: scale(1.5,1.5);
+	cursor: pointer;
+}*/
 .body {
     background-image: url(/sante/img/blackboard.png);
 }
