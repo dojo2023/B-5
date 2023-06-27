@@ -1,25 +1,29 @@
 @charset "UTF-8";
 
+/*header*/
+.calendar_leaf:hover,.libraries_leaf:hover,.counts_leaf:hover,.logout_leaf:hover {
+	transform: scale(1.5,1.5);
+	cursor: pointer;
+}
+
 .body {
-    /*margin: 100px 35px auto 50px;*/
-    width: 50%;
-    height: 50%;
+    margin: 100px 100px 100px 200px;
+    width: 600px;
+    height: 600px;
     border-radius: 50%;
     background: radial-gradient(#fcfcfc, #fcfcfc 43%, #e7e7e7 51% 52%, #fff 53% 66%, #e0e0e0 70%, #c0c0c0);
     filter: drop-shadow(2px 3px 4px #888);
-    justify-content: center;
-    list-style: none;
 }
 .cutlery {
-    padding-top: 100px;
-    padding-left: 680px;
-    height: 650px;
+	width: 350px;
+    padding-left: 550px;
+    top: 200px;
 }
 .paper {
     width: 500px;
-  height: 700px;
-  margin: 0 auto;
-  margin-top: 10px;
+  height: 600px;
+  margin: 100px 100px 100px 50px;
+  margin-top: 50px;
   box-shadow: 0 10px 6px -6px #777;
   background: #ffc6ff;
   opacity: 0.9;
