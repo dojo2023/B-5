@@ -63,7 +63,13 @@ public class CountsCupsServlet extends HttpServlet {
 					System.out.println("counts_cups" + i);
 
 					String counts_cups = request.getParameter("counts_cups" + i);
+					String users_id = request.getParameter("ids" + i);
 
+					
+					//idがuser_id、飲んだ杯数がcounts_cupsをinsertするdaoを呼び出してテーブルに挿入する
+					
+					
+					
 					counts_list.add(counts_cups);
 				}
 			}

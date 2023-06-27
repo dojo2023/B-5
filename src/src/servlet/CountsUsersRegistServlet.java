@@ -82,11 +82,11 @@ public class CountsUsersRegistServlet extends HttpServlet {
 
 					PostCounts counts_name = (PostCounts) session.getAttribute("post_counts");
 					counts_name.setName_list(name_list);
-					session.setAttribute("post_counts", counts_name);
+					//session.setAttribute("post_counts", counts_name);
 					session.setAttribute("nameList", name_list);
 
 
-
+					
 				}
 
 				//あれば次をやる
@@ -97,6 +97,7 @@ public class CountsUsersRegistServlet extends HttpServlet {
 			//入力されたid,brithdayが一致したら
 			int name_count = 0;
 			String bi = "";
+			ArrayList<Integer>ids = new ArrayList<>();
 			for (String na : name_list) {
 				bi = birthday_list.get(name_count);
 
@@ -106,11 +107,17 @@ public class CountsUsersRegistServlet extends HttpServlet {
 					System.out.println("fail");
 					
 				}
+				ids.add(id_count);
 				name_count++;
 
 			}
+			for (int i=0;i<name_list.size();i++) {
+			System.out.println(name_list.get(i));
+			System.out.println(ids.get(i));
+			}
 			//成功。サーブレット移動
 			System.out.println("success");
+			session.setAttribute("ids", ids);
 //			session.setAttribute("nameList", name_list);
 
 			System.out.println(name_list);

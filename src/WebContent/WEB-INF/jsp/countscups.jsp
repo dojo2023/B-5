@@ -42,7 +42,7 @@
 
                    ${post_counts.name_list[status.index]}
                       <br>
-
+					<input type="hidden" name="ids[status.index]" value="${ids[status.index]}">
                     </div><br>
 
                     <div class="field">
