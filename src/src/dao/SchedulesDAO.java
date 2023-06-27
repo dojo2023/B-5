@@ -68,12 +68,15 @@ public class SchedulesDAO {
 	        // データベースに接続する
 	        conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
-	        String sql = "SELECT * FROM schedules WHERE schedules_id = ?";
+	        String sql = "SELECT * FROM schedules WHERE users_id = ?";
 	        PreparedStatement pstmt = conn.prepareStatement(sql);
+	        pstmt.setInt(1,users_id);
+
 
 	        ResultSet rs = pstmt.executeQuery();
 	        while (rs.next()) {
-	            int schedules_id = rs.getInt("schedules_id");
+	        	Schedules sg = new Schedules();
+	        	sg.setSchedules_id(rs.getInt("schedules_id"));
 	            String schedules_name = rs.getString("schedules_name");
 	            Timestamp schedules_dt = rs.getTimestamp("schedules_dt");
 	            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -81,9 +84,10 @@ public class SchedulesDAO {
 	            String schedules_date = schedules_dt_str.substring(0,10);
 	            String schedules_time = schedules_dt_str.substring(11,19);
 
-	            // schedulesオブジェクトを作成してリストに追加
-	            Schedules schedules = new Schedules(schedules_id, schedules_name, schedules_dt, schedules_date, schedules_time, users_id);
-	            schedulesList.add(schedules);
+	            sg.setSchedules_name(schedules_name);
+	            sg.setSchedules_date(schedules_date);
+	            sg.setSchedules_time(schedules_time);
+	            schedulesList.add(sg);
 	        }
 
 	        pstmt.close();
