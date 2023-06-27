@@ -24,7 +24,7 @@ form input[type = "text"],form input[type = "password"] {
     padding: 10px;
     width: 200px;
     outline: none;
-    border-radius: 24px;
+    border-radius: 28px;
     text-align: center;
   }
 
@@ -83,6 +83,12 @@ a:hover {
 a:active {
 	color: #a3b8cc;
 }
+
+  .login_footer {
+  display:flex;
+  font-size:50px;
+  padding-top:45%;
+  }
 <!--usersresult-->
 
 img.result_body {
@@ -96,7 +102,7 @@ img.result_body {
 	top: -1000px;
 	left: 630px;
 	font-size: 50px;
-	color:red;
+	color:white;
 	text-decoration:underline;
 	padding: 0;
 	margin: 114px;
@@ -138,19 +144,21 @@ a:active {
 }
 
 <!--regist-->
-.regist_birth {
-    font-size: 150%;
-    display: block;
-    margin: 10px auto;
-    border: 2px solid lightslategray;
-    padding: 10px;
-    width: 200px;
-    outline: none;
-    border-radius: 24px;
-    text-align: center;
+
+img .regist_body {
+	position: absolute;
+}
+  .regist_table {
+	position: relative;
+	top: -1650px;
+	left: 35x;
+	font-size: 50px;
+	padding: 0;
+	margin: 114px;
   }
 
-  .regist_birth {
-    width: 280px;
-    background-color: honeydew;
+  .regist_footer {
+  position:relative;
+  font-size:50px;
+  bottom:1340px;
   }
