@@ -37,7 +37,7 @@
 			<script>
 
 			</script>
-		</body>
+
 	</div>
 	</div>
 	<!-- footer -->
@@ -46,5 +46,5 @@
 		<p>&copy;Copyright 美酒乱-Michelin-. All rights reserved.</p>
 		</footer>
 	</div>
-
+</body>
 </html>
