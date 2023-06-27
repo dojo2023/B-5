@@ -28,12 +28,12 @@ public class MypagePhysicalsServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
-		HttpSession session = request.getSession();
+		/*HttpSession session = request.getSession();
 		if (session.getAttribute("users_id") == null) {
 			System.out.println("ログイン失敗");
 			response.sendRedirect("/sante/LoginServlet");
 			return;
-		}
+		}*/
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/mypagephysicals.jsp");
 		dispatcher.forward(request, response);
 	}
