@@ -50,10 +50,10 @@
             <div id="schedules_list">
             	<c:forEach var="e" items="${schedulesList }" varStatus="status">
             		<form>
-            			<input type="hidden" name="schedules" value="${e.schedules_id}" id="weight${status.index}">
-            			<input type="hidden" name="dt" value="${e.schedules_dt}" id="weight${status.index}">
-            			<input type="hidden" name="date" value="${e.schedules_date}" id="weight${status.index}">
-            			<input type="hidden" name="time" value="${e.schedules_time}" id="weight${status.index}">
+            			<input type="hidden" name="schedules" value="${e.schedules_id}" id="id${status.index}">
+            			<input type="hidden" name="dt" value="${e.schedules_dt}" id="dt${status.index}">
+            			<input type="hidden" name="date" value="${e.schedules_date}" id="date${status.index}">
+            			<input type="hidden" name="time" value="${e.schedules_time}" id="time${status.index}">
             			<input type="hidden" name="count" class="${status.last}" id="${status.index}">
             		</form>
             	</c:forEach>
