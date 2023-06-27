@@ -24,6 +24,7 @@ import model.Schedules;
  */
 @WebServlet("/CalendarServlet")
 public class CalendarServlet extends HttpServlet {
+	private Object object;
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -43,7 +44,12 @@ public class CalendarServlet extends HttpServlet {
 		List<Schedules> schedulesList = new ArrayList<>();
 		LoginId loginId = (LoginId) session.getAttribute("users_id");
 		int users_id = loginId.getUsers_id();
+		System.out.println("テスト:" + users_id );
 		schedulesList = sDAO.getAllSchedules(users_id);
+		for(int i=0;i<schedulesList.size();i++) {
+			System.out.println("内容:" + schedulesList.get(i));
+		}
+		request.setAttribute("schedulesList", schedulesList);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 		dispatcher.forward(request, response);
