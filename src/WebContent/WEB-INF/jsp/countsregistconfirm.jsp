@@ -35,8 +35,8 @@
                 <p>杯数を登録してよろしいですか？</p>
 
                 <div class="">
-                    <input type="submit" name="submit" value="はい">
-                    <input type="submit" name="submit" value="いいえ">
+                    <input type="submit" name="submit" value="はい" class="button">
+                    <input type="submit" name="submit" value="いいえ" class="button">
                 </div>
 
             </form>
