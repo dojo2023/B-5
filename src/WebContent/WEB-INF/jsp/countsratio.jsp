@@ -26,7 +26,7 @@
                     <li><a href="/sante/LibrariesServlet">図鑑</a></li>
                     <li><a href="/sante/CountsServlet">集計</a></li>
                     <li><a href="/sante/MypageServlet">マイページ</a></li>
-                    <li><a href="/sante/UsersResultServlet">ログアウト</a></li>
+                    <li><a href="/sante/LogoutServlet">ログアウト</a></li>
                 </ul>
             </nav>
         </header>
@@ -41,14 +41,14 @@
 				</div>
 				<script>let data = ${post_counts.name_list.get(namei)};</script>
                 <script src="js/counts/CountsRatio.js"></script> <!--割合のグラフを挿入-->
-                
+
                 <div class="">
                     <input type="submit" name="submit" value="登録">
                     <input type="submit" name="submit" value="戻る">
                 </div>
 
             </form>
- 
+
         </body>
     </div>
     <!-- footer -->
