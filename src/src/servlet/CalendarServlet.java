@@ -2,7 +2,9 @@ package servlet;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -12,8 +14,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.SchedulesDAO;
 import model.EditingSchedules;
 import model.LoginId;
+import model.Schedules;
 
 /**
  * Servlet implementation class CalendarServlet
@@ -34,6 +38,11 @@ public class CalendarServlet extends HttpServlet {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
+		// SchedulesDAOでスケジュールを取得
+		SchedulesDAO sDAO = new SchedulesDAO();
+		List<Schedules> schedulesList = new ArrayList<>();
+		schedulesList = sDAO.getAllSchedules((int) session.getAttribute("users_id"));
+
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 		dispatcher.forward(request, response);
 	}
