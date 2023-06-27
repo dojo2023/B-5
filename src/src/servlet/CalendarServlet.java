@@ -41,7 +41,9 @@ public class CalendarServlet extends HttpServlet {
 		// SchedulesDAOでスケジュールを取得
 		SchedulesDAO sDAO = new SchedulesDAO();
 		List<Schedules> schedulesList = new ArrayList<>();
-		schedulesList = sDAO.getAllSchedules((int) session.getAttribute("users_id"));
+		LoginId loginId = (LoginId) session.getAttribute("users_id");
+		int users_id = loginId.getUsers_id();
+		schedulesList = sDAO.getAllSchedules(users_id);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
 		dispatcher.forward(request, response);
