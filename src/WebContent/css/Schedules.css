@@ -36,3 +36,9 @@ td:last-child {
 td.is-disabled {
   color: #ccc;
 }
+
+/*header*/
+.libraries_leaf:hover,.counts_leaf:hover,.mypage_leaf:hover,.logout_leaf:hover {
+	transform: scale(1.5,1.5);
+	cursor: pointer;
+}
