@@ -24,7 +24,7 @@
                 <li class="header_li"><a href="/sante/LibrariesServlet"><img src = "/sante/img/libraries_leaf.png" alt="図鑑" class="libraries_leaf" width="7%"></a></li>
                 <li class="header_li"><a href="/sante/CountsServlet"><img src = "/sante/img/counts_leaf.png" alt="集計" class="counts_leaf" width="7%"></a></li>
                 <li class="header_li"><a href="/sante/MypageServlet"><img src = "/sante/img/mypage_leaf.png" alt="マイページ" class="mypage_leaf" width="7%"></a></li>
-                <li class="header_li"><a href="/sante/LoginServlet"><img src = "/sante/img/logout_leaf.png" alt="ログアウト" class="logout_leaf" width="7%"></a></li>
+                <li class="header_li"><a href="/sante/LogoutServlet"><img src = "/sante/img/logout_leaf.png" alt="ログアウト" class="logout_leaf" width="7%"></a></li>
 			</ul>
 		</header>
     </div>
