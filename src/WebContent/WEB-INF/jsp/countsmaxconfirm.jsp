@@ -35,7 +35,7 @@
                 <p>上限を超過しました</p>
                 <p>水を1L飲んでください</p>
 
-                <input type="submit" name="submit" value="はい">
+                <input type="submit" name="submit" value="はい" class="button">
             </form>
             <script src="CountsMaxConfirm.js"></script>
         </body>
