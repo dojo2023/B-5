@@ -36,11 +36,11 @@ public class RegistServlet extends HttpServlet {
             throws ServletException, IOException {
     	// もしもログインしていなかったらログインサーブレットにリダイレクトする。
 		HttpSession session = request.getSession();
-		if (session.getAttribute("users_id") == null) {
-			System.out.println("ログイン失敗");
-			response.sendRedirect("/sante/LoginServlet");
-			return;
-		}
+//		if (session.getAttribute("users_id") == null) {
+//			System.out.println("ログイン失敗");
+//			response.sendRedirect("/sante/LoginServlet");
+//			return;
+//		}
         // Retrieve request parameters
         request.setCharacterEncoding("UTF-8");
         String users_name = request.getParameter("users_name");
