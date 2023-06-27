@@ -49,7 +49,7 @@ body {
   margin: 10px 0 10px 45px;
 }
 /*header*/
-.calendar_leaf:hover,.libraries_leaf:hover,.mypage_leaf:hover.logout_leaf:hover {
+.calendar_leaf:hover,.libraries_leaf:hover,.mypage_leaf:hover,.logout_leaf:hover {
 	transform: scale(1.5,1.5);
 	cursor: pointer;
 }
