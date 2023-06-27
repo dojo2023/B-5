@@ -3,20 +3,25 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>登録結果</title>
-    <link href="" rel="stylesheet">
+    <title>結果|santé !</title>
+   <link rel="stylesheet" type="text/css" href="css/Main.css">
+	<link rel="stylesheet" type="text/css" href="css/Login.css">
 </head>
+<header>
+<img src = "/sante/img/background1.png" class = "headerbackground">
+</header>
 <body>
 <div class="wrapper">
     <h1 id="logo">
-    <a href="/sante/LoginServlet"><img src="" alt=""></a>
+    <a href="/sante/LoginServlet"></a>
   	</h1>
-    <h2>ログイン・登録結果</h2>
+    <div align = "center"><img src="/sante/img/closedDoor.png" class="result_body" 	width = "78%"
+	height = "180%"></div>
     <%-- メッセージ表示 --%>
     <% if (request.getAttribute("message") != null) { %>
-        <p><%= request.getAttribute("message") %></p>
+        <p class = "error_message"><%= request.getAttribute("message") %></p>
     <% } %>
-    <p><a href="/sante/LoginServlet">戻ります</a></p>
+   <p class = "return_message"><a href="/sante/LoginServlet">戻ります</a></p>
       <!-- フッター（ここから） -->
   <div id="footer">
     <p>&copy;Copyright やすお. All rights reserved.</p>
