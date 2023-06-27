@@ -24,7 +24,7 @@
    <p class = "return_message"><a href="/sante/LoginServlet">戻ります</a></p>
       <!-- フッター（ここから） -->
   <div id="footer">
-    <p>&copy;Copyright やすお. All rights reserved.</p>
+   <p>&copy;Copyright 美酒乱-Michelin-. All rights reserved.</p>
   </div>
   <!-- フッター（ここまで） -->
 </div>
