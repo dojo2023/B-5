@@ -1,28 +1,27 @@
 @charset "UTF-8";
 .login_body {
-	position: absolute;
 	width: 78%;
-	height: 180%;
-	padding-top:10px;
+	height: 300%;
+	padding-top:0;
 	padding-left: 10%;
 }
 
 .login_table {
 	position: relative;
-	top: 830px;
-	left: 990px;
-	font-size: 50px;
+	top: -900px;
+	left: 310px;
+	font-size: 30px;
 	padding: 0;
 	margin: 114px;
 }
 
 form input[type = "text"],form input[type = "password"] {
-    font-size: 150%;
+    font-size: 100%;
     display: block;
     margin: 10px auto;
     border: 2px solid lightslategray;
     padding: 10px;
-    width: 200px;
+    width: 150px;
     outline: none;
     border-radius: 28px;
     text-align: center;
@@ -83,11 +82,8 @@ a:hover {
 a:active {
 	color: #a3b8cc;
 }
-
-  .login_footer {
-  display:flex;
-  font-size:50px;
-  padding-top:45%;
+.login_footer {
+  top:25%;
   }
 <!--usersresult-->
 
@@ -99,20 +95,20 @@ img.result_body {
 
 .error_message {
 	position: relative;
-	top: -1000px;
-	left: 630px;
-	font-size: 50px;
-	color:white;
+	top: -550px;
+	left: 200px;
+	font-size: 30px;
+	color:red;
 	text-decoration:underline;
 	padding: 0;
 	margin: 114px;
 }
 .return_message {
 	color: navy;
-	font-size:45px;
+	font-size:30px;
 	position:absolute;
-	top:2000px;
-	left:1250px;
+	top:1100px;
+	left:600px;
 }
 
 .return_message:visited {
@@ -157,8 +153,8 @@ img .regist_body {
 	margin: 114px;
   }
 
-  .regist_footer {
+ <!-- .regist_footer {
   position:relative;
   font-size:50px;
   bottom:1340px;
-  }
+  }-->
