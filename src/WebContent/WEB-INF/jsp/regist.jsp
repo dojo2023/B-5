@@ -9,6 +9,7 @@
     <title>新規登録|santé !</title>
     <!-- hrefの後ろにcssのリンクを書く -->
     <link rel="stylesheet" type="text/css" href="css/Main.css">
+    <link rel="stylesheet" type="text/css" href="css/Login.css">
     <!-- <script src="Regist.js"></script> -->
     <script>
     function handleIDInputChange() {
@@ -80,20 +81,22 @@
     <!-- header -->
     <div class="header">
         <header>
-
+	<img src = "/sante/img/background1.png" class = "headerbackground">
         </header>
     </div>
     <!-- body -->
-    <div class="body">
+    <div class="regist_body">
         <body>
             <h1>
 
             </h1>
+            <div align = "center">
             <h2>新規登録</h2>
             <form method="POST" action="/sante/RegistServlet">
                 <table>
                     <tr>
                         <td>
+
                             <label>ニックネーム:<br>
                                 <input type="text" name="users_name" id="nickname" oninput="handleIDInputChange()">
                             </label>
@@ -108,8 +111,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <label>生年月日:<br>
-                                <select name="year" onchange="handleIDInputChange()">
+                            <label class =  "regist_birth">生年月日:<br>
+                                <select name="year" onchange="handleIDInputChange()" >
                                     <option value="年" selected>年</option>
                                     <c:forEach var="year" begin="1941" end="2015">
                                         <option value="${year}">${year}</option>
@@ -145,6 +148,7 @@
                     </tr>
                 </table>
             </form>
+            </div>
         </body>
     </div>
     <!-- footer -->
