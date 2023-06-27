@@ -26,8 +26,8 @@
 	</div>
 	<div class="body">
 	<div class = "paper">
+	<body>
 	 <img src = "/sante/img/cutlery.png" class = "cutlery">
-		<body>
 			<form id = "Physicals" method="GET" action="/sante/MypagePhysicalsServlet">
 				<input type="submit" name="submit" value="コンディションとアルコール耐性 "><br>
 			</form>
