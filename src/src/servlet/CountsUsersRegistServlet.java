@@ -102,12 +102,12 @@ public class CountsUsersRegistServlet extends HttpServlet {
 				bi = birthday_list.get(name_count);
 
 				UsersDAO uDao = new UsersDAO();
-				int id_count = uDao.getUserIDCounts(na, bi);
-				if (id_count == -1) {
+				int users_id = uDao.getUserIDCounts(na, bi);
+				if (users_id == -1) {
 					System.out.println("fail");
 					
 				}
-				ids.add(id_count);
+				ids.add(users_id);
 				name_count++;
 
 			}

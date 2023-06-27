@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.CountsDAO;
+import model.Counts;
+
 //import model.Drinks;
 
 /**
@@ -63,12 +66,22 @@ public class CountsCupsServlet extends HttpServlet {
 					System.out.println("counts_cups" + i);
 
 					String counts_cups = request.getParameter("counts_cups" + i);
-					String users_id = request.getParameter("ids" + i);
+					String user_id = request.getParameter("ids" + i);
 
 					
 					//idがuser_id、飲んだ杯数がcounts_cupsをinsertするdaoを呼び出してテーブルに挿入する
+
+					CountsDAO cDao = new CountsDAO();
+					
+					Counts count = new Counts();
+					count.setUsers_id(Integer.parseInt(user_id));
+					count.setCounts_alcohol(Integer.parseInt(counts_cups));
 					
 					
+					if (cDao.insertCounts(count)) {	
+						
+						
+					}
 					
 					counts_list.add(counts_cups);
 				}

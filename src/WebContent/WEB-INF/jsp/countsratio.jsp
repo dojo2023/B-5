@@ -39,7 +39,20 @@
                 <div class="chart-container" >
 					<canvas id="Chart" ></canvas>
 				</div>
-				<script>let data = ${post_counts.name_list.get(namei)};</script>
+
+				<script>
+					name = [
+				    	<c:forEach var="e" items="${post_counts.name_list}">
+				    		'${e.name_list[i]}',
+				   	 	</c:forEach>
+					];
+					countscups = [
+				   		 <c:forEach var="e" items="${counts_list}">
+				    		'${e.counts_list}',
+				    	</c:forEach>
+					];
+				</script>
+				
                 <script src="js/counts/CountsRatio.js"></script> <!--割合のグラフを挿入-->
 
                 <div class="">

@@ -28,7 +28,8 @@ public class CountsDAO {
 //	        pstmt.setInt(1, counts.getCounts_id());
 	        pstmt.setInt(1, counts.getUsers_id());
 	        pstmt.setInt(2, counts.getCounts_alcohol());
-	        pstmt.setDate(3, (java.sql.Date) counts.getCounts_date());
+	        
+	        pstmt.setString(3,"current_date");
 
 
 	        // Execute the update statement

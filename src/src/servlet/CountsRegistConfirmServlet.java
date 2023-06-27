@@ -10,9 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.CountsDAO;
-import model.Counts;
-
 /**
  * Servlet implementation class CountsRegistConfirmServlet
  */
@@ -52,25 +49,24 @@ public class CountsRegistConfirmServlet extends HttpServlet {
 
 		// はいまたはいいえを行う
 		request.setCharacterEncoding("UTF-8");
+		
 		if (request.getParameter("submit").equals("はい")) {
 			
 			
-			session.getAttribute("counts_list", counts_list);
-			
 			// 登録処理を行う
-			CountsDAO cDao = new CountsDAO();
+//			CountsDAO cDao = new CountsDAO();
 			
-			
-			if (cDao.insert(new Counts(counts_alcohol))) {	
-				
-				for (int i = 0; i < counts_list.size(); i++) {
-					counts_list.get(i);
-				
-				}
+			// リクエストパラメータを取得する
+//			int counts_alcohol = Integer.parseInt(counts_cups);
+//			int users_id = Integer.parseInt(user_id);
+//			
+//			if (cDao.insertCounts(new Counts())) {	
+//				System.out.println("success");
+//			}
 				
 				//カレンダーのサーブレットにリダイレクト
 				response.sendRedirect("/sante/CalendarServlet");
-			}
+			
 
 		} else {
 			//杯数選択画面のサーブレットにリダイレクト
