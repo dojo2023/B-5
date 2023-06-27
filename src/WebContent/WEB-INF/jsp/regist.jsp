@@ -75,6 +75,27 @@
         }
     }
     </script>
+    <style>
+.regist_year, .regist_month, .regist_day {
+	cursor: pointer;
+	display: flex;
+	font-size: 30px;
+	margin: 10px auto;
+	border: 2px solid lightslategray;
+	padding: 10px;
+	width: 200px;
+	outline: none;
+	border-radius: 4px;
+	background-color: #fff;
+	box-shadow: none;
+	text-align: center;
+}
+
+.regist_year :focus {
+	width: 280px;
+	background-color: honeydew;
+}
+</style>
 </head>
 
 <div class="wrapper">
@@ -87,13 +108,13 @@
     <!-- body -->
     <div class="regist_body">
         <body>
-            <h1>
 
-            </h1>
             <div align = "center">
-            <h2>新規登録</h2>
+            <h2 style = "font-size:60px;">新規登録</h2>
+            <img src="/sante/img/openedDoor.png" class="regist_body" width="78%"
+					height="150%">
             <form method="POST" action="/sante/RegistServlet">
-                <table>
+                <table class = "regist_table">
                     <tr>
                         <td>
 
@@ -112,19 +133,19 @@
                     <tr>
                         <td>
                             <label class =  "regist_birth">生年月日:<br>
-                                <select name="year" onchange="handleIDInputChange()" >
+                                <select name="year" onchange="handleIDInputChange()" class="regist_year">
                                     <option value="年" selected>年</option>
                                     <c:forEach var="year" begin="1941" end="2015">
                                         <option value="${year}">${year}</option>
                                     </c:forEach>
                                 </select>
-                                <select name="month" onchange="handleIDInputChange()" disabled>
+                                <select name="month" onchange="handleIDInputChange()" class="regist_month" disabled>
                                     <option value="月" selected>月</option>
                                     <c:forEach var="month" begin="1" end="12">
                                         <option value="${month}">${month}</option>
                                     </c:forEach>
                                 </select>
-                                <select name="day" disabled>
+                                <select name="day" class="regist_day" disabled>
                                     <option value="日" selected>日</option>
                                     <c:forEach var="day" begin="1" end="31">
                                         <option value="${day}">${day}</option>
@@ -142,7 +163,7 @@
                     <tr>
                         <td>
                             <label>
-                                <a href="/sante/LoginServlet">ログインはこちら</a>
+                                <a href="/sante/LoginServlet" id="regist_move">ログインはこちら</a>
                             </label>
                         </td>
                     </tr>
