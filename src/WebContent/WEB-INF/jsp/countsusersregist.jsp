@@ -72,7 +72,7 @@
                     </tr>
 
                     </c:forEach>
-					<tr><td> <c:out value="${erro}" /> </td></tr>
+					<tr><td class="countserror"> <c:out value="${erro}" /> </td></tr>
 
 
 				</table>
