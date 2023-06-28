@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/Main.css">
 	<link rel="stylesheet" type="text/css" href="css/Schedules.css">
 </head>
-
+<body>
 <div class="wrapper">
     <!-- header -->
     <div class="header">
@@ -32,13 +32,13 @@
     </div>
     <!-- body -->
     <div class="body">
-        <body>
+
             <button id="prev" type="button">前の月</button>
             <button id="next" type="button">次の月</button>
             <div id="calendar"></div>
             <div class="dummy_buttons">
             	<form method="POST" id="date_check" autocomplete="off" action="/sante/CalendarServlet">
-					<input type="hidden" name="select_day" value="">
+					<a href="#"><input type="hidden" name="select_day" value=""></a>
 					<input type="submit" name="submit" value="編集">
             	</form>
             </div>
@@ -56,7 +56,7 @@
             	</c:forEach>
             </div>
            <script src="js/schedules/Schedules.js"></script>
-        </body>
+
     </div>
     <!-- footer -->
     <div class="footer">
@@ -65,5 +65,5 @@
 		</footer>
     </div>
 </div>
-
+ </body>
 </html>
