@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/Main.css">
 	<link rel="stylesheet" type="text/css" href="css/Libraries.css">
 </head>
-
+<body>
 <div class="wrapper">
     <!-- header -->
     <div class="header">
@@ -31,7 +31,7 @@
     <!-- body -->
     <div class="body">
 
-        <body>
+
             <form method="POST" autocomplete="off" action="/sante/BookmarksConfirmServlet">
                 <p>お気に入りを更新してもよろしいですか？</p>
                 <!-- 送信用submit -->
@@ -40,7 +40,6 @@
                     <input type="submit" name="submit" value="いいえ">
                 </div>
             </form>
-        </body>
     </div>
     <!-- footer -->
     <div class="footer">
@@ -49,5 +48,5 @@
 		</footer>
     </div>
 </div>
-
+</body>
 </html>
