@@ -50,7 +50,8 @@ public class CountsUsersRegistServlet extends HttpServlet {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-
+		int check = 0;
+		String URI = "";
 		// 次へまたはキャンセルを行う
 		request.setCharacterEncoding("UTF-8");
 		ArrayList<String> name_list = new ArrayList<String>();
@@ -126,7 +127,14 @@ public class CountsUsersRegistServlet extends HttpServlet {
 			System.out.println(name_list);
 			System.out.println(birthday_list);
 
-			
+			//DBでname,birthday_listを使ってSelect文であるかどうかをチェック
+			if(URI.equals("") ){
+			//次のサーブレットにリダイレクト
+			response.sendRedirect("/sante/CountsCupsServlet");
+			}else {
+				response.sendRedirect(URI);
+
+			}
 		} else {
 			//キャンセル元のサーブレットにもどる。
 			response.sendRedirect("/sante/CountsSortingServlet");
