@@ -76,3 +76,36 @@ body {
 div.cups {
 	text-align:center;
 }
+
+.button_resetbtn {
+    display: block;
+    margin: 90px auto;
+    border: 2px solid lightslategray;
+    padding: 10px;
+    width: 200px;
+    color: honeydew;
+    border-radius: 25px;
+    font-size:15px;
+  }
+
+.button_resetbtn {
+    background-color: teal;
+    border: 2px solid lightslategray;
+    display:inline
+  }
+  form input[type = "submit"]{
+    display: block;
+    margin: 90px auto;
+    border: 2px solid lightslategray;
+    padding: 10px;
+    width: 200px;
+    color: honeydew;
+    border-radius: 25px;
+    font-size:15px;
+  }
+
+  form input[type = "submit"]{
+    background-color: teal;
+    border: 2px solid lightslategray;
+    display:inline
+  }
