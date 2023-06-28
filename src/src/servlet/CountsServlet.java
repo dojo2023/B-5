@@ -66,21 +66,25 @@ public class CountsServlet extends HttpServlet {
 					if (all_member < 0) {
 						// 集計入力画面にフォワードする
 						RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
+						request.setAttribute("erro", "0以上を入力してください");
 						dispatcher.forward(request, response);
 					} else if (all_member > 10) {
 						// 集計入力画面にフォワードする
 						RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
+						request.setAttribute("erro", "10以下で入力してください");
 						dispatcher.forward(request, response);
 					}
 				} else if (all_member == 0) {
 					// 集計入力画面にフォワードする
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
+					request.setAttribute("erro", "0以外を入力してください");
 					dispatcher.forward(request, response);
 				}
 
 			} catch (NumberFormatException n) {
 				// 集計入力画面にフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/counts.jsp");
+				request.setAttribute("erro", "数字を入力してください");
 				dispatcher.forward(request, response);
 			}
 

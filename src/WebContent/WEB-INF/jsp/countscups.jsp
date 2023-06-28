@@ -53,7 +53,7 @@
 									${post_counts.name_list[status.index]}
 							</c:if>
 							<c:if test="${post_counts.name_list[i] == null}">
-                					guest ${i} 
+                					guest ${i-1} 
 							</c:if>
 							<br> <input type="hidden" name="ids[status.index]"
 								value="${ids[status.index]}">

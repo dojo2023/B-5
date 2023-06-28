@@ -73,7 +73,7 @@
                         </td>
 
                         <td>
-                            <span id="error_message" name="error_message${status.index}"></span>
+                            <c:out value="${erro}" />
                         </td>
 
 

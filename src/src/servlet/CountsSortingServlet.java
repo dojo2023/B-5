@@ -67,6 +67,7 @@ public class CountsSortingServlet extends HttpServlet {
 						//エラー処理
 						// アプリ利用者選別画面にフォワードする
 						RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+						request.setAttribute("erro", "参加人数に対して利用者数が上回っています");
 						dispatcher.forward(request, response);
 					} else {
 						PostCounts counts_data = (PostCounts) session.getAttribute("post_counts");
@@ -78,12 +79,14 @@ public class CountsSortingServlet extends HttpServlet {
 						if (users_member < 0) {
 							// アプリ利用者選別画面にフォワードする
 							RequestDispatcher dispatcher = request
-									.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+							.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+							request.setAttribute("erro", "0以上を入力してください");
 							dispatcher.forward(request, response);
 						} else if (users_member > 10) {
 							// アプリ利用者選別画面にフォワードする
 							RequestDispatcher dispatcher = request
-									.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+							.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+							request.setAttribute("erro", "10以下で入力してください");
 							dispatcher.forward(request, response);
 						}
 
@@ -92,11 +95,13 @@ public class CountsSortingServlet extends HttpServlet {
 				} else if (users_member == 0) {
 					// アプリ利用者選別画面にフォワードする
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+					request.setAttribute("erro", "0以外を入力してください");
 					dispatcher.forward(request, response);
 				}
 			} catch (NumberFormatException n) {
 				// アプリ利用者選別画面にフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/countssorting.jsp");
+				request.setAttribute("erro", "数字を入力してください");
 				dispatcher.forward(request, response);
 			} finally {
 				//CountSortingServletサーブレットに処理を渡す(リダイレクト)

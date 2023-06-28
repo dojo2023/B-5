@@ -36,10 +36,12 @@
             <form method="POST" action="/sante/CountsServlet">
                 <p>人数を入力してください</p>
                 <input type="text" name="counts" class="inputtext">
-                <input type="submit" name="submit" value="次へ" class="button">
+                <input type="submit" name="submit" value="次へ" class="button"><br>
+                <c:out value="${erro}" />
             </form>
             <script src="Counts.js"></script>
         </body>
+
     </div>
     <!-- footer -->
     <div class="footer">

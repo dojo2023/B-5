@@ -36,7 +36,8 @@
                 <input type="text" name="userscounts" class="inputtext">
                 <div class="">
                     <input type="submit" name="submit" value="次へ" class="button">
-                    <input type="submit" name="submit" value="キャンセル" class="button">
+                    <input type="submit" name="submit" value="キャンセル" class="button"><br>
+                     <c:out value="${erro}" />
                     </form>
                 </div>
 
