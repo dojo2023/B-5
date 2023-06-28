@@ -16,7 +16,7 @@
 <script
 	src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
 </head>
-
+<body>
 <div class="wrapper">
 	<!-- header -->
 	<div class="header">
@@ -36,7 +36,7 @@
 	<!-- body -->
 
 	<div class="body">
-		<body>
+
 
 			<form method="POST" action="/sante/CountsRatioServlet">
 
@@ -63,7 +63,7 @@
 
 				<script src="js/counts/CountsRatio.js"></script>
 			<!--割合のグラフを挿入-->
-		</body>
+
 	</div>
 	<!-- footer -->
 	<div class="footer">
@@ -72,5 +72,5 @@
 		</footer>
 	</div>
 </div>
-
+</body>
 </html>
