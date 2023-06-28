@@ -60,7 +60,7 @@ public class AddSchedulesConfirmServlet extends HttpServlet {
 			String editing_schedules_dt = editingSchedules.getEditing_schedules_dt();
 			System.out.println("予定テスト" + editing_schedules_name);
 			System.out.println("日付テスト" + editing_schedules_dt);
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 			Date date_esd;
 			try {
 				date_esd = sdf.parse(editing_schedules_dt);

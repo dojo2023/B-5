@@ -31,14 +31,14 @@
     <!-- body -->
     <div class="body">
         <body>
-            <form>
-                <p>取得した日付・時間の予定名を削除してよろしいですか？
-                </p>
-                <div>
-                    <input type="submit" name="yes" value="はい">
-                    <input type="submit" name="no" value="いいえ">
-                </div>
-            </form>
+           <form method="POST" autocomplete="off"
+				action="/sante/DeleteSchedulesConfirmServlet">
+				<label>以下の内容を削除してもよろしいでしょうか？</label><br>
+				<label>日付:</label><label>"${sessionScope.schedules_date}"</label><br>
+				<label>内容:</label><label>"${sessionScope.schedules_name}"</label><br>
+				<input type="submit" name="submit" value="削除">
+				<input type="submit" name="submit" value="キャンセル">
+			</form>
         </body>
     </div>
     <!-- footer -->
