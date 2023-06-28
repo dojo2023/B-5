@@ -37,26 +37,21 @@
             <button id="next" type="button">次の月</button>
             <div id="calendar"></div>
             <div class="dummy_buttons">
-            	<form method="POST" autocomplete="off"
-					action="/sante/CalendarServlet">
-					<input type="submit"
-						name="submit" value="過去予定無"> <input type="submit"
-						name="submit" value="過去予定有">
-						<input type="submit"
-						name="submit" value="未来予定無"> <input type="submit"
-						name="submit" value="未来予定有">
+            	<form method="POST" id="date_check" autocomplete="off" action="/sante/CalendarServlet">
+					<input type="hidden" name="select_day" value="">
+					<input type="submit" name="submit" value="編集">
             	</form>
             </div>
             <!-- 表示されないスケジュールリスト -->
             <div id="schedules_list">
             	<c:forEach var="e" items="${schedulesList}" varStatus="status">
             		<form>
-            			<input type="text" name="id" value="${e.schedules_id}" id="id${status.index}">
-            			<input type="text" name="name" value="${e.schedules_name}" id="name${status.index}">
-            			<input type="text" name="dt" value="${e.schedules_dt}" id="dt${status.index}">
-            			<input type="text" name="date" value="${e.schedules_date}" id="date${status.index}">
-            			<input type="text" name="time" value="${e.schedules_time}" id="time${status.index}">
-            			<input type="text" name="count" class="${status.last}" id="${status.index}">
+            			<input type="hidden" name="id" value="${e.schedules_id}" id="id${status.index}">
+            			<input type="hidden" name="name" value="${e.schedules_name}" id="name${status.index}">
+            			<input type="hidden" name="dt" value="${e.schedules_dt}" id="dt${status.index}">
+            			<input type="hidden" name="date" value="${e.schedules_date}" id="date${status.index}">
+            			<input type="hidden" name="time" value="${e.schedules_time}" id="time${status.index}">
+            			<input type="hidden" name="count" class="${status.last}" id="${status.index}">
             		</form>
             	</c:forEach>
             </div>

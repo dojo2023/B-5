@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -44,11 +45,8 @@ public class CalendarServlet extends HttpServlet {
 		List<Schedules> schedulesList = new ArrayList<>();
 		LoginId loginId = (LoginId) session.getAttribute("users_id");
 		int users_id = loginId.getUsers_id();
-		System.out.println("テスト:" + users_id );
+		System.out.println("UserID:" + users_id);
 		schedulesList = sDAO.getAllSchedules(users_id);
-		for(int i=0;i<schedulesList.size();i++) {
-			System.out.println("内容:" + schedulesList.get(i));
-		}
 		request.setAttribute("schedulesList", schedulesList);
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/calendar.jsp");
@@ -68,49 +66,101 @@ public class CalendarServlet extends HttpServlet {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-		// セッションスコープからLoginIdオブジェクトを取得し、users_idを取得する
-		LoginId loginId = (LoginId) session.getAttribute("users_id");
 
-		// ダミーボタンの処理なので最終的に全部消すこと。
-		if (request.getParameter("submit").equals("過去予定無")) {
-			// ダミーの値を生成
-			String editing_schedules_name = "ダミー過去予定無";
-			Date dummy = new Date();
-			String editing_schedules_dt = new SimpleDateFormat("yyyy/MM/dd").format(dummy);
-			int editing_schedules_users_id = loginId.getUsers_id();
-			// ダミーの追加情報を格納
-			EditingSchedules add_schedules = new EditingSchedules(editing_schedules_name, editing_schedules_dt,
-					editing_schedules_users_id);
-			// セッションスコープに追加情報を保存
-			session.setAttribute("add_schedules", add_schedules);
-			System.out.println("格納:" + add_schedules.getEditing_schedules_name() + "\n");
-			System.out.println("格納:" + add_schedules.getEditing_schedules_dt() + "\n");
-			System.out.println("格納:" + add_schedules.getEditing_schedules_users_id() + "\n");
-			// 画面を遷移
-			response.sendRedirect("/sante/AddSchedulesServlet");
-		} else if (request.getParameter("submit").equals("過去予定有")) {
+		if ("編集".equals(request.getParameter("submit"))) {
+			String selected_date = request.getParameter("select_day");
 
-			// 画面を遷移
-			response.sendRedirect("/sante/PastSchedulesConfirmServlet");
-		} else if (request.getParameter("submit").equals("未来予定無")) {
-			// ダミーの値を生成
-			String editing_schedules_name = "ダミー未来予定無";
-			Date dummy = new Date();
-			String editing_schedules_dt = new SimpleDateFormat("yyyy/MM/dd").format(dummy);
-			int editing_schedules_users_id = loginId.getUsers_id();
-			// ダミーの追加情報を格納
-			EditingSchedules add_schedules = new EditingSchedules(editing_schedules_name, editing_schedules_dt,
-					editing_schedules_users_id);
-			// セッションスコープに追加情報を保存
-			session.setAttribute("add_schedules", add_schedules);
-			System.out.println("格納:" + add_schedules.getEditing_schedules_name() + "\n");
-			System.out.println("格納:" + add_schedules.getEditing_schedules_dt() + "\n");
-			System.out.println("格納:" + add_schedules.getEditing_schedules_users_id() + "\n");
-			// 画面を遷移
-			response.sendRedirect("/sante/AddSchedulesServlet");
-		} else if (request.getParameter("submit").equals("未来予定有")) {
+			System.out.println("選択した日付:" + selected_date);
 
+			// 現在の日付を取得し変換
+			Date date = new Date();
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+			try {
+				Date toDate = sdf.parse(selected_date);
+				System.out.println("ここまでは動く");
+				if (toDate.before(date)) {
+					System.out.println("過去");
+					// SchedulesDAOでスケジュールを取得
+					SchedulesDAO sDAO = new SchedulesDAO();
+					List<Schedules> schedulesList = new ArrayList<>();
+					LoginId loginId = (LoginId) session.getAttribute("users_id");
+					int users_id = loginId.getUsers_id();
+					System.out.println("テスト:" + users_id);
+					schedulesList = sDAO.getAllSchedules(users_id);
+					for (int i = 0; i < schedulesList.size(); i++) {
+						System.out.println("for文" + i + "回目");
+						System.out.println("予定日付:" + schedulesList.get(i).getSchedules_date());
+						if ((schedulesList.get(i)).getSchedules_date().equals(selected_date)) {
+							System.out.println("予定内容:" + schedulesList.get(i).getSchedules_name());
+							System.out.println("予定有");
+							session.setAttribute("schedules_date", selected_date);
+							session.setAttribute("schedules_name",schedulesList.get(i).getSchedules_name());
+							// 画面を遷移
+							response.sendRedirect("/sante/PastSchedulesConfirmServlet");
+							return;
+						}
+					}
+					System.out.println("予定無");
+					// ダミーの値を生成
+					String editing_schedules_name = "";
+					//Date sDate = date;
+					String editing_schedules_dt = selected_date;
+					System.out.println("日付確認" + editing_schedules_dt);
+					int editing_schedules_users_id = loginId.getUsers_id();
+					// ダミーの追加情報を格納
+					EditingSchedules add_schedules = new EditingSchedules(editing_schedules_name, editing_schedules_dt,
+							editing_schedules_users_id);
+					// セッションスコープに追加情報を保存
+					session.setAttribute("add_schedules", add_schedules);
+					System.out.println("格納:" + add_schedules.getEditing_schedules_name() + "\n");
+					System.out.println("格納:" + add_schedules.getEditing_schedules_dt() + "\n");
+					System.out.println("格納:" + add_schedules.getEditing_schedules_users_id() + "\n");
+					// 画面を遷移
+					response.sendRedirect("/sante/AddSchedulesServlet");
+				} else {
+					System.out.println("未来");
+					// SchedulesDAOでスケジュールを取得
+					SchedulesDAO sDAO = new SchedulesDAO();
+					List<Schedules> schedulesList = new ArrayList<>();
+					LoginId loginId = (LoginId) session.getAttribute("users_id");
+					int users_id = loginId.getUsers_id();
+					System.out.println("テスト:" + users_id);
+					schedulesList = sDAO.getAllSchedules(users_id);
+					for (int i = 0; i < schedulesList.size(); i++) {
+						System.out.println("for文" + i + "回目");
+						System.out.println("予定日付:" + schedulesList.get(i).getSchedules_date());
+						if ((schedulesList.get(i)).getSchedules_date().equals(selected_date)) {
+							System.out.println("予定内容:" + schedulesList.get(i).getSchedules_name());
+							System.out.println("予定有");
+							session.setAttribute("schedules_date", selected_date);
+							session.setAttribute("schedules_name",schedulesList.get(i).getSchedules_name());
+							// 画面を遷移
+							response.sendRedirect("/sante/ChangeSchedulesServlet");
+							return;
+						}
+					}
+					System.out.println("予定無");
+					// ダミーの値を生成
+					String editing_schedules_name = "";
+					String editing_schedules_dt = selected_date;
+					System.out.println("日付確認" + editing_schedules_dt);
+					int editing_schedules_users_id = loginId.getUsers_id();
+					// ダミーの追加情報を格納
+					EditingSchedules add_schedules = new EditingSchedules(editing_schedules_name, editing_schedules_dt,
+							editing_schedules_users_id);
+					// セッションスコープに追加情報を保存
+					session.setAttribute("add_schedules", add_schedules);
+					System.out.println("格納:" + add_schedules.getEditing_schedules_name() + "\n");
+					System.out.println("格納:" + add_schedules.getEditing_schedules_dt() + "\n");
+					System.out.println("格納:" + add_schedules.getEditing_schedules_users_id() + "\n");
+					// 画面を遷移
+					response.sendRedirect("/sante/AddSchedulesServlet");
+				}
+			} catch (ParseException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
 		}
 	}
-
 }

@@ -79,7 +79,7 @@ public class SchedulesDAO {
 	        	sg.setSchedules_id(rs.getInt("schedules_id"));
 	            String schedules_name = rs.getString("schedules_name");
 	            Timestamp schedules_dt = rs.getTimestamp("schedules_dt");
-	            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+	            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	            String schedules_dt_str = sdf.format(schedules_dt);
 	            String schedules_date = schedules_dt_str.substring(0,10);
 	            String schedules_time = schedules_dt_str.substring(11,19);

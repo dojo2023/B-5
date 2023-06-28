@@ -34,12 +34,11 @@
 			<form method="POST" autocomplete="off"
 					action="/sante/PastSchedulesConfirmServlet">
 			<label>日付:</label>
-			<label>"${add_schedules.getEditing_schedules_dt()}"</label>
+			<label>"${sessionScope.schedules_date}"</label>
 			<br>
 			<label>内容:</label>
-			<label>"${add_schedules.getEditing_schedules_name()}"</label>
+			<label>"${sessionScope.schedules_name}"</label>
 			<br>
-			<label>上記の内容で追加してよろしいですか？</label>
 			<br>
 			<input type="submit" name="submit" value="戻る">
 			</form>
