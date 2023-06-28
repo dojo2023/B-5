@@ -27,11 +27,13 @@
     <div class="regist_body">
 
 <div align="center">
+		<form method="POST"action="RegistPhysicalsServlet">
            <table class = "physicals_table">
 				<tr>
 					<td><label class="resistance-select">アルコール耐性<br>
 							<select name="physicals_resistance"
-							style="cursor: pointer; display: flex; font-size: 20px; margin: 10px auto; border: 2px solid lightslategray; padding: 10px; width: 200px; outline: none; border-radius: 4px; background-color: #fff; box-shadow: none; text-align: center;">
+							style="cursor: pointer; display: flex; font-size: 20px; margin: 10px auto; border: 2px solid lightslategray; padding: 10px; width: 200px; outline: none; border-radius: 4px; background-color: #fff; box-shadow: none; text-align: center;"
+							required>
 								<option value="">選択してください</option>
 								<option value="1">高い</option>
 								<option value="2">やや高い</option>
@@ -60,12 +62,13 @@
 				</tr>
 				<tr>
 				<td>
-			<form method="POST"action="RegistPhysicalsServlet">
+
             <input type = "submit" name = "submit" value = "登録">
-            </form></td>
+            </td>
             </tr>
 
 			</table>
+		</form>
             <script>
             </script>
 
