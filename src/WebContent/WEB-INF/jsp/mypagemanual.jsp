@@ -40,7 +40,15 @@
 	</div>
 	<!-- body -->
 	<div class="body">
-
+			<div class="manualpics">
+		        <img id="pics" src="/sante/img/calendar_leaf.png" alt="カレンダー使い方" onclick="">
+		    </div>
+		    <div class="manualbtns">
+		    	<input type="submit" name="submit" value="カレンダー" id="calendarbtn">
+		    	<input type="submit" name="submit" value="図鑑" id="librarybtn">
+		    	<input type="submit" name="submit" value="集計" id="countbtn">
+		    	<input type="submit" name="submit" value="マイページ"id="mypagebtn">
+		    </div>
 			<img src="/sante/img/cutlery.png"
 				style="width: 350px; padding-left: 600px; top: 200px;">
 			<img src="">
@@ -49,7 +57,18 @@
 					style="font-size: 100%; display: block; margin: 10px auto; border: 2px solid lightslategray; padding: 10px; width: 150px; outline: none; border-radius: 28px; text-align: center;">
 			</form>
 			<script>
-
+			document.getElementById("calendarbtn").onclick = function(){
+				document.getElementById("pics").src="/sante/img/calendar_leaf.png";
+			}
+			document.getElementById("librarybtn").onclick = function(){
+				document.getElementById("pics").src="/sante/img/libraries_leaf.png";
+			}
+			document.getElementById("countbtn").onclick = function(){
+				document.getElementById("pics").src="/sante/img/counts_leaf.png";
+			}
+			document.getElementById("mypagebtn").onclick = function(){
+				document.getElementById("pics").src="/sante/img/mypage_leaf.png";
+			}
 			</script>
 	</div>
 
