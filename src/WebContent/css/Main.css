@@ -7,7 +7,7 @@
 }
 header {
     text-align: center;
-    height: 300px;
+    height: 250px;
 }
 .headerbackground {
 	width: 650px;
@@ -16,6 +16,7 @@ header {
 .header_ul {
 	top: 135px;
 	position: absolute;
+
 }
 .header_li {
 	display: inline;
