@@ -76,3 +76,14 @@
     color: #006600;
     background:rgba ;
 }
+
+<!--physicals-->
+.physicals_table {
+	height: 30%;
+	position: absolute;
+	left: 35%;
+	font-size: 100%;
+	padding: 0;
+	top:85%;
+	overflow:hidden;
+}
