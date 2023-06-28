@@ -12,8 +12,9 @@
     <!-- hrefの後ろにcssのリンクを書く -->
     <link rel="stylesheet" type="text/css" href="css/Main.css">
 	<link rel="stylesheet" type="text/css" href="css/Counts.css">
-</head>
 
+</head>
+    <body>
 <div class="wrapper">
     <!-- header -->
     <div class="header">
@@ -32,7 +33,7 @@
     </div>
     <!-- body -->
     <div class="body">
-        <body>
+
             <form method="POST" action="/sante/CountsServlet">
                 <p>人数を入力してください</p>
                 <input type="text" name="counts" class="inputtext">
@@ -42,7 +43,7 @@
                 </div>
             </form>
             <script src="Counts.js"></script>
-        </body>
+
 
     </div>
     <!-- footer -->
@@ -52,5 +53,5 @@
 		</footer>
     </div>
 </div>
-
+ </body>
 </html>
