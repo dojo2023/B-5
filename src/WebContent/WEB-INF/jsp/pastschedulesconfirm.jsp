@@ -31,6 +31,8 @@
 	<!-- body -->
 	<div class="body">
 		<body>
+			<form method="POST" autocomplete="off"
+					action="/sante/PastSchedulesConfirmServlet">
 			<label>日付:</label>
 			<label>"${add_schedules.getEditing_schedules_dt()}"</label>
 			<br>
@@ -40,6 +42,7 @@
 			<label>上記の内容で追加してよろしいですか？</label>
 			<br>
 			<input type="submit" name="submit" value="戻る">
+			</form>
 		</body>
 	</div>
 	<!-- footer -->
