@@ -10,7 +10,8 @@
 <!-- 機能名|santé ! -->
 <title>集計|santé !</title>
 <!-- hrefの後ろにcssのリンクを書く -->
-<link rel="stylesheet" href="css/Counts.css">
+<link rel="stylesheet" type="text/css" href="css/Main.css">
+<link rel="stylesheet" type="text/css" href="css/Libraries.css">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <script
 	src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
@@ -20,28 +21,28 @@
 	<!-- header -->
 	<div class="header">
 		<header>
-			<!-- 各ページへのリンク -->
-			<nav>
-				<ul>
-					<li><a href="/sante/CalendarServlet">カレンダー</a></li>
-					<li><a href="/sante/LibrariesServlet">図鑑</a></li>
-					<li><a href="/sante/CountsServlet">集計</a></li>
-					<li><a href="/sante/MypageServlet">マイページ</a></li>
-					<li><a href="/sante/LogoutServlet">ログアウト</a></li>
-				</ul>
-			</nav>
-		</header>
+            <img src = "/sante/img/background1.png" class = "headerbackground">
+            <nav>
+                <ul class="header_ul">
+                    <li class="header_li"><a href="/sante/CalendarServlet"><img src = "/sante/img/calendar_leaf.png" alt="カレンダー" class="calendar_leaf" width="11%"></a></li>
+                    <li class="header_li"><a href="/sante/LibrariesServlet"><img src = "/sante/img/libraries_leaf.png" alt="図鑑" class="libraries_leaf" width="11%"></a></li>
+                    <li class="header_li"><a href="/sante/CountsServlet"><img src = "/sante/img/counts_leaf.png" alt="集計" class="counts_leaf" width="16%"></a></li>
+                    <li class="header_li"><a href="/sante/MypageServlet"><img src = "/sante/img/mypage_leaf.png" alt="マイページ" class="mypage_leaf" width="11%"></a></li>
+                    <li class="header_li"><a href="/sante/LogoutServlet"><img src = "/sante/img/logout_leaf.png" alt="ログアウト" class="logout_leaf" width="11%"></a></li>
+            	</ul>
+            </nav>
+        </header>
 	</div>
 	<!-- body -->
 
 	<div class="body">
 		<body>
-		
+
 			<form method="POST" action="/sante/CountsRatioServlet">
 
 				<div class="">
-					<input type="submit" name="submit" value="登録"> <input
-						type="submit" name="submit" value="戻る">
+					<input type="submit" name="submit" value="登録" class="button"> <input
+						type="submit" name="submit" value="戻る" class="button">
 				</div>
 
 			</form>
@@ -66,7 +67,9 @@
 	</div>
 	<!-- footer -->
 	<div class="footer">
-		<footer> </footer>
+		<footer>
+		<p>&copy;Copyright 美酒乱-Michelin-. All rights reserved.</p>
+		</footer>
 	</div>
 </div>
 
