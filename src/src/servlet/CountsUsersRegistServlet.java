@@ -55,6 +55,7 @@ public class CountsUsersRegistServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		ArrayList<String> name_list = new ArrayList<String>();
 		ArrayList<String> birthday_list = new ArrayList<String>();
+		PostCounts post_counts = (PostCounts) session.getAttribute("post_counts");
 		if (request.getParameter("submit").equals("次へ")) {
 
 			for (int i = 1; i < 11; i++) {
@@ -80,15 +81,16 @@ public class CountsUsersRegistServlet extends HttpServlet {
 
 					birthday_list.add(users_birthday);
 
-					PostCounts counts_name = (PostCounts) session.getAttribute("post_counts");
-					counts_name.setName_list(name_list);
+					
+					
 					//session.setAttribute("post_counts", counts_name);
 					session.setAttribute("nameList", name_list);
+					
 
 
 					
 				}
-
+				post_counts.setName_list(name_list);
 				//あれば次をやる
 
 				//なければエラーでdoGetをやり直す
@@ -117,9 +119,12 @@ public class CountsUsersRegistServlet extends HttpServlet {
 			}
 			//成功。サーブレット移動
 			System.out.println("success");
+			post_counts.setId_list(ids);
 			session.setAttribute("ids", ids);
 //			session.setAttribute("nameList", name_list);
 
+			
+			session.setAttribute("post_counts", post_counts);
 			System.out.println(name_list);
 			System.out.println(birthday_list);
 

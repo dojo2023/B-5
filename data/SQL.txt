@@ -102,7 +102,7 @@ CREATE TABLE counts (
     counts_id INT PRIMARY KEY AUTO_INCREMENT,					/*集計ID*/
     users_id INT NOT NULL,							/*ユーザーID*/
     counts_alcohol INT NOT NULL,						/*飲酒量*/
-    counts_date DATE NOT NULL,							/*日付*/
+    counts_date DATE NOT NULL DEFAULT CURRENT_DATE,							/*日付*/
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,				/*制作日時*/
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,	/*更新日時*/
     FOREIGN KEY (users_id) REFERENCES users(users_id)				/*外部キー*/
