@@ -1,18 +1,26 @@
 @charset "UTF-8";
+.header_ul2 {
+	top: 165px;
+	position: absolute;
+}
+.login_leaf:hover,.regist_leaf:hover {
+	transform: scale(1.5,1.5);
+	cursor: pointer;
+}
 .login_body {
-	width: 78%;
-	height: 300%;
-	padding-top:0;
-	padding-left: 10%;
+	position:relative;
+	width:80%;
+	height:auto;
 }
 
 .login_table {
-	position: relative;
-	top: -900px;
-	left: 310px;
-	font-size: 30px;
+	height: 30%;
+	position: absolute;
+	left: 35%;
+	font-size: 100%;
 	padding: 0;
-	margin: 114px;
+	top:85%;
+	overflow:hidden;
 }
 
 form input[type = "text"],form input[type = "password"] {
@@ -40,7 +48,7 @@ form input[type = "text"],form input[type = "password"] {
     width: 200px;
     color: honeydew;
     border-radius: 25px;
-    font-size:25px;
+    font-size:15px;
   }
 
   form input[type = "submit"],form input[type = "reset"] {
@@ -50,7 +58,7 @@ form input[type = "text"],form input[type = "password"] {
   }
 #regist_move:link {
 	color: navy;
-	font-size:30px;
+	font-size:25px;
 	padding-top:15%;
 	padding-left:25%;
 }
@@ -141,20 +149,14 @@ a:active {
 
 <!--regist-->
 
-img .regist_body {
-	position: absolute;
-}
-  .regist_table {
-	position: relative;
-	top: -950px;
-	left: 35x;
-	font-size: 30px;
-	padding: 0;
-	margin: 114px;
-  }
 
- <!-- .regist_footer {
-  position:relative;
-  font-size:50px;
-  bottom:1340px;
-  }-->
+.regist_table {
+	height: 30%;
+	position: absolute;
+	left: 35%;
+	font-size: 100%;
+	padding: 0;
+	top:85%;
+	overflow:hidden;
+}
+
