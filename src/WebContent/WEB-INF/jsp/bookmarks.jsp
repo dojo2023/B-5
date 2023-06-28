@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/Main.css">
 	<link rel="stylesheet" type="text/css" href="css/Libraries.css">
 </head>
-
+<body>
 <div class="wrapper">
     <!-- header -->
     <div class="header">
@@ -31,7 +31,7 @@
     <!-- body -->
     <div class="body">
 
-        <body>
+
             <!-- お気に入り更新画面の内容 -->
             <div class="content">
                 <!-- 一致する結果の有無 -->
@@ -43,7 +43,7 @@
                 <!-- 条件式は後で記載 *書いたら消すこと -->
                 <form method="POST" autocomplete="off" action="/sante/BookmarksServlet">
                         <div class="content_bookmarks_check_table">
-                            <table>
+                            <table class="libraries_table">
                                 <tr>
                                     <td>お気に入り番号</td>
                                     <td>図鑑番号</td>
@@ -72,7 +72,7 @@
                     </div>
                 </form>
             </div>
-        </body>
+
     </div>
     <!-- footer -->
     <div class="footer">
@@ -81,5 +81,5 @@
 		</footer>
     </div>
 </div>
-
+ </body>
 </html>
