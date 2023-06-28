@@ -28,12 +28,15 @@ td {
   vertical-align: baseline;
   font-size: 17px;
 }
+.calendar_td:hover {
+	background-color:orange;
+}
 
 td:first-child {
   color: red;
 }
 
-td:last-child {
+td:last-child{
   color: royalblue;
 }
 
@@ -70,4 +73,25 @@ td.is-disabled {
     text-shadow: 0px 0px 2px #000;
     line-height: 1.9;
     text-align: center;
+}
+
+ form input[type = "submit"]{
+    display: block;
+    margin: 90px auto;
+    border: 2px solid lightslategray;
+    padding: 10px;
+    width: 200px;
+    color: honeydew;
+    border-radius: 25px;
+    font-size:15px;
+  }
+
+  form input[type = "submit"] {
+    background-color: teal;
+    border: 2px solid lightslategray;
+    display:inline
+  }
+
+a {
+	color:#ffffff;
 }
