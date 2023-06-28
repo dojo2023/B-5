@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 <link rel="stylesheet" type="text/css" href="css/Counts.css">
 </head>
-
+<body>
 <div class="wrapper">
 	<!-- header -->
 	<div class="header">
@@ -40,7 +40,7 @@
 	</div>
 	<!-- body -->
 	<div class="cups">
-		<body>
+
 
 			<form method="POST" action="/sante/CountsCupsServlet">
 				<p>杯数を選択してください</p>
@@ -53,7 +53,7 @@
 									${post_counts.name_list[status.index]}
 							</c:if>
 							<c:if test="${post_counts.name_list[i] == null}">
-                					guest ${i-1} 
+                					guest ${i-1}
 							</c:if>
 							<br> <input type="hidden" name="ids[status.index]"
 								value="${ids[status.index]}">
@@ -67,13 +67,13 @@
 							<!--杯数カウントボタンの値を出力する-->
 							<button class="button" id="up${status.index}">＋</button>
 						</div>
-						<button class="button resetbtn" id="reset${status.index}">RESET</button>
+						<button class="button_resetbtn" id="reset${status.index}">RESET</button>
 					</div>
 
 				</c:forEach>
 
 				<div class="">
-					<input type="submit" name="submit" value="登録"> 
+					<input type="submit" name="submit" value="登録">
 					<input type="submit" name="submit" value="割合表示">
 				</div>
 			</form>
@@ -81,7 +81,7 @@
 				let c = ${post_counts.all_member};
 			</script>
 			<script src="js/counts/CountsCups.js"></script>
-		</body>
+
 	</div>
 	<!-- footer -->
 	<div class="footer">
@@ -90,5 +90,5 @@
 		</footer>
 	</div>
 </div>
-
+</body>
 </html>
