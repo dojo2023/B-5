@@ -44,8 +44,6 @@
 						</label></th>
 					</tr>
 
-
-
 					<c:forEach var="i" begin="1" end="${post_counts.users_member}" step="1" varStatus="status">
 
                     <tr>
@@ -71,16 +69,10 @@
                                 </c:forEach>
                             </select>
                         </td>
-
-                        <td>
-                            <c:out value="${erro}" />
-                        </td>
-
-
                     </tr>
 
                     </c:forEach>
-
+					<tr><td> <c:out value="${erro}" /> </td></tr>
 
 
 				</table>
