@@ -136,7 +136,7 @@ public class CalendarServlet extends HttpServlet {
 							session.setAttribute("schedules_date", selected_date);
 							session.setAttribute("schedules_name",schedulesList.get(i).getSchedules_name());
 							// 画面を遷移
-							response.sendRedirect("/sante/FutureSchedulesConfirmServlet");
+							response.sendRedirect("/sante/ChangeSchedulesServlet");
 							return;
 						}
 					}
