@@ -36,6 +36,7 @@
 
 			<form method="POST" action="/sante/CountsUsersRegistServlet">
 				<p>アプリ利用者の名前と生年月日を入力してください</p>
+				<div align = "center">
 				<table>
 					<tr>
 						<th>名前</th>
@@ -72,10 +73,8 @@
                     </tr>
 
                     </c:forEach>
-					<tr><td class="countserror"> <c:out value="${erro}" /> </td></tr>
-
-
-				</table>
+					</table></div>
+					<p class="countserror"> <c:out value="${erro}" /> </p>
 				<div class="">
 					<input type="submit" name="submit" value="次へ" class="button">
 					<input type="submit" name="submit" value="キャンセル" class="button">
