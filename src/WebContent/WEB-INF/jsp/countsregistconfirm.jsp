@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="css/Main.css">
 	<link rel="stylesheet" type="text/css" href="css/Counts.css">
 </head>
-
+<body>
 <div class="wrapper">
     <!-- header -->
     <div class="header">
@@ -30,7 +30,7 @@
     </div>
     <!-- body -->
     <div class="body">
-        <body>
+
              <form method="POST" action="/sante/CountsRegistConfirmServlet">
                 <p>杯数の登録が完了しました！</p>
 
@@ -41,7 +41,7 @@
 
             </form>
             <script src="CountsRegistConfirm.js"></script>
-        </body>
+
     </div>
     <!-- footer -->
     <div class="footer">
@@ -50,5 +50,5 @@
 		</footer>
     </div>
 </div>
-
+</body>
 </html>
