@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="css/Main.css">
 <link rel="stylesheet" type="text/css" href="css/Mypage.css">
 </head>
-
+<body>
 <div class="wrapper">
 	<!-- header -->
 	<div class="header">
@@ -40,18 +40,20 @@
 	</div>
 	<!-- body -->
 	<div class="body">
-		<body>
-			<img src = "/sante/img/cutlery.png" style = "width: 350px; padding-left: 600px; top: 200px;">
-				<img src="">
-				<form method="GET" action="/sante/MypageServlet">
-					<input type="submit" name="submit" value="戻る">
-				</form>
-				<script>
 
-				</script>
-				</div>
+			<img src="/sante/img/cutlery.png"
+				style="width: 350px; padding-left: 600px; top: 200px;">
+			<img src="">
+			<form method="GET" action="/sante/MypageServlet">
+				<input type="submit" name="submit" value="戻る"
+					style="font-size: 100%; display: block; margin: 10px auto; border: 2px solid lightslategray; padding: 10px; width: 150px; outline: none; border-radius: 28px; text-align: center;">
+			</form>
+			<script>
 
+			</script>
 	</div>
+
+</div>
 <!-- footer -->
 <div class="footer">
 	<footer>
