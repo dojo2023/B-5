@@ -32,11 +32,11 @@
     <div class="body">
         <body>
              <form method="POST" action="/sante/CountsRegistConfirmServlet">
-                <p>杯数を登録してよろしいですか？</p>
+                <p>杯数の登録が完了しました！</p>
 
                 <div class="">
-                    <input type="submit" name="submit" value="はい" class="button">
-                    <input type="submit" name="submit" value="いいえ" class="button">
+                    <input type="submit" name="submit" value="次へ" class="button">
+				<!--<input type="submit" name="submit" value="いいえ" class="button">-->
                 </div>
 
             </form>

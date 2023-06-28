@@ -47,22 +47,10 @@ public class CountsRegistConfirmServlet extends HttpServlet {
 			return;
 		}
 
-		// はいまたはいいえを行う
+		// 次へを行う
 		request.setCharacterEncoding("UTF-8");
 		
-		if (request.getParameter("submit").equals("はい")) {
-			
-			
-			// 登録処理を行う
-//			CountsDAO cDao = new CountsDAO();
-			
-			// リクエストパラメータを取得する
-//			int counts_alcohol = Integer.parseInt(counts_cups);
-//			int users_id = Integer.parseInt(user_id);
-//			
-//			if (cDao.insertCounts(new Counts())) {	
-//				System.out.println("success");
-//			}
+		if (request.getParameter("submit").equals("次へ")) {
 				
 				//カレンダーのサーブレットにリダイレクト
 				response.sendRedirect("/sante/CalendarServlet");

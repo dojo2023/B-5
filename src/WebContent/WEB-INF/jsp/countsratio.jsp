@@ -33,8 +33,10 @@
 		</header>
 	</div>
 	<!-- body -->
+
 	<div class="body">
 		<body>
+		
 			<form method="POST" action="/sante/CountsRatioServlet">
 
 				<div class="">
@@ -58,29 +60,7 @@
 
 			</c:forEach>
 
-
-
-			<script>
-				//	<c:forEach var="e" items="${post_counts.name_list}">
-				//	console.log("${e}");
-				//	</c:forEach>
-				//<c:forEach var="e" items="${post_counts.counts_list}">
-				//console.log("${e}");
-				//</c:forEach>
-				//    	name = [
-				//		    	<c:forEach var="e" items="${post_counts.name_list}">
-				//		    		'${e}',
-				//		   	 	</c:forEach>
-				//			];
-				//			countscups = [
-				//		  		 <c:forEach var="e" items="${post_counts.counts_list}">
-				//		    		'${e}',
-				//		    	</c:forEach>
-				//			];
-				//			console.log(name[1]);
-				//			console.log(countscups[0]);
-			</script>
-			<script src="js/counts/CountsRatio.js"></script>
+				<script src="js/counts/CountsRatio.js"></script>
 			<!--割合のグラフを挿入-->
 		</body>
 	</div>
