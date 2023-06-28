@@ -11,7 +11,7 @@ import java.util.List;
 import model.Counts;
 public class CountsDAO {
 	// Countsに格納
-	public boolean insertCounts(Counts counts) {
+	public boolean insertCounts(int id,int cups) {
 	    Connection conn = null;
 	    boolean insertSuccess = false;
 
@@ -23,13 +23,10 @@ public class CountsDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
 			// Prepare the SQL statement
-	        String sql = "INSERT INTO counts (users_id, counts_alcohol, counts_date) VALUES (?, ?, ?)";
+	        String sql = "INSERT INTO counts (users_id, counts_alcohol) VALUES (?, ?)";
 	        PreparedStatement pstmt = conn.prepareStatement(sql);
-//	        pstmt.setInt(1, counts.getCounts_id());
-	        pstmt.setInt(1, counts.getUsers_id());
-	        pstmt.setInt(2, counts.getCounts_alcohol());
-	        
-	        pstmt.setString(3,"current_date");
+	        pstmt.setInt(1, id);
+	        pstmt.setInt(2, cups);
 
 
 	        // Execute the update statement

@@ -8,10 +8,12 @@ public class PostCounts implements Serializable {
 	//集計投稿用フィールド
 	private int all_member;
 	private int users_member;
-
+	
+	
+	private ArrayList<Integer> id_list;
 	private ArrayList<String> name_list;
 	private ArrayList<String> birthday_list;
-	private ArrayList<String> counts_list;
+	private ArrayList<Integer> counts_list;
 	
 	private Timestamp created_at;
 	private Timestamp updated_at;
@@ -23,7 +25,14 @@ public class PostCounts implements Serializable {
 	}
 	//ゲッターセッター
 
+	public ArrayList<Integer> getId_list() {
+		return id_list;
+	}
 
+
+	public void setId_list(ArrayList<Integer> id_list) {
+		this.id_list = id_list;
+	}
 	public int getAll_member() {
 		return all_member;
 	}
@@ -64,12 +73,12 @@ public class PostCounts implements Serializable {
 	}
 
 
-	public ArrayList<String> getCounts_list() {
+	public ArrayList<Integer> getCounts_list() {
 		return counts_list;
 	}
 
 
-	public void setCounts_list(ArrayList<String> counts_list) {
+	public void setCounts_list(ArrayList<Integer> counts_list) {
 		this.counts_list = counts_list;
 	}
 

@@ -47,13 +47,13 @@
 
 				<c:forEach var="i" begin="0" end="${post_counts.all_member-1}"
 					step="1" varStatus="status">
-					<div class="cupscounts" ${status.index+1}>
+					<div class="cupscounts" ${status.index}>
 						<div>
 							<c:if test="${post_counts.name_list[i] != null}">
 									${post_counts.name_list[status.index]}
 							</c:if>
 							<c:if test="${post_counts.name_list[i] == null}">
-                					guest ${i-1} 
+                					guest ${i} 
 							</c:if>
 							<br> <input type="hidden" name="ids[status.index]"
 								value="${ids[status.index]}">
@@ -61,13 +61,13 @@
 						<br>
 						<div class="field">
 
-							<button class="button" id="down${status.index+1}">－</button>
-							<input type="text" name="counts_cups${status.index+1}" value='0'
-								class="inputtext" id="textbox${status.index+1}">
+							<button class="button" id="down${status.index}">－</button>
+							<input type="text" name="counts_cups${status.index}" value='0'
+								class="inputtext" id="textbox${status.index}">
 							<!--杯数カウントボタンの値を出力する-->
-							<button class="button" id="up${status.index+1}">＋</button>
+							<button class="button" id="up${status.index}">＋</button>
 						</div>
-						<button class="button resetbtn" id="reset${status.index+1}">RESET</button>
+						<button class="button resetbtn" id="reset${status.index}">RESET</button>
 					</div>
 
 				</c:forEach>

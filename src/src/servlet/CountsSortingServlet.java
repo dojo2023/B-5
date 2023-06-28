@@ -102,6 +102,9 @@ public class CountsSortingServlet extends HttpServlet {
 				//CountSortingServletサーブレットに処理を渡す(リダイレクト)
 				response.sendRedirect("/sante/CountsUsersRegistServlet");
 			}
+		}else {
+			//キャンセル元のサーブレットにもどる。
+			response.sendRedirect("/sante/CountsServlet");
 		}
 	}
 }
