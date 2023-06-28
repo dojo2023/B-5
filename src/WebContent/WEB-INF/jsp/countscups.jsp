@@ -39,7 +39,7 @@
 		</header>
 	</div>
 	<!-- body -->
-	<div class="">
+	<div class="cups">
 		<body>
 
 			<form method="POST" action="/sante/CountsCupsServlet">

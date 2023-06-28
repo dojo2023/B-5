@@ -20,6 +20,7 @@ body {
 
 .field {
   display: flex;
+  justify-content: center;
 }
 
 .inputtext {
@@ -46,7 +47,7 @@ body {
 }
 
 .resetbtn {
-  margin: 10px 0 10px 45px;
+  margin: 10px 0 10px 0px;
 }
 /*header*/
 .calendar_leaf:hover,.libraries_leaf:hover,.mypage_leaf:hover,.logout_leaf:hover {
@@ -70,4 +71,8 @@ body {
 }
 .countserror {
 	color: red;
+}
+
+div.cups {
+	text-align:center;
 }
