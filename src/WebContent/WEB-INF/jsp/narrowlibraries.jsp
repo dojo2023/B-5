@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="css/Main.css">
 	<link rel="stylesheet" type="text/css" href="css/Libraries.css">
 </head>
-
+  <body>
 <div class="wrapper">
     <!-- header -->
     <div class="header">
@@ -30,12 +30,12 @@
     <!-- body -->
     <div class="body">
 
-        <body>
+
             <!-- ダミーデータ入れてます。*変更したら削除 -->
             <form method="POST" autocomplete="off" action="/sante/NarrowLibrariesServlet">
                 <div class="genre">
                     <label>酒類:</label>
-                    <select name="genre" id="genre">
+                    <select name="genre" id="genre" style="cursor: pointer; display: flex; font-size: 20px; margin: 10px auto; border: 2px solid lightslategray; padding: 10px; width: 200px; outline: none; border-radius: 4px; background-color: #fff; box-shadow: none; text-align: center;">
                         <option value="">-選択-</option>
                         <c:forEach var="category" items="${first_categories}">
                             <option value="${category}">${category}</option>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="kind">
                     <label>種類:</label>
-                    <select name="kind" id="kind" disabled>
+                    <select name="kind" id="kind" style="cursor: pointer; display: flex; font-size: 20px; margin: 10px auto; border: 2px solid lightslategray; padding: 10px; width: 200px; outline: none; border-radius: 4px; background-color: #fff; box-shadow: none; text-align: center;" disabled>
                         <option value="">-選択-</option>
                         <c:forEach var="category" items="${second_categories}">
                             <option value="${category.name}">${category.name}</option>
@@ -54,11 +54,11 @@
 
                 <div class="from">
                     <label>産地:</label>
-                    <select name="from" id="from" disabled>
+                    <select name="from" id="from" style="cursor: pointer; display: flex; font-size: 20px; margin: 10px auto; border: 2px solid lightslategray; padding: 10px; width: 200px; outline: none; border-radius: 4px; background-color: #fff; box-shadow: none; text-align: center;" disabled>
                         <option value="">-選択-</option>
                         <c:forEach var="category" items="${forth_categories}">
                             <option value="${category.name}">${category.name}</option>
-                        </c:forEach>^
+                        </c:forEach>
                     </select>
                 </div>
                 <div class="remarks">
@@ -107,7 +107,7 @@
             </script>
 
             <script src="js/libraries/NarrowLibraries.js"></script>
-        </body>
+
     </div>
     <!-- footer -->
     <div class="footer">
@@ -116,5 +116,5 @@
 		</footer>
     </div>
 </div>
-
+ </body>
 </html>
