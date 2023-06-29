@@ -5,13 +5,12 @@
 	position: relative;
 	height: 80vh;
 	width: 100%;
-}*/
-
-/* 杯数選択画面 */
-body {
-  margin: 0;
-  width: 100%;
 }
+element.style {
+	position: absolute;
+	transform: translate(0px, 0px);
+}*/
+/* 杯数選択画面 */
 
 /*.cupscounts {
   width: 300px;
@@ -57,7 +56,7 @@ body {
 }
 
 /*body*/
-.body {
+.body,.cups {
     font-family: HuiFontP109;
     color: #fff;
     background-color: #114400;
@@ -74,8 +73,9 @@ body {
 	color: red;
 }
 
-div.cups {
-	text-align:center;
+.cups {
+	float: left;
+	wi
 }
 
 .button_resetbtn {
