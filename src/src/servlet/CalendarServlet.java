@@ -40,12 +40,6 @@ public class CalendarServlet extends HttpServlet {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-		//ヘッダーで遷移した際のセッションスコープの破棄
-		session.removeAttribute("schedules_date");
-		session.removeAttribute("schedules_name");
-		session.removeAttribute("add_schedules");
-		session.removeAttribute("post_lib");
-		session.removeAttribute("post_counts");
 
 		// SchedulesDAOでスケジュールを取得
 		SchedulesDAO sDAO = new SchedulesDAO();
