@@ -1,23 +1,20 @@
 @charset "UTF-8";
-
 #calendar {
   display: flex;
   flex-wrap: wrap;
-
 }
 section {
   margin: auto;
 }
-
 h1 {
   font-size: 30px;
 }
-
 table {
   border-spacing: 0;
   border-collapse: collapse;
   table-layout: fixed;
    width: 100%;
+  background-color:white;
 }
 td {
   border: 1px solid #ddd;
@@ -27,21 +24,20 @@ td {
   height: 50px;
   vertical-align: baseline;
   font-size: 17px;
+  color:black;
 }
 .calendar_td:hover {
 	background-color:orange;
 }
-
 td:first-child {
   color: red;
 }
-
 td:last-child{
   color: royalblue;
 }
-
 td.is-disabled {
-  color: #ccc;
+  color:white;
+  background-color:white;
 }
 #prev, #next {
 	display: block;
@@ -59,7 +55,6 @@ td.is-disabled {
 	transform: scale(1.5,1.5);
 	cursor: pointer;
 }
-
 /*body*/
 .body {
     font-family: HuiFontP109;
@@ -70,11 +65,10 @@ td.is-disabled {
     border: 9px solid #a60;
     border-radius: 3px;
     box-shadow: 2px 2px 4px #666, 2px 2px 2px #111 inset;
-    text-shadow: 0px 0px 2px #000;
+    /*text-shadow: 0px 0px 2px #000;*/
     line-height: 1.9;
     text-align: center;
 }
-
  form input[type = "submit"]{
     display: block;
     margin: 90px auto;
@@ -85,13 +79,11 @@ td.is-disabled {
     border-radius: 25px;
     font-size:15px;
   }
-
   form input[type = "submit"] {
     background-color: teal;
     border: 2px solid lightslategray;
     display:inline
   }
-
 a {
-	color:#ffffff;
+	color:balck;
 }
