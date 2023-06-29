@@ -64,7 +64,10 @@ public class AddSchedulesConfirmServlet extends HttpServlet {
 			Date date_esd;
 			try {
 				date_esd = sdf.parse(editing_schedules_dt);
-				Timestamp ts_esd = new Timestamp(date_esd.getTime());
+				String changeDateTime = editing_schedules_dt + " 00:00:00.1";
+				Timestamp ts_esd = Timestamp.valueOf(changeDateTime);
+				System.out.println("ts_esd" + ts_esd);
+//				Timestamp ts_esd = new Timestamp(date_esd.getTime());
 				int editing_schedules_users_id = editingSchedules.getEditing_schedules_users_id();
 
 				//DBに送信
