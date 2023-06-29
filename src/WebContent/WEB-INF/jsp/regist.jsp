@@ -49,9 +49,9 @@
 
 			if (month === 2) {
 				if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0) {
-					maxDays = 28;
-				} else {
 					maxDays = 29;
+				} else {
+					maxDays = 28;
 				}
 			} else if ([ 4, 6, 9, 11 ].includes(month)) {
 				maxDays = 30;
