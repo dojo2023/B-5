@@ -46,7 +46,7 @@
 				</div>
 
 			</form>
-			<div class="chart-container" style="position: relative; height: 80vh; width: 50%;">
+			<div class="chart-container" style="position: relative; width: 40%; height: 400px;  transform: translate(80%, 0%);">
 				<canvas id="Chart"></canvas>
 			</div>
 
@@ -60,6 +60,8 @@
 				<input type="hidden" class="counts${status.last}" value="${status.index } ">
 
 			</c:forEach>
+
+
 
 				<script src="js/counts/CountsRatio.js"></script>
 			<!--割合のグラフを挿入-->
