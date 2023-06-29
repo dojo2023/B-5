@@ -46,7 +46,7 @@
 				</div>
 
 			</form>
-			<div class="chart-container">
+			<div class="chart-container" style="position: relative; height: 80vh; width: 50%;">
 				<canvas id="Chart"></canvas>
 			</div>
 
