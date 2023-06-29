@@ -18,7 +18,6 @@ table {
   border-collapse: collapse;
   table-layout: fixed;
    width: 100%;
-  background-color:white;
 }
 td {
   border: 1px solid #ddd;
@@ -28,7 +27,6 @@ td {
   height: 50px;
   vertical-align: baseline;
   font-size: 17px;
-  color:black;
 }
 .calendar_td:hover {
 	background-color:orange;
@@ -43,8 +41,7 @@ td:last-child{
 }
 
 td.is-disabled {
-  color:white;
-  background-color:white;
+  color: #ccc;
 }
 #prev, #next {
 	display: block;
@@ -73,7 +70,7 @@ td.is-disabled {
     border: 9px solid #a60;
     border-radius: 3px;
     box-shadow: 2px 2px 4px #666, 2px 2px 2px #111 inset;
-    /*text-shadow: 0px 0px 2px #000;*/
+    text-shadow: 0px 0px 2px #000;
     line-height: 1.9;
     text-align: center;
 }
@@ -96,5 +93,5 @@ td.is-disabled {
   }
 
 a {
-	color:balck;
+	color:#ffffff;
 }
