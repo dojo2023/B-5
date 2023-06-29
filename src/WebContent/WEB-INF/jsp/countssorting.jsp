@@ -34,14 +34,14 @@
             <form method="POST" action="/sante/CountsSortingServlet">
                 <p>アプリ利用者の人数を入力してください</p>
                 <input type="text" name="userscounts" class="inputtext">
-                <div class="">
-                    <input type="submit" name="submit" value="次へ" class="button">
-                    <input type="submit" name="submit" value="キャンセル" class="button"><br>
-                     <div class="countserror">
+                <div class="countserror">
 	                <c:out value="${erro}" />
 	                </div>
+
+                    <input type="submit" name="submit" value="次へ" class="button">
+                    <input type="submit" name="submit" value="キャンセル" class="button"><br>
                     </form>
-                </div>
+
 
             <script src="CountsSorting.js"></script>
         </body>
