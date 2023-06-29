@@ -49,12 +49,12 @@ public class CountsRegistConfirmServlet extends HttpServlet {
 
 		// 次へを行う
 		request.setCharacterEncoding("UTF-8");
-		
+
 		if (request.getParameter("submit").equals("次へ")) {
-				
-				//カレンダーのサーブレットにリダイレクト
-				response.sendRedirect("/sante/CalendarServlet");
-			
+
+			//カレンダーのサーブレットにリダイレクト
+			session.removeAttribute("post_counts");
+			response.sendRedirect("/sante/CalendarServlet");
 
 		} else {
 			//杯数選択画面のサーブレットにリダイレクト
