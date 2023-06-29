@@ -33,12 +33,7 @@ public class LibrariesServlet extends HttpServlet {
 			response.sendRedirect("/sante/LoginServlet");
 			return;
 		}
-		//ヘッダーで遷移した際のセッションスコープの破棄
-		session.removeAttribute("schedules_date");
-		session.removeAttribute("schedules_name");
-		session.removeAttribute("add_schedules");
-		session.removeAttribute("post_lib");
-		session.removeAttribute("post_counts");
+
 		//図鑑全体テーブルを表示する
 		LibrariesDAO librariesDAO = new LibrariesDAO();
 		List<Libraries> librariesList = librariesDAO.getAllLibraries();
