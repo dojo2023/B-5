@@ -32,7 +32,7 @@
     <div class="body">
         <body>
             <form method="POST" autocomplete="off"
-				action="/sante/DeleteSchedulesConfirmServlet">
+				action="/sante/ChangeSchedulesConfirmServlet">
 				<label>以下の内容で更新してもよろしいでしょうか？</label><br>
 				<label>日付:</label><label>"${sessionScope.schedules_date}"</label><br>
 				<label>内容:</label><label>"${sessionScope.schedules_name}"</label><br>
