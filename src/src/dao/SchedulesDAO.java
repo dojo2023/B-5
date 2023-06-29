@@ -192,7 +192,7 @@ public class SchedulesDAO {
 	}
 
 	// スケジュールのIDを取得
-	public int getSchedulesId(String name, Timestamp dt) {
+	public int getSchedulesId(Timestamp dt) {
 	    Connection conn = null;
 	    int schedulesId = -1;
 
@@ -203,10 +203,10 @@ public class SchedulesDAO {
 	        // データベースに接続する
 	        conn = DriverManager.getConnection("jdbc:h2:file:C:/dojo6/data/B5", "yasuo", "yasuo");
 
-	        String sql = "SELECT schedules_id FROM schedules WHERE schedules_name = ? AND schedules_dt = ?";
+	        String sql = "SELECT schedules_id FROM schedules WHERE schedules_dt = ?";
 	        PreparedStatement pstmt = conn.prepareStatement(sql);
-	        pstmt.setString(1, name);
-	        pstmt.setTimestamp(2, dt);
+
+	        pstmt.setTimestamp(1, dt);
 
 	        ResultSet rs = pstmt.executeQuery();
 	        if (rs.next()) {
