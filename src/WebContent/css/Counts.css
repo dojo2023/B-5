@@ -1,10 +1,11 @@
 @charset "UTF-8";
 /* 割合表示画面 */
+/*
 .chart-container{
 	position: relative;
-	height:330px;
-	width:300px
-}
+	height: 80vh;
+	width: 100%;
+}*/
 
 /* 杯数選択画面 */
 body {
