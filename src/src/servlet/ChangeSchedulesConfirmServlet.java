@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.SchedulesDAO;
+import model.LoginId;
+import model.Schedules;
 
 /**
  * Servlet implementation class ChangeSchedulesConfirmServlet
@@ -50,18 +52,31 @@ public class ChangeSchedulesConfirmServlet extends HttpServlet {
 		if ("更新".equals(request.getParameter("submit"))) {
 			// IDとってきたはずなんで(Timestamp型なのでもしかしたら年月日合ってても時間違うとエラー吐くかも。)
 			// update文のところ作ってもらってもいいですか？構造分からなかったです。
+			LoginId loginId = (LoginId) session.getAttribute("users_id");
+			int users_id = loginId.getUsers_id();
 
-			String delete_schedules_name = (String) session.getAttribute("schedules_name");
-			String delete_schedules_date = (String) session.getAttribute("schedules_date");
-			Timestamp delete_ts = Timestamp.valueOf(delete_schedules_date);
+			String change_schedules_name = (String) session.getAttribute("schedules_name");
+			String change_schedules_date = (String) session.getAttribute("schedules_date");
+			System.out.println("schedules_id"+change_schedules_name);
+			System.out.println("schedules_id"+change_schedules_date);
+
+			String completeDateTime = change_schedules_date + " 00:00:00.1";
+			Timestamp change_ts = Timestamp.valueOf(completeDateTime);
+			System.out.println("schedules_id"+change_ts);
+
+
 			SchedulesDAO sDAO = new SchedulesDAO();
-			sDAO.getSchedulesId(delete_schedules_name, delete_ts);
+			int schedules_id = sDAO.getSchedulesId(change_ts);
+			System.out.println("schedules_id" + schedules_id);
 
+			boolean updateSchedules = sDAO.updateSchedules(new Schedules(schedules_id,change_schedules_name,change_ts,users_id,null,null));
+			if(updateSchedules) {
 			// 画面を遷移
 			session.removeAttribute("schedules_date");
 			session.removeAttribute("schedules_name");
-			response.sendRedirect("/sante/CarendarServlet");
+			response.sendRedirect("/sante/CalendarServlet");
 			return;
+			}
 		} else if ("キャンセル".equals(request.getParameter("submit"))) {
 
 			// 画面を遷移
