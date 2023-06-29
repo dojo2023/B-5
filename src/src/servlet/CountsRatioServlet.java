@@ -44,10 +44,10 @@ public class CountsRatioServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする。
 		HttpSession session = request.getSession();
-		
+
 		PostCounts post_counts = (PostCounts) session.getAttribute("post_counts");
 		CountsDAO cDao = new CountsDAO();
-		
+
 		if (session.getAttribute("users_id") == null) {
 			System.out.println("ログイン失敗");
 			response.sendRedirect("/sante/LoginServlet");
