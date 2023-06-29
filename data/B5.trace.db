@@ -5133,3 +5133,7 @@ Caused by: java.lang.IllegalStateException: The file is locked: nio:C:/dojo6/dat
 	at org.h2.mvstore.FileStore.open(FileStore.java:172)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:390)
 	... 44 more
+2023-06-29 09:31:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: SQLステートメントに文法エラーがあります "SELECT * FROM SCHEDULES LIBRARIES SCHEDULES[*]"
+Syntax error in SQL statement "SELECT * FROM SCHEDULES LIBRARIES SCHEDULES[*]"; SQL statement:
+SELECT * FROM SCHEDULES LIBRARIES SCHEDULES [42000-200]
